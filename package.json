@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm run watch && npm run start",
     "watch": "parcel watch ./src/*",
-    "start": "rm -rf dist && npm run build && npm run express",
+    "start": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../ && npm run express",
     "build": "parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "express": "node app.js"
   },
