@@ -1,0 +1,28 @@
+@import '../../styles/colors.scss';
+
+.form-input {
+    & label, & input {
+        display: block;
+        width: 100%;
+    }
+
+    & label {
+        color: $secondary-text;
+        font-size: 9px;
+        font-weight: 300;
+        margin-bottom: 16px;
+    }
+
+    & input {
+        border: none;
+        border-bottom: 1px solid $border;
+        font-size: 13px;
+        padding-bottom: 7px;
+        padding-top: 5px;
+
+        &:focus, &:focus-visible {
+            outline: none;
+            border-bottom-color: $hover;
+        }
+    }
+}

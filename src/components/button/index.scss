@@ -1,0 +1,51 @@
+@import '../../styles/colors.scss';
+
+.button {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    padding: 12px;
+    background-color: $primary;
+    color: $white;
+    cursor: pointer;
+    transition: all .3s ease;
+
+    &:hover {
+        background-color: $hover;
+    }
+
+    &.primary {
+        color: $primary;
+    }
+    &.secondary {
+        color: $secondary;
+    }
+    &.negative {
+        color: $negative;
+    }
+
+    &.flat {
+        background-color: transparent;
+        color: $primary;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &.primary {
+            color: $primary;
+        }
+        &.secondary {
+            color: $secondary;
+        }
+        &.negative {
+            color: $negative;
+        }
+    }
+
+    &.round {
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+}

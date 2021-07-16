@@ -1,0 +1,11 @@
+@import '../../styles/colors.scss';
+
+.user-profile {
+    & .profile {
+        &__controls {
+            & button {
+                width: 100%;
+            }
+        }
+    }
+}

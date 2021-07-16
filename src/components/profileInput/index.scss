@@ -1,0 +1,28 @@
+@import '../../styles/colors.scss';
+
+.profile-input {
+    border-bottom: 1px solid $border;
+    padding: 10px 0;
+
+    & label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: $ordinary-text;
+
+        & input {
+            font-size: 13px;
+            color: $secondary-text;
+            border: none;
+            background-image:none;
+            background-color:transparent;
+            box-shadow: none;
+            text-align: right;
+        }
+    }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
