@@ -6,7 +6,10 @@
 </head>
 <body>
     <script>
-        window.location = '/login';
+        const is_login = window.location.href.includes('login');
+        if(!is_login) {
+            window.location = '/login/index.html';
+        }
     </script>
 </body>
 </html>
