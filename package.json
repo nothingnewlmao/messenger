@@ -3,10 +3,9 @@
   "version": "1.0.0",
   "description": "messenger for project 1",
   "scripts": {
-    "dev": "npm run watch && npm run start",
-    "watch": "parcel watch ./src/*",
-    "start": "parcel build src/pages/index.html src/pages/**/index.html --public-url ../ && npm run server",
-    "build": "parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
+    "dev": "parcel src/pages/index.html",
+    "start": "npm run build && npm run server",
+    "build": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "server": "node app.js"
   },
   "keywords": [],
@@ -23,7 +22,7 @@
     "parcel-plugin-asset-copier": "^1.1.0"
   },
   "assetsPath": "src/assets",
-  "engines" : {
-    "node" : "12.18.0"
+  "engines": {
+    "node": "12.18.0"
   }
 }
