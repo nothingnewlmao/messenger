@@ -1,5 +1,5 @@
-import './index.scss';
 import regIcon from '../icon';
+import './index.scss';
 
 regIcon();
 

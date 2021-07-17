@@ -1,51 +1,53 @@
-@import '../../styles/colors.scss';
+@import "../../styles/colors.scss";
+@import "../../styles/index.scss";
 
-button, .button {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    padding: 12px;
-    background-color: $primary-color;
-    color: $white-color;
-    cursor: pointer;
-    transition: all .3s ease;
+button,
+.button {
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  padding: 12px;
+  background-color: $primary-color;
+  color: $white-color;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $hover-color;
+  }
+
+  &._primary {
+    color: $primary-color;
+  }
+  &._secondary {
+    color: $secondary-color;
+  }
+  &._negative {
+    color: $negative-color;
+  }
+
+  &._flat {
+    background-color: transparent;
+    color: $primary-color;
 
     &:hover {
-        background-color: $hover-color;
+      opacity: 0.8;
     }
 
-    ._primary {
-        color: $primary-color;
+    &._primary {
+      color: $primary-color;
     }
-    ._secondary {
-        color: $secondary-color;
+    &._secondary {
+      color: $secondary-color;
     }
-    ._negative {
-        color: $negative-color;
+    &._negative {
+      color: $negative-color;
     }
+  }
 
-    ._flat {
-        background-color: transparent;
-        color: $primary-color;
-
-        &:hover {
-            opacity: 0.8;
-        }
-
-        ._primary {
-            color: $primary-color;
-        }
-        ._secondary {
-            color: $secondary-color;
-        }
-        ._negative {
-            color: $negative-color;
-        }
-    }
-
-    ._round {
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px;
-        border-radius: 100px;
-    }
+  &._round {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+  }
 }

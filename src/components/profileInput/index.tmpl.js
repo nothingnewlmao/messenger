@@ -1,5 +1,3 @@
-import './index.scss';
-
 const tmpl = `
     <div class="profile-input">
         <label>
