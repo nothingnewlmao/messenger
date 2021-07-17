@@ -20,6 +20,11 @@
       background-color: transparent;
       box-shadow: none;
       text-align: right;
+
+      &:focus,
+      &:focus-visible {
+        outline: none;
+      }
     }
   }
 
