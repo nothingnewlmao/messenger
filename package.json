@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "parcel src/pages/index.html",
     "start": "npm run build && npm run server",
-    "build": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
+    "build": "parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "server": "node app.js"
   },
   "keywords": [],
