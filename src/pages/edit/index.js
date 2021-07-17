@@ -1,5 +1,5 @@
 import tmpl from '../../layouts/profile/index.tmpl';
-import compileTemplate from "../../utils/compileTemplate";
+import renderTemplate from "../../utils/renderTemplate";
 import inputs from '../userData';
 
 const render_inputs = Object.fromEntries(Object.entries({ ...inputs})
@@ -12,4 +12,4 @@ const controls = [
 ];
 const render_data = { inputs: render_inputs, controls };
 
-compileTemplate(tmpl, render_data, '#root');
+renderTemplate(tmpl, render_data, '#root');

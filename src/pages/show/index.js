@@ -1,5 +1,5 @@
 import tmpl from '../../layouts/profile/index.tmpl';
-import compileTemplate from "../../utils/compileTemplate";
+import renderTemplate from "../../utils/renderTemplate";
 import inputs from '../userData';
 import './index.scss';
 
@@ -19,4 +19,4 @@ const controls = [
 ];
 const render_data = { inputs, controls };
 
-compileTemplate(tmpl, render_data, '#root');
+renderTemplate(tmpl, render_data, '#root');

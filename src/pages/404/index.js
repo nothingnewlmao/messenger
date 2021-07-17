@@ -1,5 +1,5 @@
 
-import compileTemplate from "../../utils/compileTemplate";
+import renderTemplate from "../../utils/renderTemplate";
 import tmpl from "../../layouts/error/index.tmpl";
 
 const data = {
@@ -8,4 +8,4 @@ const data = {
     button_text: 'Назад к чатам'
 };
 
-compileTemplate(tmpl, data, '.page-404');
+renderTemplate(tmpl, data, '.page-404');

@@ -1,4 +1,4 @@
-import compileTemplate from "../../utils/compileTemplate";
+import renderTemplate from "../../utils/renderTemplate";
 import template from "../../layouts/unauth/index.tpml";
 
 const data = {
@@ -23,4 +23,4 @@ const data = {
     }
 };
 
-compileTemplate(template, data, '#root');
+renderTemplate(template, data, '#root');
