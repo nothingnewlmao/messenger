@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        const is_login = window.location.href.includes('login');
+        if(!is_login) {
+            window.location = '/login/index.html';
+        }
+    </script>
+</body>
+</html>
