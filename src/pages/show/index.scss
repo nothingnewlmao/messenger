@@ -1,12 +1,12 @@
 @import '../../styles/colors.scss';
 
 .user-profile {
-    & .profile {
+    .profile {
         &__controls {
-            & button {
+            button {
                 width: 100%;
 
-                &.flat {
+                ._flat {
                     border-bottom: 1px solid $border;
                     text-align: left;
                     padding-left: 0;

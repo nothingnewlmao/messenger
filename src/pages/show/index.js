@@ -6,15 +6,15 @@ import './index.scss';
 const controls = [
     {
         label: 'Изменить данные',
-        class: 'flat'
+        class: '_flat'
     },
     {
         label: 'Изменить пароль',
-        class: 'flat'
+        class: '_flat'
     },
     {
         label: 'Выйти',
-        class: 'flat negative'
+        class: '_flat _negative'
     }
 ];
 const render_data = { inputs, controls };

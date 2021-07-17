@@ -6,7 +6,7 @@
     height: 100%;
     box-sizing: border-box;
 
-    & aside {
+    aside {
         padding: 18px;
         display: flex;
         align-items: center;
@@ -14,13 +14,13 @@
         border-right: 1px solid $border;
     }
 
-    & main {
+    main {
         width: 100%;
         display: flex;
         align-items: center;
     }
 
-    & .profile {
+    .profile {
         width: 320px;
         margin: auto;
 
@@ -40,8 +40,6 @@
             background-color: $fill-space;
             margin-bottom: 20px;
         }
-
-        &__inputs {}
 
         &__controls {
             margin-top: 60px;

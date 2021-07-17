@@ -10,7 +10,7 @@ const tmpl = `
         <aside>
             {{> 
                 button 
-                class='round' 
+                class='_round' 
                 icon="{id: 'arrow_back'}" 
                 }}
         </aside>

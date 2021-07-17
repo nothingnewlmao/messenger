@@ -37,13 +37,13 @@ button {
     cursor: pointer;
     transition: .3s all ease;
 
-    &.-general {
+    ._general {
         -webkit-border-radius: 8px;
         -moz-border-radius: 8px;
         border-radius: 8px;
     }
 
-    &.-primary {
+    ._primary {
         background-color: $primary;
         color: $white;
 
@@ -52,7 +52,7 @@ button {
         }
     }
 
-    &.-flat {
+    ._flat {
         background-color: transparent;
         color: $primary;
 
@@ -66,7 +66,7 @@ form {
     display: flex;
     flex-direction: column;
 
-    & button {
+    button {
         margin-top: 47px;
     }
 }

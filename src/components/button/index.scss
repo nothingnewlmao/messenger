@@ -1,6 +1,6 @@
 @import '../../styles/colors.scss';
 
-.button {
+button, .button {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -14,17 +14,17 @@
         background-color: $hover;
     }
 
-    &.primary {
+    ._primary {
         color: $primary;
     }
-    &.secondary {
+    ._secondary {
         color: $secondary;
     }
-    &.negative {
+    ._negative {
         color: $negative;
     }
 
-    &.flat {
+    ._flat {
         background-color: transparent;
         color: $primary;
 
@@ -32,18 +32,18 @@
             opacity: 0.8;
         }
 
-        &.primary {
+        ._primary {
             color: $primary;
         }
-        &.secondary {
+        ._secondary {
             color: $secondary;
         }
-        &.negative {
+        ._negative {
             color: $negative;
         }
     }
 
-    &.round {
+    ._round {
         -webkit-border-radius: 100px;
         -moz-border-radius: 100px;
         border-radius: 100px;

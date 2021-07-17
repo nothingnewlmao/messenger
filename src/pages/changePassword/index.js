@@ -1,6 +1,5 @@
 import tmpl from '../../layouts/profile/index.tmpl';
 import compileTemplate from "../../utils/compileTemplate";
-import './index.scss';
 
 const render_inputs = {
     old_password: {

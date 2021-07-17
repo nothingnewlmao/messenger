@@ -1,5 +1,3 @@
-import '../../styles/colors.scss';
-import '../../index.scss';
 import compileTemplate from "../../utils/compileTemplate";
 import template from "../../layouts/unauth/index.tpml";
 
