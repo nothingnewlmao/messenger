@@ -15,6 +15,15 @@
 
 [Netlify](https://homework-messanger.netlify.app/)
 
+## Список страниц
+
+* [войти](https://homework-messanger.netlify.app/login)
+* [регистрация](https://homework-messanger.netlify.app/signup)
+* [профиль](https://homework-messanger.netlify.app/show)
+* [редактировать профиль](https://homework-messanger.netlify.app/edit)
+* [поменять пароль](https://homework-messanger.netlify.app/changePassword)
+* [заглушка чата](https://homework-messanger.netlify.app/chat)
+
 ## PR
 
 [Sprint_1](https://github.com/oduvankenobi/middle.messenger.praktikum.yandex/pull/2)
@@ -24,7 +33,6 @@
 ```
     start — сборка проекта и запуск сервера express
     build —  сборка статичных страниц в папку /dist
-    express — запуск сервера на 3000 порту
-    watch — отслеживание изменений в файлах
+    server — запуск сервера на 3000 порту    
     dev — разработка проекта
 ```
