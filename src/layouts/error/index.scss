@@ -29,13 +29,13 @@
     a {
         font-weight: 300;
         font-size: 11px;
-        color: $primary;
+        color: $primary-color;
         text-decoration: none;
         cursor: pointer;
         transition: all .3s ease;
 
         &:hover {
-            color: $primary;
+            color: $primary-color;
         }
     }
 }

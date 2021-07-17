@@ -1,7 +1,7 @@
 @import '../../styles/colors.scss';
 
 .profile-input {
-    border-bottom: 1px solid $border;
+    border-bottom: 1px solid $border-color;
     padding: 10px 0;
 
     & label {
@@ -9,11 +9,11 @@
         justify-content: space-between;
         align-items: center;
         font-size: 13px;
-        color: $ordinary-text;
+        color: $ordinary-text-color;
 
         & input {
             font-size: 13px;
-            color: $secondary-text;
+            color: $secondary-text-color;
             border: none;
             background-image:none;
             background-color:transparent;

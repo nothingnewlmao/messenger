@@ -10,8 +10,8 @@
         padding: 18px;
         display: flex;
         align-items: center;
-        background-color: $aside;
-        border-right: 1px solid $border;
+        background-color: $aside-color;
+        border-right: 1px solid $border-color;
     }
 
     main {
@@ -37,7 +37,7 @@
             border-radius: 100px;
             width: 130px;
             height: 130px;
-            background-color: $fill-space;
+            background-color: $fill-space-color;
             margin-bottom: 20px;
         }
 

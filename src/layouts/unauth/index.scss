@@ -44,20 +44,20 @@ button {
     }
 
     ._primary {
-        background-color: $primary;
-        color: $white;
+        background-color: $primary-color;
+        color: $white-color;
 
         &:hover {
-            background-color: $hover;
+            background-color: $hover-color;
         }
     }
 
     ._flat {
         background-color: transparent;
-        color: $primary;
+        color: $primary-color;
 
         &:hover {
-            color: $hover;
+            color: $hover-color;
         }
     }
 }

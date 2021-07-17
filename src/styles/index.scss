@@ -7,7 +7,7 @@ html, body {
     padding: 0;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
-    color: $ordinary-text;
+    color: $ordinary-text-color;
 }
 
 #root {
@@ -18,7 +18,7 @@ html, body {
 
 button {
     border: none;
-    background-color: $primary;
+    background-color: $primary-color;
 
     &._flat {
         background-color: transparent;
