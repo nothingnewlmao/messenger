@@ -25,7 +25,7 @@ const tmpl: string = `
                         {{/if}}
                     </div>
                     <div class="profile__name">
-                        {{ inputs.display_name.value }}
+                        {{ inputs.displayName.value }}
                     </div>
                 </div>
                 <div class="profile__inputs">

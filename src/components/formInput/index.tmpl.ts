@@ -3,8 +3,8 @@ const tmpl: string = `
         <label>
             {{ label }}
             <input 
-                name="{{ field_name }}" 
-                data-input-name="{{ field_name }}" 
+                name="{{ fieldName }}" 
+                data-input-name="{{ fieldName }}" 
                 type="text" >               
         </label> 
     </div>

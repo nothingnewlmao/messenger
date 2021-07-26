@@ -1,46 +1,46 @@
-import renderTemplate from "../../utils/renderTemplate";
-import template from "../../layouts/unauth/index.tpml";
+import renderTemplate from '../../utils/renderTemplate';
+import template from '../../layouts/unauth/index.tpml';
 
 const data = {
-    form_title: 'Регистрация',
+    formTitle: 'Регистрация',
     fields: [
         {
-            field_name: 'email',
-            label: 'Почта'
+            fieldName: 'email',
+            label: 'Почта',
         },
         {
-            field_name: 'login',
-            label: 'Логин'
+            fieldName: 'login',
+            label: 'Логин',
         },
         {
-            field_name: 'first_name',
-            label: 'Имя'
+            fieldName: 'firstName',
+            label: 'Имя',
         },
         {
-            field_name: 'second_name',
-            label: 'Фамилия'
+            fieldName: 'secondName',
+            label: 'Фамилия',
         },
         {
-            field_name: 'phone',
-            label: 'Телефон'
+            fieldName: 'phone',
+            label: 'Телефон',
         },
         {
-            field_name: 'password',
-            label: 'Пароль'
+            fieldName: 'password',
+            label: 'Пароль',
         },
         {
-            field_name: 'submit_password',
-            label: 'Пароль (ещё раз)'
+            fieldName: 'submitPassword',
+            label: 'Пароль (ещё раз)',
         },
     ],
-    submit_btn: {
+    submitBtn: {
         text: 'Зарегистрироваться',
-        onClick: '/signup'
+        onClick: '/signup',
     },
-    alt_btn: {
+    altBtn: {
         text: 'Войти',
-        onClick: '/login'
-    }
+        onClick: '/login',
+    },
 };
 
 renderTemplate(template, data, '#root');

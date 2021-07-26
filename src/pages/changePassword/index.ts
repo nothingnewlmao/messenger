@@ -1,32 +1,35 @@
 import tmpl from '../../layouts/profile/index.tmpl';
-import renderTemplate from "../../utils/renderTemplate";
+import renderTemplate from '../../utils/renderTemplate';
 
-const render_inputs = {
-    old_password: {
+const renderInputs = {
+    oldPassword: {
         label: 'Старый пароль',
         value: '',
-        name: 'old_password',
+        name: 'oldPassword',
         type: 'password',
     },
-    new_password: {
+    newPassword: {
         label: 'Новый пароль',
         value: '',
-        name: 'new_password',
+        name: 'newPassword',
         type: 'password',
     },
-    submit_password: {
+    submitPassword: {
         label: 'Повторите новый пароль',
         value: '',
-        name: 'submit_password',
+        name: 'submitPassword',
         type: 'password',
-    }
+    },
 };
 
 const controls = [
     {
-        label: 'Сохранить'
-    }
+        label: 'Сохранить',
+    },
 ];
-const render_data = { inputs: render_inputs, controls };
+const renderData = {
+    inputs: renderInputs,
+    controls,
+};
 
-renderTemplate(tmpl, render_data, '#root');
+renderTemplate(tmpl, renderData, '#root');

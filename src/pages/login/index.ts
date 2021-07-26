@@ -1,26 +1,26 @@
-import renderTemplate from "../../utils/renderTemplate";
-import template from "../../layouts/unauth/index.tpml";
+import renderTemplate from '../../utils/renderTemplate';
+import template from '../../layouts/unauth/index.tpml';
 
 const data = {
-    form_title: 'Вход',
+    formTitle: 'Вход',
     fields: [
         {
-            field_name: 'login',
-            label: 'Логин'
+            fieldName: 'login',
+            label: 'Логин',
         },
         {
-            field_name: 'password',
-            label: 'Пароль'
-        }
+            fieldName: 'password',
+            label: 'Пароль',
+        },
     ],
-    submit_btn: {
+    submitBtn: {
         text: 'Авторизоваться',
-        onClick: '/login'
+        onClick: '/login',
     },
-    alt_btn: {
+    altBtn: {
         text: 'Нет аккаунта?',
-        onClick: '/signup'
-    }
+        onClick: '/signup',
+    },
 };
 
 renderTemplate(template, data, '#root');

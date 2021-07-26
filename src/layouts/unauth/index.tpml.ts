@@ -6,21 +6,21 @@ regFormInput();
 const template: string = `
     <div class="unauth__layout">
         <div class="unauth__card">
-            <div class="unauth__title">{{ form_title }}</div>
+            <div class="unauth__title">{{ formTitle }}</div>
             <form>
                 {{#each fields}}
                     {{> form-input this}}
                 {{/each}}
                 <button class="_general _primary">
-                    <a href="{{ submit_btn.onClick }}" >
-                        {{ submit_btn.text }}
+                    <a href="{{ submitBtn.onClick }}" >
+                        {{ submitBtn.text }}
                     </a>
                 </button>
             </form>        
             <div class="controls">
                 <button class="_flat" >
-                    <a href="{{ alt_btn.onClick }}">
-                        {{ alt_btn.text }}
+                    <a href="{{ altBtn.onClick }}">
+                        {{ altBtn.text }}
                     </a>
                 </button>            
             </div>  
