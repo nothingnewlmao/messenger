@@ -4,5 +4,7 @@
     "no-unused-vars": 2,
     "max-len": [1, 100],
     "max-params": [2, 3]
-  }
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"]
 }
