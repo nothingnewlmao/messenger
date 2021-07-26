@@ -1,11 +1,11 @@
-import regProfileInput from "../../components/profileInput";
-import regButton from "../../components/button";
+import regProfileInput from '../../components/profileInput';
+import regButton from '../../components/button';
 import './index.scss';
 
 regProfileInput();
 regButton();
 
-const tmpl = `
+const tmpl: string = `
     <div class="user-profile">
         <aside>
             {{> 

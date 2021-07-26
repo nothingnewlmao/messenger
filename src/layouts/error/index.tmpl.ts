@@ -1,6 +1,6 @@
 import './index.scss';
 
-const tmpl = `
+const tmpl: string = `
     <div class="error__layout">
         <div class="error__number">
             {{ error_number }}

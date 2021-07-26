@@ -1,9 +1,9 @@
 import './index.scss';
-import regFormInput from "../../components/formInput";
+import regFormInput from '../../components/formInput';
 
 regFormInput();
 
-const template = `
+const template: string = `
     <div class="unauth__layout">
         <div class="unauth__card">
             <div class="unauth__title">{{ form_title }}</div>
