@@ -1,4 +1,4 @@
-import Handlebars from 'handlebars';
+import * as Handlebars from 'handlebars';
 
 export default function renderTemplate(template, ctx, selector) {
     const _template = Handlebars.compile(template);
