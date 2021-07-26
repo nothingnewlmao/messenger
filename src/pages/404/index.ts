@@ -1,7 +1,8 @@
 import renderTemplate from '../../utils/renderTemplate';
 import tmpl from '../../layouts/error/index.tmpl';
+import ErrorPageType from '../../layouts/error/errorPageType';
 
-const data = {
+const data: ErrorPageType = {
     errorNumber: '404',
     errorText: 'Не туда попали',
     buttonText: 'Назад к чатам',
