@@ -6,9 +6,9 @@
     "dev:parcel": "parcel src/pages/index.html",
     "dev:ts": "tsc --watch --noEmit",
     "dev": "run-p -l dev:**",
-    "dev:lint:ts": "eslint .",
-    "dev:lint:css": "stylelint **/*.css **/*.scss",
-    "dev:lint": "run-p -l dev:lint:**",
+    "lint:ts": "eslint .",
+    "lint:css": "stylelint **/*.css **/*.scss",
+    "lint": "run-p -l lint:**",
     "start": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../ && npm run server",
     "build": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "server": "node app.js"
