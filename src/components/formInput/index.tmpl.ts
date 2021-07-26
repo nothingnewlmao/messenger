@@ -1,4 +1,4 @@
-const tmpl = `
+const tmpl: string = `
     <div class="form-input">
         <label>
             {{ label }}

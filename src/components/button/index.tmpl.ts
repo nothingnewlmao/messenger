@@ -3,7 +3,7 @@ import './index.scss';
 
 regIcon();
 
-const tmpl = `
+const tmpl: string = `
     <button class="button {{ class }}">
         {{# if icon}}
             {{> icon icon=icon}}

@@ -1,4 +1,4 @@
-const tmpl = `
+const tmpl: string = `
     <span 
         {{#if class}}
             class="{{ class }} material-icons"
