@@ -1,4 +1,4 @@
-import * as Handlebars from "handlebars";
+import * as Handlebars from 'handlebars';
 import tmpl from './index.tmpl';
 import './index.scss';
 
