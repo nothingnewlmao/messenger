@@ -13,18 +13,10 @@ const template: string = `
                 {{#each fields}}
                     {{> form-input class="unauth-input" }}
                 {{/each}}
-                <button class="_general _primary">
-                    <a href="{{ submitBtn.onClick }}" >
-                        {{ submitBtn.text }}
-                    </a>
-                </button>
+                {{> button label=submitBtn.label class="_general _primary" }}
             </form>        
             <div class="controls">
-                <button class="_flat" >
-                    <a href="{{ altBtn.onClick }}">
-                        {{ altBtn.text }}
-                    </a>
-                </button>            
+                {{> button label=altBtn.label class="_flat" }}      
             </div>  
         </div>
     </div>
