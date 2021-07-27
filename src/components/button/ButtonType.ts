@@ -1,6 +1,8 @@
 type ButtonType = {
     class?: string,
-    icon?: string,
+    icon?: {
+        id: string
+    },
     label: string
 };
 

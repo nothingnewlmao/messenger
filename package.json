@@ -32,6 +32,8 @@
   },
   "dependencies": {
     "handlebars": "^4.7.7",
+    "material-design-icons": "^3.0.1",
+    "material-icons": "^1.0.0",
     "parcel-plugin-asset-copier": "^1.1.0"
   },
   "assetsPath": "src/assets",
