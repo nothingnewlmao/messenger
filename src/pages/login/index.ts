@@ -5,11 +5,11 @@ const data = {
     formTitle: 'Вход',
     fields: [
         {
-            fieldName: 'login',
+            name: 'login',
             label: 'Логин',
         },
         {
-            fieldName: 'password',
+            name: 'password',
             label: 'Пароль',
         },
     ],

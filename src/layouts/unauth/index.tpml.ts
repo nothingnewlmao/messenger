@@ -1,7 +1,9 @@
 import './index.scss';
-import regFormInput from '../../components/formInput';
+import regInput from '../../components/formInput';
+import regButton from '../../components/button';
 
-regFormInput();
+regInput();
+regButton();
 
 const template: string = `
     <div class="unauth__layout">
@@ -9,7 +11,7 @@ const template: string = `
             <div class="unauth__title">{{ formTitle }}</div>
             <form>
                 {{#each fields}}
-                    {{> form-input this}}
+                    {{> form-input class="unauth-input" }}
                 {{/each}}
                 <button class="_general _primary">
                     <a href="{{ submitBtn.onClick }}" >

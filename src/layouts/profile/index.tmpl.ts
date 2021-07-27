@@ -1,8 +1,8 @@
-import regProfileInput from '../../components/profileInput';
+import regInput from '../../components/formInput';
 import regButton from '../../components/button';
 import './index.scss';
 
-regProfileInput();
+regInput();
 regButton();
 
 const tmpl: string = `
@@ -30,7 +30,7 @@ const tmpl: string = `
                 </div>
                 <div class="profile__inputs">
                     {{#each inputs}}
-                        {{> profile-input this }}
+                        {{> form-input class="profile-input" }}
                     {{/each}}
                 </div> 
                 {{#if controls}}       

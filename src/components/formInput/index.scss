@@ -1,31 +1,63 @@
 @import "../../styles/colors.scss";
 @import "../../styles/index.scss";
 
-.form-input {
-  label,
-  input {
-    display: block;
-    width: 100%;
-  }
-
-  label {
-    color: $secondary-text-color;
-    font-size: 9px;
-    font-weight: 300;
-    margin-bottom: 16px;
-  }
-
-  input {
-    border: none;
+.profile-input {
     border-bottom: 1px solid $border-color;
-    font-size: 13px;
-    padding-bottom: 7px;
-    padding-top: 5px;
+    padding: 10px 0;
 
-    &:focus,
-    &:focus-visible {
-      outline: none;
-      border-bottom-color: $hover-color;
+    label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        color: $ordinary-text-color;
+
+        input {
+            font-size: 13px;
+            color: $secondary-text-color;
+            border: none;
+            background-image: none;
+            background-color: transparent;
+            box-shadow: none;
+            text-align: right;
+
+            &:focus,
+            &:focus-visible {
+                outline: none;
+            }
+        }
     }
-  }
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.unauth-input {
+    label,
+    input {
+        display: block;
+        width: 100%;
+    }
+
+    label {
+        color: $secondary-text-color;
+        font-size: 9px;
+        font-weight: 300;
+        margin-bottom: 16px;
+    }
+
+    input {
+        border: none;
+        border-bottom: 1px solid $border-color;
+        font-size: 13px;
+        padding-bottom: 7px;
+        padding-top: 5px;
+
+        &:focus,
+        &:focus-visible {
+            outline: none;
+            border-bottom-color: $hover-color;
+        }
+    }
 }
