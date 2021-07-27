@@ -11,6 +11,7 @@ const tmpl: string = `
             {{> button 
                 class="_round"
                 icon="arrow_back"
+                icon-size="18"
                 }}
         </aside>
         <main>
