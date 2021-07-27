@@ -1,45 +1,44 @@
 import renderTemplate from '../../utils/renderTemplate';
 import template from '../../layouts/unauth/index.tpml';
+import UnauthPageType from '../../layouts/unauth/unauthPageType';
 
-const data = {
+const data: UnauthPageType = {
     formTitle: 'Регистрация',
     fields: [
         {
-            fieldName: 'email',
+            name: 'email',
             label: 'Почта',
         },
         {
-            fieldName: 'login',
+            name: 'login',
             label: 'Логин',
         },
         {
-            fieldName: 'firstName',
+            name: 'firstName',
             label: 'Имя',
         },
         {
-            fieldName: 'secondName',
+            name: 'secondName',
             label: 'Фамилия',
         },
         {
-            fieldName: 'phone',
+            name: 'phone',
             label: 'Телефон',
         },
         {
-            fieldName: 'password',
+            name: 'password',
             label: 'Пароль',
         },
         {
-            fieldName: 'submitPassword',
+            name: 'submitPassword',
             label: 'Пароль (ещё раз)',
         },
     ],
     submitBtn: {
-        text: 'Зарегистрироваться',
-        onClick: '/signup',
+        label: 'Зарегистрироваться',
     },
     altBtn: {
-        text: 'Войти',
-        onClick: '/login',
+        label: 'Войти',
     },
 };
 

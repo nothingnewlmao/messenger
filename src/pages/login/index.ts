@@ -1,7 +1,8 @@
 import renderTemplate from '../../utils/renderTemplate';
 import template from '../../layouts/unauth/index.tpml';
+import UnauthPageType from '../../layouts/unauth/unauthPageType';
 
-const data = {
+const data: UnauthPageType = {
     formTitle: 'Вход',
     fields: [
         {
@@ -14,12 +15,10 @@ const data = {
         },
     ],
     submitBtn: {
-        text: 'Авторизоваться',
-        onClick: '/login',
+        label: 'Авторизоваться',
     },
     altBtn: {
-        text: 'Нет аккаунта?',
-        onClick: '/signup',
+        label: 'Нет аккаунта?',
     },
 };
 
