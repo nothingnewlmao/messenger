@@ -11,6 +11,7 @@ button,
   color: $white-color;
   cursor: pointer;
   transition: all 0.3s ease;
+  line-height: 1;
 
   &:hover {
     background-color: $hover-color;

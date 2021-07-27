@@ -8,10 +8,9 @@ regButton();
 const tmpl: string = `
     <div class="user-profile">
         <aside>
-            {{> 
-                button 
-                class='_round' 
-                icon="{id: 'arrow_back'}" 
+            {{> button 
+                class="_round"
+                icon="arrow_back"
                 }}
         </aside>
         <main>

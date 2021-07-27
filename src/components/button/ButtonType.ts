@@ -3,7 +3,7 @@ type ButtonType = {
     icon?: {
         id: string
     },
-    label: string
+    label?: string
 };
 
 export default ButtonType;
