@@ -1,4 +1,4 @@
-import ButtonType from '../../components/button/buttonType';
+import ButtonType from '../button/ButtonType';
 
 type ProfileInputType = {
     inputs?: {
