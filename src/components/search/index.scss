@@ -1,0 +1,25 @@
+@import '../../styles/colors';
+
+.search {
+  display: flex;
+  align-items: center;
+  padding: 6px 10px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  background-color: $fill-space-color;
+
+  input {
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+    display: block;
+    width: 100%;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}
