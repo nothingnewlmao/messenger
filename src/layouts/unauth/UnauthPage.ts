@@ -3,11 +3,11 @@ import UnauthPageType from './unauthPageType';
 import * as Handlebars from 'handlebars';
 
 export default class UnauthPage {
-    pageFields;
+    ctx;
     element: null | HTMLElement;
 
-    constructor(pageFields: UnauthPageType) {
-        this.pageFields = pageFields;
+    constructor(ctx: UnauthPageType) {
+        this.ctx = ctx;
         this.render();
     }
 
@@ -20,6 +20,6 @@ export default class UnauthPage {
 
     get template() {
         const _template = Handlebars.compile(tmpl);
-        return _template(this.pageFields);
+        return _template(this.ctx);
     }
 }

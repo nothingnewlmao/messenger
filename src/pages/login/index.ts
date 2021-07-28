@@ -1,7 +1,7 @@
 import UnauthPage from '../../layouts/unauth/UnauthPage';
 import renderPage from '../../utils/renderPage';
 
-const fields = {
+const ctx = {
     formTitle: 'Вход',
     fields: [
         {
@@ -25,5 +25,5 @@ const fields = {
     },
 };
 
-const page = new UnauthPage(fields);
-renderPage(page);
+const loginPage = new UnauthPage(ctx);
+renderPage(loginPage);
