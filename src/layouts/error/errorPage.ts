@@ -4,10 +4,10 @@ import * as Handlebars from 'handlebars';
 
 export default class ErrorPageLayout {
     element: null | HTMLElement;
-    pageFields;
+    ctx;
 
-    constructor(pageFields: ErrorPageType) {
-        this.pageFields = pageFields;
+    constructor(ctx: ErrorPageType) {
+        this.ctx = ctx;
         this.render();
     }
 
@@ -20,6 +20,6 @@ export default class ErrorPageLayout {
 
     get template() {
         const _template = Handlebars.compile(tmpl);
-        return _template(this.pageFields);
+        return _template(this.ctx);
     }
 }

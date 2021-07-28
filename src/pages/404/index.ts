@@ -1,11 +1,11 @@
 import ErrorPageLayout from '../../layouts/error/errorPage';
 import renderPage from '../../utils/renderPage';
 
-const fields = {
+const ctx = {
     errorNumber: '404',
     errorText: 'Не туда попали',
     buttonText: 'Назад к чатам',
 };
 
-const page = new ErrorPageLayout(fields);
-renderPage(page);
+const page404 = new ErrorPageLayout(ctx);
+renderPage(page404);
