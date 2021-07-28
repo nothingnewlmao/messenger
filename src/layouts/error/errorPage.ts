@@ -1,5 +1,5 @@
-import tmpl from '../../layouts/error/index.tmpl';
-import ErrorPageType from '../../layouts/error/errorPageType';
+import tmpl from './index.tmpl';
+import ErrorPageType from './errorPageType';
 import * as Handlebars from 'handlebars';
 
 export default class ErrorPageLayout {
