@@ -1,11 +1,32 @@
-import renderTemplate from '../../utils/renderTemplate';
 import tmpl from '../../layouts/error/index.tmpl';
 import ErrorPageType from '../../layouts/error/errorPageType';
+import * as Handlebars from 'handlebars';
 
-const data: ErrorPageType = {
-    errorNumber: '404',
-    errorText: 'Не туда попали',
-    buttonText: 'Назад к чатам',
-};
+export default class Page404 {
+    element: null | HTMLElement;
+    pageFields: ErrorPageType = {
+        errorNumber: '404',
+        errorText: 'Не туда попали',
+        buttonText: 'Назад к чатам',
+    }
 
-renderTemplate(tmpl, data, '.page-404');
+    constructor() {
+        this.render();
+    }
+
+    render() {
+        const element = document.createElement('div');
+        element.className = 'page-404';
+        element.innerHTML = this.template;
+        this.element = element;
+    }
+
+    get template() {
+        const _template = Handlebars.compile(tmpl);
+        return _template(this.pageFields);
+    }
+}
+
+const page = new Page404();
+document.querySelector('#root').append(page.element);
+
