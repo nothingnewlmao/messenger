@@ -17,7 +17,7 @@ const template: string = `
             </form>        
             <div class="controls">
                 {{> button label=altBtn.label class="_flat" }}      
-            </div>  
+            </div> 
         </div>
     </div>
 `;

@@ -1,8 +1,7 @@
-import renderTemplate from '../../utils/renderTemplate';
-import template from '../../layouts/unauth/index.tpml';
-import UnauthPageType from '../../layouts/unauth/unauthPageType';
+import UnauthPage from '../../layouts/unauth/UnauthPage';
+import renderPage from '../../utils/renderPage';
 
-const data: UnauthPageType = {
+const fields = {
     formTitle: 'Вход',
     fields: [
         {
@@ -26,4 +25,5 @@ const data: UnauthPageType = {
     },
 };
 
-renderTemplate(template, data, '#root');
+const page = new UnauthPage(fields);
+renderPage(page);

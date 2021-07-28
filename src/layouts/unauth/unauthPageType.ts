@@ -5,7 +5,7 @@ type UnauthPageType = {
     formTitle: string,
     fields: InputType[],
     submitBtn: ButtonType,
-    altBtn: ButtonType
+    altBtn: ButtonType,
 };
 
 export default UnauthPageType;
