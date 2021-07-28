@@ -1,11 +1,11 @@
-import renderTemplate from '../../utils/renderTemplate';
-import tmpl from '../../layouts/error/index.tmpl';
-import ErrorPageType from '../../layouts/error/errorPageType';
+import ErrorPageLayout from '../../layouts/error/errorPage';
 
-const data: ErrorPageType = {
+const fields = {
     errorNumber: '500',
     errorText: 'Мы уже фиксим',
     buttonText: 'Назад к чатам',
 };
 
-renderTemplate(tmpl, data, '.page-500');
+const page = new ErrorPageLayout(fields);
+document.querySelector('#root').append(page.element);
+
