@@ -20,6 +20,10 @@ const data: UnauthPageType = {
     altBtn: {
         label: 'Нет аккаунта?',
     },
+    msg: {
+        date: new Date(),
+        content: '32432423',
+    },
 };
 
 renderTemplate(template, data, '#root');

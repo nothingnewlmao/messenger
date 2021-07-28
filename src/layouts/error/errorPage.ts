@@ -4,9 +4,9 @@ import * as Handlebars from 'handlebars';
 
 export default class ErrorPageLayout {
     element: null | HTMLElement;
-    pageFields: ErrorPageType;
+    pageFields;
 
-    constructor(pageFields) {
+    constructor(pageFields: ErrorPageType) {
         this.pageFields = pageFields;
         this.render();
     }
