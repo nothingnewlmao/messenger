@@ -1,25 +1,13 @@
 import tmpl from './index.tpml';
 import UnauthPageType from './unauthPageType';
-import * as Handlebars from 'handlebars';
+import CreateLayout from '../CreateLayout';
 
-export default class UnauthPageLayout {
-    ctx;
-    element: null | HTMLElement;
-
+export default class UnauthPageLayout extends CreateLayout {
     constructor(ctx: UnauthPageType) {
+        super();
+        this.hbsTemplate = tmpl;
+        this.layoutClass = 'unauth';
         this.ctx = ctx;
         this.render();
-    }
-
-    render() {
-        const element = document.createElement('div');
-        element.className = 'unauth';
-        element.innerHTML = this.template;
-        this.element = element;
-    }
-
-    get template() {
-        const _template = Handlebars.compile(tmpl);
-        return _template(this.ctx);
     }
 }
