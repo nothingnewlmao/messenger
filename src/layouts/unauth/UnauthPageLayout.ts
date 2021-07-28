@@ -6,7 +6,6 @@ export default class UnauthPageLayout extends CreateLayout {
     constructor(ctx: UnauthPageType) {
         super();
         this.hbsTemplate = tmpl;
-        this.layoutClass = 'unauth';
         this.ctx = ctx;
         this.render();
     }

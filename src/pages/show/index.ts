@@ -1,8 +1,7 @@
-import tmpl from '../../layouts/profile/index.tmpl';
-import renderTemplate from '../../utils/renderTemplate';
 import inputs from '../userData';
 import './index.scss';
-import ProfilePageType from '../../layouts/profile/profilePageType';
+import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
+import renderPage from '../../utils/renderPage';
 
 const controls = [
     {
@@ -18,6 +17,6 @@ const controls = [
         class: '_flat _negative',
     },
 ];
-const renderData: ProfilePageType = {inputs, controls};
-
-renderTemplate(tmpl, renderData, '#root');
+const ctx = {inputs, controls};
+const showProfilePage = new ProfilePageLayout(ctx);
+renderPage(showProfilePage);
