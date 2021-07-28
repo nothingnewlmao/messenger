@@ -1,5 +1,5 @@
 import renderPage from '../../utils/renderPage';
-import UnauthPage from '../../layouts/unauth/UnauthPage';
+import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
 
 const ctx = {
     formTitle: 'Регистрация',
@@ -41,5 +41,5 @@ const ctx = {
     },
 };
 
-const signUpPage = new UnauthPage(ctx);
+const signUpPage = new UnauthPageLayout(ctx);
 renderPage(signUpPage);

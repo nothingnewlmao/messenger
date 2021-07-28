@@ -2,7 +2,7 @@ import tmpl from './index.tpml';
 import UnauthPageType from './unauthPageType';
 import * as Handlebars from 'handlebars';
 
-export default class UnauthPage {
+export default class UnauthPageLayout {
     ctx;
     element: null | HTMLElement;
 

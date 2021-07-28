@@ -1,4 +1,4 @@
-import UnauthPage from '../../layouts/unauth/UnauthPage';
+import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
 import renderPage from '../../utils/renderPage';
 
 const ctx = {
@@ -25,5 +25,5 @@ const ctx = {
     },
 };
 
-const loginPage = new UnauthPage(ctx);
+const loginPage = new UnauthPageLayout(ctx);
 renderPage(loginPage);
