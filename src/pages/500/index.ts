@@ -1,4 +1,5 @@
 import ErrorPageLayout from '../../layouts/error/errorPage';
+import renderPage from '../../utils/renderPage';
 
 const fields = {
     errorNumber: '500',
@@ -7,5 +8,4 @@ const fields = {
 };
 
 const page = new ErrorPageLayout(fields);
-document.querySelector('#root').append(page.element);
-
+renderPage(page);
