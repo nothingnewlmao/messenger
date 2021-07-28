@@ -1,4 +1,4 @@
-import ErrorPageLayout from '../../layouts/error/errorPage';
+import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import renderPage from '../../utils/renderPage';
 
 const ctx = {
