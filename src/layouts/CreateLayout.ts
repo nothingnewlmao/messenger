@@ -11,6 +11,7 @@ export default class CreateLayout {
         element.className = this.layoutClass;
         element.innerHTML = this.template;
         this.element = this.layoutClass ? element : element.firstElementChild;
+        this.initEventListeners();
     }
 
     get template() {
@@ -18,8 +19,14 @@ export default class CreateLayout {
         return _template(this.ctx);
     }
 
-    destroy() {
+    remove() {
         this.element.remove();
+    }
+
+    destroy() {
+        this.remove();
         this.element = null;
     }
+
+    initEventListeners() {}
 }
