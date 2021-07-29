@@ -1,20 +1,20 @@
 @import "../../styles/colors.scss";
 @import "../../styles/index.scss";
 
-input {
-  font-size: 13px;
-  border: none;
-  background-image: none;
-  background-color: transparent;
-  box-shadow: none;
-
-  &:focus,
-  &:focus-visible {
-    outline: none;
-  }
-}
-
 label {
+  input {
+    font-size: 13px;
+    border: none;
+    background-image: none;
+    background-color: transparent;
+    box-shadow: none;
+
+    &:focus,
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
   &._error {
     color: $negative-color !important;
 
@@ -22,29 +22,6 @@ label {
       color: $negative-color;
       border-color: $negative-color !important;
     }
-  }
-}
-
-.profile-input {
-  border-bottom: 1px solid $border-color;
-  padding: 10px 0;
-
-  label {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 13px;
-    color: $ordinary-text-color;
-
-    input {
-      font-size: 13px;
-      color: $secondary-text-color;
-      text-align: right;
-    }
-  }
-
-  &:last-child {
-    border-bottom: none;
   }
 }
 
@@ -71,5 +48,28 @@ label {
     &:focus-visible {
       border-bottom-color: $hover-color;
     }
+  }
+}
+
+.profile-input {
+  border-bottom: 1px solid $border-color;
+  padding: 10px 0;
+
+  label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: $ordinary-text-color;
+
+    input {
+      font-size: 13px;
+      color: $secondary-text-color;
+      text-align: right;
+    }
+  }
+
+  &:last-child {
+    border-bottom: none;
   }
 }
