@@ -13,10 +13,17 @@ const template: string = `
                 {{#each fields}}
                     {{> form-input class="unauth-input" }}
                 {{/each}}
-                {{> button label=submitBtn.label class="_general _primary" }}
+                {{> button 
+                    label=submitBtn.label 
+                    class="_general _primary"
+                    type="submit"
+                    }}
             </form>        
             <div class="controls">
-                {{> button label=altBtn.label class="_flat" }}      
+                {{> button 
+                    label=altBtn.label 
+                    class="_flat" 
+                    }}      
             </div> 
         </div>
     </div>
