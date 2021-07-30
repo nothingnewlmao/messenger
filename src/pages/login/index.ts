@@ -11,6 +11,7 @@ const ctx = {
         {
             name: 'password',
             label: 'Пароль',
+            type: 'password',
         },
     ],
     submitBtn: {

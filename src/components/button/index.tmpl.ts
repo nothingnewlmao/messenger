@@ -3,9 +3,13 @@ import './index.scss';
 
 regIcon();
 
-
 const tmpl: string = `
-    <button class="button {{ class }}">
+    <button 
+        class="button {{ class }}"
+        {{#if type}}
+            type="{{type}}"
+        {{/if}}
+        >
         {{#unless icon-after}}
             {{> icon id=icon size=icon-size}}            
         {{/unless}}
