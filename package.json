@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "messenger for project 1",
   "scripts": {
-    "dev:parcel": "parcel src/pages/index.html src/pages/**/index.html --no-cache",
+    "dev:parcel": "parcel src/pages/index.html src/pages/**/index.html --no-cache --port 3000",
     "dev:ts": "tsc --watch --noEmit",
     "dev": "run-p -l dev:**",
     "lint:ts": "eslint .",
