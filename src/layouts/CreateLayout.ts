@@ -6,6 +6,13 @@ export default class CreateLayout {
     hbsTemplate: string;
     layoutClass: string;
 
+    constructor(tmpl, ctx, layoutClass = '') {
+        this.hbsTemplate = tmpl;
+        this.ctx = ctx;
+        this.layoutClass = layoutClass;
+        this.render();
+    }
+
     render() {
         const element = document.createElement('div');
         element.className = this.layoutClass;

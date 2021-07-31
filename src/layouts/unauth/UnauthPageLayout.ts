@@ -10,10 +10,7 @@ Object.assign(CreateLayout.prototype,
 
 export default class UnauthPageLayout extends CreateLayout {
     constructor(ctx: UnauthPageType) {
-        super();
-        this.hbsTemplate = tmpl;
-        this.ctx = ctx;
-        this.render();
+        super(tmpl, ctx);
     }
 
     initEventListeners() {
