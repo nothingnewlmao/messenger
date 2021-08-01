@@ -1,45 +1,63 @@
-import renderPage from '../../utils/renderPage';
 import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
+import renderPage from '../../utils/renderPage';
+import Button from '../../components/button';
+import FormInput from '../../components/formInput';
+import Form from '../../components/form';
 
 const ctx = {
     formTitle: 'Регистрация',
-    fields: [
-        {
-            name: 'email',
-            label: 'Почта',
-        },
-        {
-            name: 'login',
-            label: 'Логин',
-        },
-        {
-            name: 'firstName',
-            label: 'Имя',
-        },
-        {
-            name: 'secondName',
-            label: 'Фамилия',
-        },
-        {
-            name: 'phone',
-            label: 'Телефон',
-        },
-        {
-            name: 'password',
-            label: 'Пароль',
-        },
-        {
-            name: 'submitPassword',
-            label: 'Пароль (ещё раз)',
-        },
-    ],
-    submitBtn: {
-        label: 'Зарегистрироваться',
-    },
-    altBtn: {
-        label: 'Войти',
+    children: {
+        form: new Form({
+            children: {
+                inputs: [
+                    new FormInput({
+                        name: 'email',
+                        label: 'Почта',
+                        class: 'unauth-input',
+                    }),
+                    new FormInput({
+                        label: 'Пароль',
+                        name: 'password',
+                        type: 'password',
+                        class: 'unauth-input',
+                    }),
+                    new FormInput({
+                        name: 'firstName',
+                        label: 'Имя',
+                        class: 'unauth-input',
+                    }),
+                    new FormInput({
+                        name: 'secondName',
+                        label: 'Фамилия',
+                        class: 'unauth-input',
+                    }),
+                    new FormInput({
+                        name: 'phone',
+                        label: 'Телефон',
+                        class: 'unauth-input',
+                    }),
+                    new FormInput({
+                        name: 'password',
+                        label: 'Пароль',
+                        class: 'unauth-input',
+                    }),
+                    new FormInput({
+                        name: 'submitPassword',
+                        label: 'Пароль (ещё раз)',
+                        class: 'unauth-input',
+                    }),
+                ],
+                submitBtn: new Button({
+                    label: 'Зарегистрироваться',
+                }),
+            },
+        }),
+        altBtn: new Button({
+            label: 'Войти',
+            class: '_flat',
+        }),
     },
 };
 
-const signUpPage = new UnauthPageLayout(ctx);
-renderPage(signUpPage);
+const signupPage = new UnauthPageLayout(ctx);
+renderPage(signupPage);

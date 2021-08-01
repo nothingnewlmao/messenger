@@ -29,6 +29,7 @@ const ctx = {
         }),
         altBtn: new Button({
             label: 'Нет аккаунта?',
+            class: '_flat',
         }),
     },
 };

@@ -5,7 +5,7 @@ const tmpl: string = `
         <div class="unauth__card">
             <div class="unauth__title">{{ formTitle }}</div>
                 <div data-component="form"></div>
-            {{#if altBtn}}
+            {{#if children.altBtn}}
                 <div data-component="altBtn"></div>
             {{/if}}
         </div>
