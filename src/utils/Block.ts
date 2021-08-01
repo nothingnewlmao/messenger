@@ -1,4 +1,6 @@
 import EventBus from './EventBus';
+import * as Handlebars from 'handlebars';
+import deepClone from './deepClone';
 
 export default class Block {
     static EVENTS = {
@@ -10,6 +12,8 @@ export default class Block {
 
     _element = null;
     _meta = null;
+    props;
+    eventBus;
 
     constructor(tagName = 'div', props = {}) {
         const eventBus = new EventBus();
@@ -60,7 +64,7 @@ export default class Block {
     }
 
     componentDidUpdate(oldProps, newProps) {
-        return true;
+        return JSON.stringify(newProps) !== JSON.stringify(oldProps);
     }
 
     setProps = nextProps => {
@@ -76,23 +80,58 @@ export default class Block {
     }
 
     _render() {
-        const block = this.render();
-        // Этот небезопасный метод для упрощения логики
-        // Используйте шаблонизатор из npm или напиши свой безопасный
-        // Нужно не в строку компилировать (или делать это правильно),
-        // либо сразу в DOM-элементы превращать из возвращать из compile DOM-ноду
-        this._element.innerHTML = block;
+        this._element = this.render();
+        this._renderChildren();
+        this._addEventListeners();
     }
 
-    render() {}
+    render() {
+        const {wrapperClass = ''} = this.props;
+        const element = document.createElement('div');
+        element.className = wrapperClass;
+        element.innerHTML = this._template;
+        return wrapperClass ? element : element.firstElementChild;
+    }
+
+    get _template() {
+        const {
+            tmpl = '',
+            ctx = {},
+        } = this.props;
+        const _template = Handlebars.compile(tmpl);
+        return _template(ctx);
+    }
+
+    _renderChildren() {
+        const {children = {}} = this.props.ctx;
+        const components = [...this.getContent().querySelectorAll('[data-component]')];
+
+        const noChildren = Object.keys(children).length === 0
+            || components.length === 0;
+        if (noChildren) {
+            return;
+        }
+
+        components.forEach(component => {
+            const componentName = component.dataset.component;
+            const child = children[componentName];
+            component.replaceWith(child.getContent());
+        });
+    }
+
+    _addEventListeners() {
+        const {events = {}} = this.props.ctx;
+
+        Object.keys(events).forEach(event => {
+            this._element.addEventListener(event, events[event]);
+        });
+    }
 
     getContent() {
         return this.element;
     }
 
     _makePropsProxy(props) {
-        // Можно и так передать this
-        // Такой способ больше не применяется с приходом ES6+
         const self = this;
 
         return new Proxy(props, {
@@ -101,11 +140,10 @@ export default class Block {
                 return typeof value === 'function' ? value.bind(target) : value;
             },
             set(target, prop, value) {
+                const oldTarget = deepClone(target);
                 target[prop] = value;
 
-                // Запускаем обновление компоненты
-                // Плохой cloneDeep, в след итерации нужно заставлять добавлять cloneDeep им самим
-                self.eventBus().emit(Block.EVENTS.FLOW_CDU, {...target}, target);
+                self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
                 return true;
             },
             deleteProperty() {
