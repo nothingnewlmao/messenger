@@ -1,8 +1,13 @@
-import * as Handlebars from 'handlebars';
 import tmpl from './index.tmpl';
 import './index.scss';
+import Block from '../../utils/Block';
+import ButtonType from './ButtonType';
 
-export default function regButton(ctx = undefined) {
-    const button = Handlebars.compile(tmpl, ctx);
-    Handlebars.registerPartial('button', button);
+export default class Button extends Block {
+    constructor(ctx: ButtonType) {
+        super('button', {
+            tmpl,
+            ctx,
+        });
+    }
 }
