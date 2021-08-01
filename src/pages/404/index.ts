@@ -1,8 +1,6 @@
-import Block from '../../utils/Block';
+import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import Button from '../../components/button';
 import renderPage from '../../utils/renderPage';
-import tmpl from '../../layouts/error/index.tmpl';
-import '../../layouts/error/index.scss';
 
 const ctx = {
     errorNumber: '404',
@@ -12,16 +10,12 @@ const ctx = {
             label: 'Назад к чатам',
             events: {
                 click: () => {
-                    console.log('click!');
+                    console.log('cli4234234ck!');
                 },
             },
         }),
     },
 };
 
-const page404 = new Block('div', {
-    ctx,
-    tmpl,
-    wrapperClass: 'error-page',
-});
+const page404 = new ErrorPageLayout({ctx});
 renderPage(page404);

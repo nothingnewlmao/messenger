@@ -1,11 +1,21 @@
 import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
+import Button from '../../components/button';
 import renderPage from '../../utils/renderPage';
 
 const ctx = {
     errorNumber: '500',
     errorText: 'Мы уже фиксим',
-    buttonText: 'Назад к чатам',
+    children: {
+        button: new Button({
+            label: 'Назад к чатам',
+            events: {
+                click: () => {
+                    console.log('click!');
+                },
+            },
+        }),
+    },
 };
 
-const page500 = new ErrorPageLayout(ctx);
-renderPage(page500);
+const page404 = new ErrorPageLayout({ctx});
+renderPage(page404);
