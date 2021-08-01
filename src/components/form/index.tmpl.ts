@@ -4,10 +4,11 @@ const tmpl: string = `
             <div 
                 data-component="inputs"
                 data-key="{{@index}}"
-                data-class="unauth-input"
                 ></div>
         {{/each}}
-        <div data-component="submitBtn"></div>
+        {{#if children.submitBtn}}
+                <div data-component="submitBtn"></div>
+        {{/if}}
     </div>
 `;
 

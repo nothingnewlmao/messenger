@@ -2,21 +2,36 @@ import inputs from '../userData';
 import './index.scss';
 import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
 import renderPage from '../../utils/renderPage';
+import Button from '../../components/button';
+import FormInput from '../../components/formInput';
+import Form from '../../components/form';
 
 const controls = [
-    {
+    new Button({
         label: 'Изменить данные',
         class: '_flat',
-    },
-    {
+    }),
+    new Button({
         label: 'Изменить пароль',
         class: '_flat',
-    },
-    {
+    }),
+    new Button({
         label: 'Выйти',
         class: '_flat _negative',
-    },
+    }),
 ];
-const ctx = {inputs, controls};
+
+const childrenInputs = inputs
+    .map(input => new FormInput({...input, class: 'profile-input'}));
+const ctx = {
+    children: {
+        form: new Form({
+            children: {
+                inputs: childrenInputs,
+            },
+        }),
+        controls,
+    },
+};
 const showProfilePage = new ProfilePageLayout(ctx);
 renderPage(showProfilePage);
