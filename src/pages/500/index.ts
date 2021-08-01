@@ -17,5 +17,5 @@ const ctx = {
     },
 };
 
-const page404 = new ErrorPageLayout({ctx});
+const page404 = new ErrorPageLayout(ctx);
 renderPage(page404);

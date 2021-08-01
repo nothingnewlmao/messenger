@@ -1,11 +1,12 @@
 import Block from '../../utils/Block';
+import ErrorPageType from './errorPageType';
 import tmpl from './index.tmpl';
 import './index.scss';
 
 export default class ErrorPageLayout extends Block {
-    constructor(props) {
+    constructor(ctx: ErrorPageType) {
         super('div', {
-            ...props,
+            ctx,
             wrapperClass: 'error-page',
             tmpl,
         });

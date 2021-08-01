@@ -1,7 +1,7 @@
 type ErrorPageType = {
     errorNumber: string,
     errorText: string,
-    buttonText: string,
+    children? : object
 };
 
 export default ErrorPageType;
