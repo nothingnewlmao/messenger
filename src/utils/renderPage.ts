@@ -1,4 +1,4 @@
-export default function renderPage(page: { element: HTMLElement }): void {
+export default function renderPage(page): void {
     const target = document.querySelector('#root');
-    target.append(page.element);
+    target.append(page.getContent());
 }
