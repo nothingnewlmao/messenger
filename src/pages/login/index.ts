@@ -1,28 +1,28 @@
 import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
 import renderPage from '../../utils/renderPage';
+import Button from '../../components/button';
+import FormInput from '../../components/formInput';
 
 const ctx = {
     formTitle: 'Вход',
-    fields: [
-        {
-            name: 'login',
-            label: 'Логин',
-        },
-        {
-            name: 'password',
-            label: 'Пароль',
-            type: 'password',
-        },
-    ],
-    submitBtn: {
-        label: 'Авторизоваться',
-    },
-    altBtn: {
-        label: 'Нет аккаунта?',
-    },
-    msg: {
-        date: new Date(),
-        content: '32432423',
+    children: {
+        fields: [
+            new FormInput({
+                name: 'login',
+                label: 'Логин',
+            }),
+            new FormInput({
+                name: 'password',
+                label: 'Пароль',
+                type: 'password',
+            }),
+        ],
+        submitBtn: new Button({
+            label: 'Авторизоваться',
+        }),
+        altBtn: new Button({
+            label: 'Нет аккаунта?',
+        }),
     },
 };
 

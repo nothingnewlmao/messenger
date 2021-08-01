@@ -1,32 +1,25 @@
 import './index.scss';
-import regInput from '../../components/formInput';
-import regButton from '../../components/button';
 
-regInput();
-regButton();
-
-const template: string = `
+const tmpl: string = `
     <div class="unauth__layout">
         <div class="unauth__card">
             <div class="unauth__title">{{ formTitle }}</div>
             <form>
                 {{#each fields}}
-                    {{> form-input class="unauth-input" }}
+                    <div
+                        data-component="fields-input" 
+                        data-component-id="{{@index}}"
+                        ></div>
                 {{/each}}
-                {{> button 
-                    label=submitBtn.label 
-                    class="_general _primary"
-                    type="submit"
-                    }}
+                <div data-component="submitBtn"></div>
             </form>        
             <div class="controls">
-                {{> button 
-                    label=altBtn.label 
-                    class="_flat" 
-                    }}      
+                {{#each controls}}
+                    <div data-component="altBtn"></div>
+                {{/each}}
             </div> 
         </div>
     </div>
 `;
 
-export default template;
+export default tmpl;

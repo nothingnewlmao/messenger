@@ -3,9 +3,11 @@ import ButtonType from '../../components/button/ButtonType';
 
 type UnauthPageType = {
     formTitle: string,
-    fields: InputType[],
-    submitBtn: ButtonType,
-    altBtn: ButtonType,
+    children?: {
+        fields?: InputType[],
+        submitBtn?: ButtonType,
+        altBtn?: ButtonType,
+    },
 };
 
 export default UnauthPageType;

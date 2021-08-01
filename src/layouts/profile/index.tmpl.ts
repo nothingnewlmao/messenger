@@ -1,9 +1,7 @@
 import regInput from '../../components/formInput';
-import regButton from '../../components/button';
 import './index.scss';
 
 regInput();
-regButton();
 
 const tmpl: string = `
     <div class="user-profile">
@@ -35,9 +33,7 @@ const tmpl: string = `
                 </div> 
                 {{#if controls}}       
                     <div class="profile__controls {{ controls_class }}">
-                        {{#each controls}}
-                            {{> button this}}
-                        {{/each}}
+                        
                     </div>
                 {{/if}}
             </div>
