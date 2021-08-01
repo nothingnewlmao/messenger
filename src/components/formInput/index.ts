@@ -5,7 +5,7 @@ import './index.scss';
 
 export default class FormInput extends Block {
     constructor(ctx: InputType) {
-        super('input', {
+        super('div', {
             tmpl,
             ctx,
         });
