@@ -80,17 +80,18 @@ export default class Block {
     }
 
     _render() {
-        this._element = this.render();
+        const {wrapperClass = ''} = this.props;
+        this._element.className = wrapperClass;
+        const block = this.render();
+        this._element.appendChild(block);
         this._renderChildren();
         this._addEventListeners();
     }
 
     render() {
-        const {wrapperClass = ''} = this.props;
         const element = document.createElement('div');
-        element.className = wrapperClass;
         element.innerHTML = this._template;
-        return wrapperClass ? element : element.firstElementChild;
+        return element.firstElementChild;
     }
 
     get _template() {
@@ -115,7 +116,13 @@ export default class Block {
         components.forEach(component => {
             const componentName = component.dataset.component;
             const child = children[componentName];
-            component.replaceWith(child.getContent());
+            const isArray = child instanceof Array;
+            if (isArray) {
+                const componentKey = component.dataset.key;
+                component.replaceWith(child[componentKey].getContent());
+            } else {
+                component.replaceWith(child.getContent());
+            }
         });
     }
 
