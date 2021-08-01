@@ -6,7 +6,7 @@ const tmpl: string = `
             {{ errorNumber }}
         </div>
         <div class="error__text">{{ errorText }}</div>
-        <a href="/login">{{ buttonText }}</a>        
+        <div data-component="button"></div>        
     </div>
 `;
 
