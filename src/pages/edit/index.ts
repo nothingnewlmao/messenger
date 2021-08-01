@@ -1,15 +1,31 @@
-import tmpl from '../../layouts/profile/index.tmpl';
-import renderTemplate from '../../utils/renderTemplate';
 import inputs from '../userData';
-import ProfilePageType from '../../layouts/profile/profilePageType';
-const renderInputs = Object.fromEntries(Object.entries({...inputs})
-    .map(([key, value]) => [key, {...value, readonly: false}]));
+import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
+import renderPage from '../../utils/renderPage';
+import Button from '../../components/button';
+import FormInput from '../../components/formInput';
+import Form from '../../components/form';
 
 const controls = [
-    {
+    new Button({
         label: 'Сохранить',
-    },
+    }),
 ];
-const renderData: ProfilePageType = {inputs: renderInputs, controls};
 
-renderTemplate(tmpl, renderData, '#root');
+const childrenInputs = inputs
+    .map(input => new FormInput({
+        ...input,
+        class: 'profile-input',
+        readonly: false,
+    }));
+const ctx = {
+    children: {
+        form: new Form({
+            children: {
+                inputs: childrenInputs,
+            },
+        }),
+        controls,
+    },
+};
+const editProfilePage = new ProfilePageLayout(ctx);
+renderPage(editProfilePage);
