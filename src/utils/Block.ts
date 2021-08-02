@@ -14,6 +14,7 @@ export default class Block {
     _meta = null;
     props;
     eventBus;
+    children = {};
 
     constructor(tagName = 'div', props = {}) {
         const eventBus = new EventBus();
@@ -52,7 +53,7 @@ export default class Block {
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidMount(oldProps) {}
+    componentDidMount() {}
 
     _componentDidUpdate(oldProps, newProps) {
         const response = this.componentDidUpdate(oldProps, newProps);
@@ -117,11 +118,20 @@ export default class Block {
             const componentName = component.dataset.component;
             const child = children[componentName];
             const isArray = child instanceof Array;
+
             if (isArray) {
+                if (!this.children[componentName]) {
+                    this.children[componentName] = [];
+                }
+
                 const componentKey = component.dataset.key;
-                component.replaceWith(child[componentKey].getContent());
+                const childTemplate = child[componentKey].getContent();
+                this.children[componentName][componentKey] = childTemplate;
+                component.replaceWith(childTemplate);
             } else {
-                component.replaceWith(child.getContent());
+                const childTemplate = child.getContent();
+                this.children[componentName] = childTemplate;
+                component.replaceWith(childTemplate);
             }
         });
     }
