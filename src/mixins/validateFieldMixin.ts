@@ -1,5 +1,5 @@
 const validateFieldMixin = {
-    validateField: event => {
+    validateField: (event: Event & { target: HTMLInputElement }) => {
         const REGEX: RegExp = /[<>\$\|\?&,]/g;
         const {target} = event;
         const {value} = target;
