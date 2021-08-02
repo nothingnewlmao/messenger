@@ -1,6 +1,6 @@
-import EventBus from './EventBus';
+import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
-import deepClone from './deepClone';
+import deepClone from '../functions/deepClone';
 
 export default class Block {
     static EVENTS = {
@@ -10,14 +10,15 @@ export default class Block {
         FLOW_RENDER: 'flow:render',
     };
 
-    _element = null;
-    _meta = null;
+    _element: HTMLElement | null = null;
+    _meta: {tagName: string, props: Object} = null;
     props;
-    eventBus;
-    children = {};
+    eventBus: any;
+    children: {[key: string]: any};
 
     constructor(tagName = 'div', props = {}) {
         const eventBus = new EventBus();
+
         this._meta = {
             tagName,
             props,
@@ -31,7 +32,7 @@ export default class Block {
         eventBus.emit(Block.EVENTS.INIT);
     }
 
-    _registerEvents(eventBus) {
+    _registerEvents(eventBus: EventBus) {
         eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
         eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
         eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
@@ -55,7 +56,7 @@ export default class Block {
 
     componentDidMount() {}
 
-    _componentDidUpdate(oldProps, newProps) {
+    _componentDidUpdate(oldProps: Object, newProps: Object) {
         const response = this.componentDidUpdate(oldProps, newProps);
         if (!response) {
             return;
@@ -64,11 +65,11 @@ export default class Block {
         this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidUpdate(oldProps, newProps) {
+    componentDidUpdate(oldProps: Object, newProps: Object) {
         return JSON.stringify(newProps) !== JSON.stringify(oldProps);
     }
 
-    setProps = nextProps => {
+    setProps = (nextProps: {[key: string]: any}) => {
         if (!nextProps) {
             return;
         }
@@ -105,8 +106,9 @@ export default class Block {
     }
 
     _renderChildren() {
+        this.children = {};
         const {children = {}} = this.props.ctx;
-        const components = this.getContent().querySelectorAll('[data-component]');
+        const components: NodeList = this.getContent().querySelectorAll('[data-component]');
 
         const noChildren = Object.keys(children).length === 0
             || components.length === 0;
@@ -114,7 +116,7 @@ export default class Block {
             return;
         }
 
-        components.forEach(component => {
+        components.forEach((component: HTMLElement) => {
             const componentName = component.dataset.component;
             const child = children[componentName];
             const isArray = child instanceof Array;
@@ -152,7 +154,7 @@ export default class Block {
         return this.element;
     }
 
-    _makePropsProxy(props) {
+    _makePropsProxy(props: any) {
         const self = this;
 
         return new Proxy(props, {
@@ -173,7 +175,7 @@ export default class Block {
         });
     }
 
-    _createDocumentElement(tagName) {
+    _createDocumentElement(tagName: string) {
         // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
         return document.createElement(tagName);
     }
