@@ -3,6 +3,7 @@ import renderPage from '../../utils/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
+import formHandler from '../../utils/formHandler';
 
 const ctx = {
     formTitle: 'Регистрация',
@@ -49,6 +50,9 @@ const ctx = {
                 ],
                 submitBtn: new Button({
                     label: 'Зарегистрироваться',
+                    events: {
+                        click: formHandler,
+                    },
                 }),
             },
         }),
