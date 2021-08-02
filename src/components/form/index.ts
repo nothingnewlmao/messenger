@@ -19,14 +19,18 @@ export default class Form extends Block {
             submitBtn,
         } = this.children;
 
-        inputs.forEach(label => {
-            const input = label.querySelector('input');
-            input.addEventListener('blur', this.validateField);
-            input.addEventListener('focus', this.validateField);
-            input.addEventListener('validate', this.validateField);
-        });
+        if (inputs) {
+            inputs.forEach(label => {
+                const input = label.querySelector('input');
+                input.addEventListener('blur', this.validateField);
+                input.addEventListener('focus', this.validateField);
+                input.addEventListener('validate', this.validateField);
+            });
+        }
 
-        submitBtn.addEventListener('click', this.emitFieldsValidate);
+        if (submitBtn) {
+            submitBtn.addEventListener('click', this.emitFieldsValidate);
+        }
     }
 
     emitFieldsValidate = event => {
