@@ -142,7 +142,11 @@ export default class Block {
         Object.keys(events).forEach(event => {
             this._element.addEventListener(event, events[event]);
         });
+
+        this.addEventListeners();
     }
+
+    addEventListeners() {}
 
     getContent() {
         return this.element;
