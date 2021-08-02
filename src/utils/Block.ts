@@ -61,7 +61,7 @@ export default class Block {
             return;
         }
 
-        this._render();
+        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
     }
 
     componentDidUpdate(oldProps, newProps) {
@@ -106,7 +106,7 @@ export default class Block {
 
     _renderChildren() {
         const {children = {}} = this.props.ctx;
-        const components = [...this.getContent().querySelectorAll('[data-component]')];
+        const components = this.getContent().querySelectorAll('[data-component]');
 
         const noChildren = Object.keys(children).length === 0
             || components.length === 0;
