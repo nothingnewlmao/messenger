@@ -4,12 +4,7 @@ import renderPage from '../../utils/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
-
-const controls = [
-    new Button({
-        label: 'Сохранить',
-    }),
-];
+import formHandler from '../../utils/formHandler';
 
 const childrenInputs = inputs
     .map(input => new FormInput({
@@ -22,9 +17,14 @@ const ctx = {
         form: new Form({
             children: {
                 inputs: childrenInputs,
+                submitBtn: new Button({
+                    label: 'Сохранить',
+                    events: {
+                        click: formHandler,
+                    },
+                }),
             },
         }),
-        controls,
     },
 };
 const editProfilePage = new ProfilePageLayout(ctx);

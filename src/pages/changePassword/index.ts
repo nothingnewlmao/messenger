@@ -1,4 +1,9 @@
+import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
+import Form from '../../components/form';
 import FormInput from '../../components/formInput';
+import Button from '../../components/button';
+import formHandler from '../../utils/formHandler';
+import renderPage from '../../utils/renderPage';
 
 const inputs = [
     {
@@ -21,31 +26,25 @@ const inputs = [
     },
 ];
 
-import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
-import renderPage from '../../utils/renderPage';
-import Button from '../../components/button';
-import Form from '../../components/form';
-
 const childrenInputs = inputs
     .map(input => new FormInput({
         ...input,
         className: 'profile-input',
     }));
 
-const controls = [
-    new Button({
-        label: 'Сохранить',
-    }),
-];
-
 const ctx = {
     children: {
         form: new Form({
             children: {
                 inputs: childrenInputs,
+                submitBtn: new Button({
+                    label: 'Сохранить',
+                    events: {
+                        click: formHandler,
+                    },
+                }),
             },
         }),
-        controls,
     },
 };
 const showProfilePage = new ProfilePageLayout(ctx);
