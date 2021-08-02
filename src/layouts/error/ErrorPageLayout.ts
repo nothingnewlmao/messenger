@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/block/Block';
 import ErrorPageType from './errorPageType';
 import tmpl from './index.tmpl';
 import './index.scss';

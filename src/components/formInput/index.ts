@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/block/Block';
 import InputType from './InputType';
 import tmpl from './index.tmpl';
 import './index.scss';

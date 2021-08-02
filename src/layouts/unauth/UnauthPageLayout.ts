@@ -1,4 +1,4 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/block/Block';
 import UnauthPageType from './unauthPageType';
 import tmpl from './index.tpml';
 
