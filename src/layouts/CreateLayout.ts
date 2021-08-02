@@ -6,7 +6,7 @@ export default class CreateLayout {
     hbsTemplate: string;
     layoutClass: string;
 
-    constructor(tmpl, ctx, layoutClass = '') {
+    constructor(tmpl: string, ctx: Object, layoutClass = '') {
         this.hbsTemplate = tmpl;
         this.ctx = ctx;
         this.layoutClass = layoutClass;
