@@ -81,8 +81,8 @@ export default class Block {
     }
 
     _render() {
-        const {wrapperClass = ''} = this.props;
-        this._element.className = wrapperClass;
+        const {className = ''} = this.props.ctx;
+        this._element.className = className;
         const block = this.render();
         this._element.appendChild(block);
         this._renderChildren();

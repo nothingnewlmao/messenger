@@ -1,11 +1,7 @@
 import './index.scss';
 
 const tmpl: string = `
-    <button 
-        class="button {{ class }}"
-        {{#if type}}
-            type="{{type}}"
-        {{/if}}
+    <div
         >
         {{#unless icon-after}}
             <div data-component="icon"></div>            
@@ -16,7 +12,7 @@ const tmpl: string = `
         {{#if icon-after}}
             <div data-component="icon"></div>            
         {{/if}}
-    </button>
+    </div>
 `;
 
 export default tmpl;

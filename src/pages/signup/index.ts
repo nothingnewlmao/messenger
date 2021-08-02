@@ -13,38 +13,38 @@ const ctx = {
                     new FormInput({
                         name: 'email',
                         label: 'Почта',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         label: 'Пароль',
                         name: 'password',
                         type: 'password',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         name: 'firstName',
                         label: 'Имя',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         name: 'secondName',
                         label: 'Фамилия',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         name: 'phone',
                         label: 'Телефон',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         name: 'password',
                         label: 'Пароль',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         name: 'submitPassword',
                         label: 'Пароль (ещё раз)',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                 ],
                 submitBtn: new Button({
@@ -54,7 +54,7 @@ const ctx = {
         }),
         altBtn: new Button({
             label: 'Войти',
-            class: '_flat',
+            className: '_flat',
         }),
     },
 };

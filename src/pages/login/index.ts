@@ -13,23 +13,24 @@ const ctx = {
                     new FormInput({
                         label: 'Логин',
                         name: 'login',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                     new FormInput({
                         label: 'Пароль',
                         name: 'password',
                         type: 'password',
-                        class: 'unauth-input',
+                        className: 'unauth-input',
                     }),
                 ],
                 submitBtn: new Button({
                     label: 'Авторизоваться',
+                    type: 'submit',
                 }),
             },
         }),
         altBtn: new Button({
             label: 'Нет аккаунта?',
-            class: '_flat',
+            className: '_flat',
         }),
     },
 };

@@ -5,7 +5,7 @@ import ButtonType from './ButtonType';
 
 export default class Button extends Block {
     constructor(ctx: ButtonType) {
-        super('div', {
+        super('button', {
             tmpl,
             ctx,
         });

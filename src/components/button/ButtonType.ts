@@ -1,10 +1,11 @@
 type ButtonType = {
-    class?: string,
+    className?: string,
     icon?: {
         id: string
     },
     label?: string,
-    events?: {}
+    events?: {},
+    type?: string
 };
 
 export default ButtonType;

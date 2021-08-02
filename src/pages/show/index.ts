@@ -9,20 +9,23 @@ import Form from '../../components/form';
 const controls = [
     new Button({
         label: 'Изменить данные',
-        class: '_flat',
+        className: '_flat',
     }),
     new Button({
         label: 'Изменить пароль',
-        class: '_flat',
+        className: '_flat',
     }),
     new Button({
         label: 'Выйти',
-        class: '_flat _negative',
+        className: '_flat _negative',
     }),
 ];
 
 const childrenInputs = inputs
-    .map(input => new FormInput({...input, class: 'profile-input'}));
+    .map(input => new FormInput({
+        ...input, 
+        className: 'profile-input',
+    }));
 const ctx = {
     children: {
         form: new Form({

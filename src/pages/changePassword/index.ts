@@ -27,7 +27,10 @@ import Button from '../../components/button';
 import Form from '../../components/form';
 
 const childrenInputs = inputs
-    .map(input => new FormInput({...input, class: 'profile-input'}));
+    .map(input => new FormInput({
+        ...input,
+        className: 'profile-input',
+    }));
 
 const controls = [
     new Button({

@@ -4,7 +4,7 @@ type InputType = {
     name? : string,
     type?: string,
     readonly?: boolean,
-    class?: string | string[]
+    className?: string | string[]
 };
 
 export default InputType;
