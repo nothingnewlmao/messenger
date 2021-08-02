@@ -1,6 +1,6 @@
 const validateFieldMixin = {
     validateField: event => {
-        const REGEX: RegExp = /[<>\$\|\?&,\.]/g;
+        const REGEX: RegExp = /[<>\$\|\?&,]/g;
         const {target} = event;
         const {value} = target;
         if (value.match(REGEX)) {
