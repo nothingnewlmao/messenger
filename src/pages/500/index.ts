@@ -1,6 +1,6 @@
 import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import Button from '../../components/button';
-import renderPage from '../../utils/renderPage';
+import renderPage from '../../utils/renderHelpers/renderPage';
 
 const ctx = {
     errorNumber: '500',

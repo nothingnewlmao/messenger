@@ -1,9 +1,9 @@
 import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
-import renderPage from '../../utils/renderPage';
+import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
-import formHandler from '../../utils/formHandler';
+import formHandler from '../../utils/eventHanlers/formHandler';
 
 const ctx = {
     formTitle: 'Вход',

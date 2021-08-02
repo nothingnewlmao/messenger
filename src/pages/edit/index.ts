@@ -1,10 +1,10 @@
 import inputs from '../userData';
 import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
-import renderPage from '../../utils/renderPage';
+import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
-import formHandler from '../../utils/formHandler';
+import formHandler from '../../utils/eventHanlers/formHandler';
 
 const childrenInputs = inputs
     .map(input => new FormInput({
