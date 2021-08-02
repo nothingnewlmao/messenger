@@ -1,14 +1,6 @@
-import regIcon from '../icon';
-
-regIcon();
-
 const tmpl: string = `
     <label class="search">
-        {{> 
-            icon
-            id="search"
-            color="#999"
-            }}
+        <div data-content="icon"></div>
         <input
             type="text"
             name="search" >

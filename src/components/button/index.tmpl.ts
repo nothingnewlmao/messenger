@@ -1,7 +1,4 @@
-import regIcon from '../icon';
 import './index.scss';
-
-regIcon();
 
 const tmpl: string = `
     <button 
@@ -11,13 +8,13 @@ const tmpl: string = `
         {{/if}}
         >
         {{#unless icon-after}}
-            {{> icon id=icon size=icon-size}}            
+            <div data-component="icon"></div>            
         {{/unless}}
         {{#if label }}
             {{ label }}
         {{/if}}
         {{#if icon-after}}
-            {{> icon id=icon size=icon-size }}            
+            <div data-component="icon"></div>            
         {{/if}}
     </button>
 `;

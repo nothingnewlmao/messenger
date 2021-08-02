@@ -1,8 +1,12 @@
-import * as Handlebars from 'handlebars';
 import tmpl from './index.tmpl';
-import 'material-icons/iconfont/material-icons.css';
+import Block from '../../utils/Block';
+import IconType from './IconType';
 
-export default function regIcon() {
-    const icon = Handlebars.compile(tmpl);
-    Handlebars.registerPartial('icon', icon);
+export default class Icon extends Block {
+    constructor(ctx: IconType) {
+        super('div', {
+            tmpl,
+            ctx,
+        });
+    }
 }
