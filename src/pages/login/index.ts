@@ -3,15 +3,7 @@ import renderPage from '../../utils/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
-import {
-    formHandlers,
-    emitInputsValidation,
-} from '../../utils/formHandlers';
-
-const submitBtnClick = event => {
-    emitInputsValidation(event);
-    formHandlers(event);
-};
+import formHandler from '../../utils/formHandler';
 
 const ctx = {
     formTitle: 'Вход',
@@ -35,7 +27,7 @@ const ctx = {
                     label: 'Авторизоваться',
                     type: 'submit',
                     events: {
-                        click: submitBtnClick,
+                        click: formHandler,
                     },
                 }),
             },

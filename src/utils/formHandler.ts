@@ -1,4 +1,4 @@
-export const formHandlers = event => {
+const inputsValidation = event => {
     event.preventDefault();
     const {target} = event;
     const form = target.closest('form');
@@ -12,7 +12,7 @@ export const formHandlers = event => {
     console.log(formJson);
 };
 
-export const emitInputsValidation = event => {
+const emitInputsValidation = event => {
     event.preventDefault();
     const validateEvent = new Event('validate');
     const {target} = event;
@@ -22,3 +22,10 @@ export const emitInputsValidation = event => {
         input.dispatchEvent(validateEvent);
     });
 };
+
+const formHandler = event => {
+    inputsValidation(event);
+    emitInputsValidation(event);
+};
+
+export default formHandler;
