@@ -1,12 +1,13 @@
 import tmpl from './index.tmpl';
-import Block from '../../utils/Block';
+import Block from '../../utils/block/Block';
+import FormType from './FormType';
 import validateFieldMixin from '../../mixins/validateFieldMixin';
 
 Object.assign(Block.prototype,
     validateFieldMixin);
 
 export default class Form extends Block {
-    constructor(ctx) {
+    constructor(ctx: FormType) {
         super('form', {
             tmpl,
             ctx,
@@ -20,7 +21,7 @@ export default class Form extends Block {
         } = this.children;
 
         if (inputs) {
-            inputs.forEach(label => {
+            inputs.forEach((label: HTMLElement): void => {
                 const input = label.querySelector('input');
                 input.addEventListener('blur', this.validateField);
                 input.addEventListener('focus', this.validateField);
@@ -33,7 +34,7 @@ export default class Form extends Block {
         }
     }
 
-    emitFieldsValidate = event => {
+    emitFieldsValidate = (event: Event) => {
         console.log(event);
     }
 }
