@@ -23,7 +23,7 @@ const controls = [
 
 const childrenInputs = inputs
     .map(input => new FormInput({
-        ...input, 
+        ...input,
         className: 'profile-input',
     }));
 const ctx = {
