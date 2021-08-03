@@ -26,7 +26,7 @@
 
 ## PR
 
-[Sprint_1](https://github.com/oduvankenobi/middle.messenger.praktikum.yandex/pull/2)
+[Sprint_2](https://github.com/oduvankenobi/middle.messenger.praktikum.yandex/pull/3)
 
 ## Описание команд
 
