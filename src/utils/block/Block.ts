@@ -17,7 +17,6 @@ export default class Block {
     children: {[key: string]: any};
 
     constructor(tagName = 'div', props = {}) {
-        const eventBus = new EventBus();
 
         this._meta = {
             tagName,
@@ -26,10 +25,10 @@ export default class Block {
 
         this.props = this._makePropsProxy(props);
 
-        this.eventBus = () => eventBus;
+        this.eventBus = new EventBus();
 
-        this._registerEvents(eventBus);
-        eventBus.emit(Block.EVENTS.INIT);
+        this._registerEvents(this.eventBus);
+        this.eventBus.emit(Block.EVENTS.INIT);
     }
 
     _registerEvents(eventBus: EventBus) {
