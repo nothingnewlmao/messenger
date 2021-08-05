@@ -10,7 +10,7 @@ export default class Block {
         FLOW_RENDER: 'flow:render',
     };
 
-    _element: HTMLElement | null = null;
+    _element?: HTMLElement;
     _meta: {tagName: string, props: Object} = null;
     props;
     eventBus: any;
