@@ -1,8 +1,5 @@
 const tmpl: string = `
-    <span
-        class="material-icons"
-        style="color: {{ color }}; font-size: {{ size }}px;"
-        >
+    <span class="material-icons icon__{{ color }}">
          {{ id }}
     </span>
 `;
