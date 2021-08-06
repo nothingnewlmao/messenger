@@ -46,12 +46,12 @@ export default class Block {
 
     init() {
         this._createResources();
-        this.eventBus().emit(Block.EVENTS.FLOW_CDM);
+        this.eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
 
     _componentDidMount() {
         this.componentDidMount();
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
     componentDidMount() {}
@@ -62,7 +62,7 @@ export default class Block {
             return;
         }
 
-        this.eventBus().emit(Block.EVENTS.FLOW_RENDER);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
     componentDidUpdate(oldProps: Object, newProps: Object) {
