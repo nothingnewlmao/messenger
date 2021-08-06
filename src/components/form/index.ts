@@ -34,7 +34,5 @@ export default class Form extends Block {
         }
     }
 
-    emitFieldsValidate = (event: Event) => {
-        console.log(event);
-    }
+    emitFieldsValidate = (event: Event) => {}
 }

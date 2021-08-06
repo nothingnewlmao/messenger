@@ -8,11 +8,6 @@ const ctx = {
     children: {
         button: new Button({
             label: 'Назад к чатам',
-            events: {
-                click: () => {
-                    console.log('cli4234234ck!');
-                },
-            },
         }),
     },
 };
