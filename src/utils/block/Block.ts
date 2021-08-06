@@ -1,6 +1,7 @@
 import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
 import deepClone from '../functions/deepClone';
+import ObjectType from '../../types/ObjectType';
 
 export default class Block {
     static EVENTS = {
@@ -11,7 +12,7 @@ export default class Block {
     };
 
     _element?: HTMLElement;
-    _meta: {tagName: string, props: Object} = null;
+    _meta: {tagName: string, props: ObjectType} = null;
     props;
     eventBus: any;
     children: {[key: string]: any};
@@ -55,7 +56,7 @@ export default class Block {
 
     componentDidMount() {}
 
-    _componentDidUpdate(oldProps: Object, newProps: Object) {
+    _componentDidUpdate(oldProps: ObjectType, newProps: ObjectType) {
         const response = this.componentDidUpdate(oldProps, newProps);
         if (!response) {
             return;

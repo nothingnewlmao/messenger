@@ -5,7 +5,7 @@ type ButtonType = {
     },
     label?: string,
     events?: {},
-    type?: string
+    type?: string,
 };
 
 export default ButtonType;

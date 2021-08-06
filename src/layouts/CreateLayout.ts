@@ -1,4 +1,5 @@
 import * as Handlebars from 'handlebars';
+import ObjectType from '../types/ObjectType';
 
 export default class CreateLayout {
     ctx;
@@ -6,7 +7,7 @@ export default class CreateLayout {
     hbsTemplate: string;
     layoutClass: string;
 
-    constructor(tmpl: string, ctx: Object, layoutClass = '') {
+    constructor(tmpl: string, ctx: ObjectType, layoutClass = '') {
         this.hbsTemplate = tmpl;
         this.ctx = ctx;
         this.layoutClass = layoutClass;

@@ -1,7 +1,9 @@
+import ObjectType from '../../types/ObjectType';
+
 type FormType = {
     children: {
-        inputs?: Object[],
-        submitBtn?: Object,
+        inputs?: ObjectType[],
+        submitBtn?: ObjectType,
     }
 };
 
