@@ -14,6 +14,9 @@ const ctx = {
                         label: 'Логин',
                         name: 'login',
                         className: 'unauth-input',
+                        validation: [
+                            'requiredField',
+                        ],
                     }),
                     new FormInput({
                         label: 'Пароль',

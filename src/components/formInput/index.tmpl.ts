@@ -14,7 +14,12 @@ const tmpl: string = `
             {{/if}}
             {{#if readonly}}
                 readonly
-            {{/if}}>               
+            {{/if}}>
+        {{#if error}}
+            <span class="error-text">
+                {{ error }}
+            </span>
+        {{/if}}                       
     </label> 
 `;
 

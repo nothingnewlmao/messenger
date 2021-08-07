@@ -14,15 +14,6 @@ label {
       outline: none;
     }
   }
-
-  &._error {
-    color: $negative-color !important;
-
-    input {
-      color: $negative-color;
-      border-color: $negative-color !important;
-    }
-  }
 }
 
 .unauth-input {
@@ -71,5 +62,16 @@ label {
 
   &:last-child {
     border-bottom: none;
+  }
+}
+
+._error {
+  label{
+    color: $negative-color !important;
+  }
+
+  input {
+    color: $negative-color;
+    border-color: $negative-color !important;
   }
 }
