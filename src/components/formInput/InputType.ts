@@ -4,7 +4,7 @@ type InputType = {
     name? : string,
     type?: string,
     readonly?: boolean,
-    className?: string | string[],
+    className?: string,
     validation?: string[],
 };
 

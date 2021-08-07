@@ -54,7 +54,7 @@ const ctx = {
         }),
         altBtn: new Button({
             label: 'Войти',
-            className: '_flat',
+            className: '_flat ',
         }),
     },
 };

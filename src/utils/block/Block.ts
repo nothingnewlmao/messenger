@@ -25,6 +25,7 @@ export default class Block {
         };
 
         this.props = this._makePropsProxy(props);
+
         const {tmpl} = this.props;
         this._template = Handlebars.compile(tmpl);
 
@@ -88,6 +89,7 @@ export default class Block {
 
         const {className = ''} = this.props.ctx;
         this._element.className = className;
+
         const block = this.render();
 
         const hasContent = this._element.firstElementChild !== null;
@@ -148,11 +150,7 @@ export default class Block {
         Object.keys(events).forEach(event => {
             this._element.addEventListener(event, events[event]);
         });
-
-        this.addEventListeners();
     }
-
-    addEventListeners() {}
 
     getContent() {
         return this.element;
