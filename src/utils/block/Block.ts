@@ -45,15 +45,16 @@ export default class Block {
 
     init() {
         this._createResources();
-        this.eventBus.emit(Block.EVENTS.FLOW_CDM);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
     _componentDidMount() {
         this.componentDidMount();
-        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidMount() {}
+    componentDidMount() {
+        this._addEventListeners();
+    }
 
     _componentDidUpdate(oldProps: ObjectType, newProps: ObjectType) {
         const response = this.componentDidUpdate(oldProps, newProps);
@@ -93,7 +94,7 @@ export default class Block {
         }
 
         this._renderChildren();
-        this._addEventListeners();
+        this.eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
 
     render() {
