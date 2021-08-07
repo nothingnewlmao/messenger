@@ -166,7 +166,7 @@ export default class Block {
                 const oldTarget = deepClone(target);
                 target[prop] = value;
 
-                self.eventBus().emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
+                self.eventBus.emit(Block.EVENTS.FLOW_CDU, oldTarget, target);
                 return true;
             },
             deleteProperty() {
