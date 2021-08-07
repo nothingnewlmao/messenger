@@ -3,7 +3,7 @@ import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
-import formHandler from '../../utils/eventHanlers/formHandler';
+// import formHandler from '../../utils/eventHanlers/formHandler';
 
 const ctx = {
     formTitle: 'Вход',
@@ -27,17 +27,18 @@ const ctx = {
                     label: 'Авторизоваться',
                     type: 'submit',
                     events: {
-                        click: formHandler,
+                        // click: formHandler,
                     },
                 }),
             },
         }),
-        altBtn: new Button({
-            label: 'Нет аккаунта?',
-            className: '_flat',
-        }),
+        // altBtn: new Button({
+        //     label: 'Нет аккаунта?',
+        //     className: '_flat',
+        // }),
     },
 };
 
 const loginPage = new UnauthPageLayout(ctx);
+console.log(loginPage);
 renderPage(loginPage);
