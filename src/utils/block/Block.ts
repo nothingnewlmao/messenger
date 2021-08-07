@@ -16,6 +16,7 @@ export default class Block {
     props;
     eventBus: any;
     children: {[key: string]: any};
+    _template: HandlebarsTemplateDelegate<string>;
 
     constructor(tagName = 'div', props = {}) {
         this._meta = {
@@ -24,9 +25,10 @@ export default class Block {
         };
 
         this.props = this._makePropsProxy(props);
+        const {tmpl} = this.props;
+        this._template = Handlebars.compile(tmpl);
 
         this.eventBus = new EventBus();
-
         this._registerEvents(this.eventBus);
         this.eventBus.emit(Block.EVENTS.INIT);
     }
@@ -101,17 +103,9 @@ export default class Block {
 
     render() {
         const element = document.createElement('div');
-        element.innerHTML = this._template;
+        const {ctx} = this.props;
+        element.innerHTML = this._template(ctx);
         return element.firstElementChild;
-    }
-
-    get _template() {
-        const {
-            tmpl = '',
-            ctx = {},
-        } = this.props;
-        const _template = Handlebars.compile(tmpl);
-        return _template(ctx);
     }
 
     _renderChildren() {
