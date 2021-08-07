@@ -1,9 +1,9 @@
-import ObjectType from '../../types/ObjectType';
+import ObjectLiteral from '../../types/ObjectLiteral';
 
 type FormType = {
     children: {
-        inputs?: ObjectType[],
-        submitBtn?: ObjectType,
+        inputs?: ObjectLiteral[],
+        submitBtn?: ObjectLiteral,
     }
 };
 

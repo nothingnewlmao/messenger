@@ -1,7 +1,7 @@
 import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
 import deepClone from '../functions/deepClone';
-import ObjectType from '../../types/ObjectType';
+import ObjectLiteral from '../../types/ObjectLiteral';
 
 export default class Block {
     static EVENTS = {
@@ -12,7 +12,7 @@ export default class Block {
     };
 
     _element?: HTMLElement;
-    _meta: {tagName: string, props: ObjectType} = null;
+    _meta: {tagName: string, props: ObjectLiteral} = null;
     props;
     eventBus: any;
     children: {[key: string]: any};
@@ -59,7 +59,7 @@ export default class Block {
         this._addEventListeners();
     }
 
-    _componentDidUpdate(oldProps: ObjectType, newProps: ObjectType) {
+    _componentDidUpdate(oldProps: ObjectLiteral, newProps: ObjectLiteral) {
         const response = this.componentDidUpdate(oldProps, newProps);
         if (!response) {
             return;
@@ -68,11 +68,11 @@ export default class Block {
         this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidUpdate(oldProps: ObjectType, newProps: ObjectType) {
+    componentDidUpdate(oldProps: ObjectLiteral, newProps: ObjectLiteral) {
         return JSON.stringify(newProps) !== JSON.stringify(oldProps);
     }
 
-    setProps = (nextProps: ObjectType) => {
+    setProps = (nextProps: ObjectLiteral) => {
         if (!nextProps) {
             return;
         }
