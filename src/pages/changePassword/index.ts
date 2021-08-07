@@ -2,7 +2,6 @@ import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
 import Form from '../../components/form';
 import FormInput from '../../components/formInput';
 import Button from '../../components/button';
-import formHandler from '../../utils/eventHanlers/formHandler';
 import renderPage from '../../utils/renderHelpers/renderPage';
 
 const inputs = [
@@ -39,9 +38,6 @@ const ctx = {
                 inputs: childrenInputs,
                 submitBtn: new Button({
                     label: 'Сохранить',
-                    events: {
-                        click: formHandler,
-                    },
                 }),
             },
         }),

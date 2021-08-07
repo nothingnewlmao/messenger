@@ -4,7 +4,6 @@ import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
-import formHandler from '../../utils/eventHanlers/formHandler';
 
 const childrenInputs = inputs
     .map(input => new FormInput({
@@ -19,9 +18,6 @@ const ctx = {
                 inputs: childrenInputs,
                 submitBtn: new Button({
                     label: 'Сохранить',
-                    events: {
-                        click: formHandler,
-                    },
                 }),
             },
         }),
