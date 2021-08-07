@@ -4,10 +4,11 @@ import tmpl from './index.tmpl';
 import './index.scss';
 
 export default class FormInput extends Block {
-    constructor(ctx: InputType) {
+    constructor(ctx: InputType, events = {}) {
         super('div', {
             tmpl,
             ctx,
+            events,
         });
     }
 }

@@ -2,7 +2,6 @@ import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
 import deepClone from '../functions/deepClone';
 import ObjectType from '../../types/ObjectType';
-import {log} from 'handlebars';
 
 export default class Block {
     static EVENTS = {
@@ -147,7 +146,7 @@ export default class Block {
     }
 
     _addEventListeners() {
-        const {events = {}} = this.props.ctx;
+        const {events = {}} = this.props;
 
         Object.keys(events).forEach(event => {
             this._element.addEventListener(event, events[event]);
