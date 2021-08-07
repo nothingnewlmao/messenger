@@ -1,10 +1,12 @@
+import ObjectType from '../../types/ObjectType';
+
 type ButtonType = {
     className?: string,
     icon?: {
         id: string
     },
     label?: string,
-    events?: {},
+    events?: ObjectType,
     type?: string,
 };
 

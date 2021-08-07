@@ -65,11 +65,11 @@ export default class Block {
         this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
-    componentDidUpdate(oldProps: Object, newProps: Object) {
+    componentDidUpdate(oldProps: ObjectType, newProps: ObjectType) {
         return JSON.stringify(newProps) !== JSON.stringify(oldProps);
     }
 
-    setProps = (nextProps: {[key: string]: any}) => {
+    setProps = (nextProps: ObjectType) => {
         if (!nextProps) {
             return;
         }
