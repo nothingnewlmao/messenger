@@ -2,6 +2,7 @@ import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
 import deepClone from '../functions/deepClone';
 import ObjectType from '../../types/ObjectType';
+import {log} from 'handlebars';
 
 export default class Block {
     static EVENTS = {
@@ -18,7 +19,6 @@ export default class Block {
     children: {[key: string]: any};
 
     constructor(tagName = 'div', props = {}) {
-
         this._meta = {
             tagName,
             props,
@@ -85,7 +85,14 @@ export default class Block {
         const {className = ''} = this.props.ctx;
         this._element.className = className;
         const block = this.render();
-        this._element.appendChild(block);
+
+        const hasContent = this._element.firstElementChild !== null;
+        if (hasContent) {
+            this._element.firstElementChild.replaceWith(block);
+        } else {
+            this._element.appendChild(block);
+        }
+
         this._renderChildren();
         this._addEventListeners();
     }
@@ -108,7 +115,8 @@ export default class Block {
     _renderChildren() {
         this.children = {};
         const {children = {}} = this.props.ctx;
-        const components: NodeList = this.getContent().querySelectorAll('[data-component]');
+        const components: NodeList = this.getContent()
+            .querySelectorAll('[data-component]');
 
         const noChildren = Object.keys(children).length === 0
             || components.length === 0;
@@ -186,5 +194,9 @@ export default class Block {
 
     hide() {
         this.getContent().style.display = 'none';
+    }
+
+    remove() {
+        this._element.remove();
     }
 }
