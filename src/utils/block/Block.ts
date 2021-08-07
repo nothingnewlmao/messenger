@@ -73,6 +73,7 @@ export default class Block {
     }
 
     setProps = (nextProps: ObjectLiteral) => {
+        debugger;
         if (!nextProps) {
             return;
         }
