@@ -82,6 +82,8 @@ export default class Block {
     }
 
     _render() {
+        this.removeEventListeners();
+
         const {className = ''} = this.props.ctx;
         this._element.className = className;
         const block = this.render();
@@ -196,7 +198,24 @@ export default class Block {
         this.getContent().style.display = 'none';
     }
 
+    removeEventListeners() {
+        const {events = {}} = this.props;
+
+        Object.keys(events).forEach(event => {
+            this._element.removeEventListener(event, events[event]);
+        });
+    }
+
     remove() {
         this._element.remove();
+    }
+
+    destroy() {
+        this.removeEventListeners();
+        this.remove();
+        this.children = {};
+        this.props = null;
+        this._meta = null;
+        this._element = null;
     }
 }
