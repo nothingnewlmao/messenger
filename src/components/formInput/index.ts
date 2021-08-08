@@ -13,31 +13,31 @@ export default class FormInput extends Block {
         EMPTY_FIELD: 'Не заполнено обязательное поле',
     }
 
-    requiredField = (event: Event & { target: Element }) => {
+    requiredField = (event: Event & { target: Element & { value: string } }) => {
         const REGEXP = /^.+$/g;
         const {value} = event.target;
         this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.EMPTY_FIELD);
     }
 
-    loginCheck = (event: Event & { target: Element }) => {
+    loginCheck = (event: Event & { target: Element & { value: string } }) => {
         const REGEXP = /^[\w\d]*$/ig;
         const {value} = event.target;
         this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.WRONG_SYMBOLS);
     }
 
-    phoneCheck = (event: Event & { target: Element }) => {
+    phoneCheck = (event: Event & { target: Element & { value: string } }) => {
         const regexp = /^(\+7|7)[0-9]{10}$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_PHONE);
     }
 
-    emailCheck = (event: Event & { target: Element }) => {
+    emailCheck = (event: Event & { target: Element & { value: string } }) => {
         const regexp = /^[\w\d.-]*@[\w\d.-]*$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
     }
 
-    onlyLetters = (event: Event & { target: Element }) => {
+    onlyLetters = (event: Event & { target: Element & { value: string } }) => {
         const regexp = /^\w+$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
@@ -69,7 +69,7 @@ export default class FormInput extends Block {
         });
     }
 
-    checkVal(value: string|number, regex: RegExp, error: string) {
+    checkVal(value: string, regex: RegExp, error: string) {
         const hasError = !value.match(regex);
         if (hasError) {
             const newProps = {
