@@ -55,9 +55,7 @@ export default class Block {
         this.componentDidMount();
     }
 
-    componentDidMount() {
-        this._addEventListeners();
-    }
+    componentDidMount() {}
 
     _componentDidUpdate(oldProps: ObjectLiteral, newProps: ObjectLiteral) {
         const response = this.componentDidUpdate(oldProps, newProps);
@@ -148,12 +146,10 @@ export default class Block {
         const {events = {}} = this.props;
 
         Object.keys(events).forEach(event => {
-            this._element.addEventListener(event, events[event]);
+            const handler = events[event];
+            this._element.addEventListener(event, handler);
         });
-        this.addEventListeners();
     }
-
-    addEventListeners() {}
 
     getContent() {
         return this.element;

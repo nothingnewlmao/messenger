@@ -19,33 +19,55 @@ export default class FormInput extends Block {
             ctx,
             events,
         });
+
         this.addEventListeners();
     }
 
     addEventListeners() {
-        const input = this.getContent().querySelector('input');
-        const {validation = null} = this.props.ctx;
-        if (!validation) {
-            return;
-        }
+        const {events = {}} = this.props;
 
-        validation.forEach((method: string) => {
-            input.addEventListener('focus', this[method]);
-            input.addEventListener('blur', this[method]);
-            input.addEventListener('form-submitted', this[method]);
+        Object.keys(events).forEach(event => {
+            const handler = events[event];
+            const blockHandlers = handler instanceof Array;
+            const target = this._element.querySelector('input');
+            if (blockHandlers) {
+                handler.forEach((callback: string) => {
+                    target.addEventListener(event, this[callback]);
+                });
+            } else {
+                target.addEventListener(event, handler);
+            }
         });
     }
 
-    loginCheck = event => {
-        const REGEXP: RegExp = /^[\w\d]*$/ig;
+    requiredField = (event: Event & { target: Element }) => {
+        const REGEXP = /^.+$/g;
+        const {value} = event.target;
+        this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.EMPTY_FIELD);
+    }
+
+    loginCheck = (event: Event & { target: Element }) => {
+        const REGEXP = /^[\w\d]*$/ig;
         const {value} = event.target;
         this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.WRONG_SYMBOLS);
     }
 
-    requiredField = event => {
+    phoneCheck = (event: Event & { target: Element }) => {
+        const regexp = /^(\+7|7)[0-9]{10}$/;
         const {value} = event.target;
-        const REGEXP: RegExp = /^.+$/g;
-        this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.EMPTY_FIELD);
+        this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_PHONE);
+    }
+
+    emailCheck = (event: Event & { target: Element }) => {
+        const regexp = /^[\w\d.-]*@[\w\d.-]*$/;
+        const {value} = event.target;
+        this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
+    }
+
+    onlyLetters = (event: Event & { target: Element }) => {
+        const regexp = /^\w+$/;
+        const {value} = event.target;
+        this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
     }
 
     checkVal(value: string|number, regex: RegExp, error: string) {
@@ -57,6 +79,7 @@ export default class FormInput extends Block {
                     value,
                     error,
                 },
+                events: {...this.props.events},
             };
             this.setProps(newProps);
         } else {
@@ -71,6 +94,7 @@ export default class FormInput extends Block {
                 value,
                 error: '',
             },
+            events: {...this.props.events},
         };
         this.setProps(newProps);
     }

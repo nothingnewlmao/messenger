@@ -14,9 +14,8 @@ const ctx = {
                         label: 'Логин',
                         name: 'login',
                         className: 'unauth-input',
-                        validation: [
-                            'requiredField',
-                        ],
+                    }, {
+                        blur: ['requiredField', 'loginCheck'],
                     }),
                     new FormInput({
                         label: 'Пароль',
@@ -28,6 +27,10 @@ const ctx = {
                 submitBtn: new Button({
                     label: 'Авторизоваться',
                     type: 'submit',
+                }, {
+                    click: (event) => {
+                        event.preventDefault();
+                    },
                 }),
             },
         }),
