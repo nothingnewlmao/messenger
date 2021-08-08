@@ -3,7 +3,6 @@ import InputType from './InputType';
 import tmpl from './index.tmpl';
 import './index.scss';
 import ObjectLiteral from '../../types/ObjectLiteral';
-import deepClone from '../../utils/functions/deepClone';
 
 export default class FormInput extends Block {
     static ERROR_TEXTS = {
@@ -24,7 +23,6 @@ export default class FormInput extends Block {
     }
 
     addEventListeners() {
-        debugger;
         const input = this.getContent().querySelector('input');
         const {validation = null} = this.props.ctx;
         if (!validation) {
