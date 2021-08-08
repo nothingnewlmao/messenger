@@ -5,7 +5,7 @@ import FormInput from '../formInput';
 import ObjectLiteral from '../../types/ObjectLiteral';
 
 export default class Form extends Block {
-    emitSubmitEvent = (event: Event & { target: Element }) => {
+    emitSubmitEvent = (event: Event) => {
         event.preventDefault();
         const {inputs} = this.props.ctx.children;
         inputs.forEach((label: FormInput) => {
@@ -15,7 +15,7 @@ export default class Form extends Block {
         });
     }
 
-    collectFields = (event: Event & { target: Element }) => {
+    collectFields = (event: Event) => {
         event.preventDefault();
         const {inputs} = this.children;
         const requestJson = inputs.reduce((json: ObjectLiteral, label: Element) => {
