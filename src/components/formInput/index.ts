@@ -13,33 +13,6 @@ export default class FormInput extends Block {
         EMPTY_FIELD: 'Не заполнено обязательное поле',
     }
 
-    constructor(ctx: InputType, events?: ObjectLiteral) {
-        super('div', {
-            tmpl,
-            ctx,
-            events,
-        });
-
-        this.addEventListeners();
-    }
-
-    addEventListeners() {
-        const {events = {}} = this.props;
-
-        Object.keys(events).forEach(event => {
-            const handler = events[event];
-            const blockHandlers = handler instanceof Array;
-            const target = this._element.querySelector('input');
-            if (blockHandlers) {
-                handler.forEach((callback: string) => {
-                    target.addEventListener(event, this[callback]);
-                });
-            } else {
-                target.addEventListener(event, handler);
-            }
-        });
-    }
-
     requiredField = (event: Event & { target: Element }) => {
         const REGEXP = /^.+$/g;
         const {value} = event.target;
@@ -68,6 +41,32 @@ export default class FormInput extends Block {
         const regexp = /^\w+$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
+    }
+
+    constructor(ctx: InputType, events?: ObjectLiteral) {
+        super('div', {
+            tmpl,
+            ctx,
+            events,
+        });
+        this.addEventListeners();
+    }
+
+    addEventListeners() {
+        const {events = {}} = this.props;
+
+        Object.keys(events).forEach(event => {
+            const handler = events[event];
+            const blockHandlers = handler instanceof Array;
+            const target = this._element.querySelector('input');
+            if (blockHandlers) {
+                handler.forEach((callback: string) => {
+                    target.addEventListener(event, this[callback]);
+                });
+            } else {
+                target.addEventListener(event, handler);
+            }
+        });
     }
 
     checkVal(value: string|number, regex: RegExp, error: string) {

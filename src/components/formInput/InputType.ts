@@ -5,7 +5,6 @@ type InputType = {
     type?: string,
     readonly?: boolean,
     className?: string,
-    validation?: string[],
     error?: string,
 };
 
