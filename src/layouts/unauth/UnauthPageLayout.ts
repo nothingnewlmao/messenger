@@ -5,7 +5,10 @@ import tmpl from './index.tpml';
 export default class UnauthPageLayout extends Block {
     constructor(ctx: UnauthPageType) {
         super('div', {
-            ctx,
+            ctx: {
+                ...ctx,
+                className: 'unauth',
+            },
             tmpl,
         });
     }

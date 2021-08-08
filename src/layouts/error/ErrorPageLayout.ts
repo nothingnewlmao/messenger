@@ -6,8 +6,10 @@ import './index.scss';
 export default class ErrorPageLayout extends Block {
     constructor(ctx: ErrorPageType) {
         super('div', {
-            ctx,
-            wrapperClass: 'error-page',
+            ctx: {
+                ...ctx,
+                className: 'error-page',
+            },
             tmpl,
         });
     }

@@ -5,7 +5,10 @@ import tmpl from './index.tmpl';
 export default class ProfilePageLayout extends Block {
     constructor(ctx: ProfilePageType) {
         super('div', {
-            ctx,
+            ctx: {
+                ...ctx,
+                className: 'user-profile',
+            },
             tmpl,
         });
     }
