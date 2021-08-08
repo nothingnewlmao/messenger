@@ -72,7 +72,6 @@ export default class FormInput extends Block {
     checkVal(value: string|number, regex: RegExp, error: string) {
         const hasError = !value.match(regex);
         if (hasError) {
-            console.log('im in');
             const newProps = {
                 ctx: {
                     ...this.props.ctx,
