@@ -1,0 +1,100 @@
+@import '../../styles/colors';
+
+.chat {
+  &-page,
+  &__layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+
+  &__header {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    margin-right: 10px;
+    background-color: $fill-space-color;
+    height: 35px;
+    width: 35px;
+  }
+
+  &__name {
+    font-weight: bold;
+  }
+
+  &__menu {}
+
+  &__content {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__create {
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+aside {
+  width: 30%;
+  background-color: $aside-color;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 10px;
+
+  .aside {
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__chat-list {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__stub {
+      text-align: center;
+    }
+  }
+}
+
+main {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-message {
+  flex-grow: 1;
+  margin: 0 10px;
+
+  input {
+    background-color: $fill-space-color;
+    color: $hover-color;
+    display: block;
+    height: 30px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+  }
+}

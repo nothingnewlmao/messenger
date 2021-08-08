@@ -25,6 +25,7 @@ const ctx = {
         }),
         newMessageInput: new FormInput({
             name: 'newMessage',
+            className: 'new-message',
         }),
         sendMessage: new Button({
             className: '_round',

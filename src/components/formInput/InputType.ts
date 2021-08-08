@@ -1,5 +1,5 @@
 type InputType = {
-    label: string,
+    label?: string,
     value?: string | number | boolean,
     name? : string,
     type?: string,
