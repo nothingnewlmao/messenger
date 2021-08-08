@@ -10,6 +10,15 @@ const childrenInputs = inputs
         ...input,
         className: 'profile-input',
         readonly: false,
+    }, {
+        blur: [
+            'loginCheck',
+            'requiredField',
+        ],
+        'form-submitted': [
+            'loginCheck',
+            'requiredField',
+        ],
     }));
 const ctx = {
     children: {
@@ -20,6 +29,11 @@ const ctx = {
                     label: 'Сохранить',
                 }),
             },
+        }, {
+            click: [
+                'emitSubmitEvent',
+                'collectFields',
+            ],
         }),
     },
 };
