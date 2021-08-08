@@ -49,8 +49,13 @@ export default class FormInput extends Block {
     checkVal(value: string|number, regex: RegExp, error: string) {
         const hasError = !value.match(regex);
         if (hasError) {
-            const newProps = {...this.props.ctx, value, error};
-            // console.log(this.props.ctx);
+            const newProps = {
+                ctx: {
+                    ...this.props.ctx,
+                    value,
+                    error,
+                },
+            };
             this.setProps(newProps);
         } else {
             this.removeError(value);
@@ -60,6 +65,7 @@ export default class FormInput extends Block {
     removeError(value?: string|Number) {
         const newProps = {
             ctx: {
+                ...this.props.ctx,
                 value,
                 error: '',
             },
