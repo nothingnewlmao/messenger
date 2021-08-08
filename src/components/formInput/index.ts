@@ -31,6 +31,8 @@ export default class FormInput extends Block {
 
         validation.forEach((method: string) => {
             input.addEventListener('focus', this[method]);
+            input.addEventListener('blur', this[method]);
+            input.addEventListener('form-submitted', this[method]);
         });
     }
 
