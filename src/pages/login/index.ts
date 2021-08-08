@@ -41,12 +41,13 @@ const ctx = {
                 submitBtn: new Button({
                     label: 'Авторизоваться',
                     type: 'submit',
-                }, {
-                    click: (event) => {
-                        event.preventDefault();
-                    },
                 }),
             },
+        }, {
+            click: [
+                'emitSubmitEvent',
+                'collectFields',
+            ],
         }),
     },
 };
