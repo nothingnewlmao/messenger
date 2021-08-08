@@ -15,13 +15,27 @@ const ctx = {
                         name: 'login',
                         className: 'unauth-input',
                     }, {
-                        blur: ['requiredField', 'loginCheck'],
+                        blur: [
+                            'loginCheck',
+                            'requiredField',
+                        ],
+                        'form-submitted': [
+                            'loginCheck',
+                            'requiredField',
+                        ],
                     }),
                     new FormInput({
                         label: 'Пароль',
                         name: 'password',
                         type: 'password',
                         className: 'unauth-input',
+                    }, {
+                        blur: [
+                            'requiredField',
+                        ],
+                        'form-submitted': [
+                            'requiredField',
+                        ],
                     }),
                 ],
                 submitBtn: new Button({
