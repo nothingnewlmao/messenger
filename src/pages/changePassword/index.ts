@@ -29,6 +29,9 @@ const childrenInputs = inputs
     .map(input => new FormInput({
         ...input,
         className: 'profile-input',
+    }, {
+        blur: ['requiredField'],
+        'form-submitted': ['requiredField'],
     }));
 
 const ctx = {
@@ -40,6 +43,11 @@ const ctx = {
                     label: 'Сохранить',
                 }),
             },
+        }, {
+            click: [
+                'emitSubmitEvent',
+                'collectFields',
+            ],
         }),
     },
 };

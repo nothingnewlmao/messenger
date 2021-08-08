@@ -30,12 +30,8 @@ const ctx = {
                         type: 'password',
                         className: 'unauth-input',
                     }, {
-                        blur: [
-                            'requiredField',
-                        ],
-                        'form-submitted': [
-                            'requiredField',
-                        ],
+                        blur: ['requiredField'],
+                        'form-submitted': ['requiredField'],
                     }),
                 ],
                 submitBtn: new Button({
