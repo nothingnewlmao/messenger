@@ -40,7 +40,7 @@ export default class FormInput extends Block {
     onlyLetters = (event: Event & { target: Element & { value: string } }) => {
         const regexp = /^\w+$/;
         const {value} = event.target;
-        this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
+        this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_SYMBOLS);
     }
 
     constructor(ctx: InputType, events?: ObjectLiteral) {

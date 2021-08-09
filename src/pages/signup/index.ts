@@ -16,12 +16,12 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
+                            'emailCheck',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
+                            'emailCheck',
                         ],
                     }),
                     new FormInput({
@@ -31,12 +31,12 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
+                            'loginCheck',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
+                            'loginCheck',
                         ],
                     }),
                     new FormInput({
@@ -45,12 +45,12 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
+                            'onlyLetters',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
+                            'onlyLetters',
                         ],
                     }),
                     new FormInput({
@@ -59,12 +59,12 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
+                            'onlyLetters',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
+                            'onlyLetters',
                         ],
                     }),
                     new FormInput({
@@ -73,12 +73,12 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
+                            'phoneCheck',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
+                            'phoneCheck',
                         ],
                     }),
                     new FormInput({
@@ -87,11 +87,9 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
                         ],
                     }),
@@ -101,11 +99,9 @@ const ctx = {
                         className: 'unauth-input',
                     }, {
                         blur: [
-                            'loginCheck',
                             'requiredField',
                         ],
                         'form-submitted': [
-                            'loginCheck',
                             'requiredField',
                         ],
                     }),
