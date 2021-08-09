@@ -1,0 +1,11 @@
+{
+  "extends": "xo",
+  "rules": {
+    "no-unused-vars": 2,
+    "max-len": [1, 100],
+    "max-params": [2, 3],
+    "indent": [2, 4]
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"]
+}

@@ -3,6 +3,8 @@
 
 .unauth {
   font-family: "Inter", sans-serif;
+  width: 100%;
+  height: 100%;
 
   &__title {
     font-size: 20px;
@@ -30,36 +32,7 @@
 }
 
 button {
-  border: none;
-  padding: 12px;
-  font-size: 13px;
-  font-weight: 300;
-  cursor: pointer;
-  transition: 0.3s all ease;
-
-  ._general {
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-  }
-
-  ._primary {
-    background-color: $primary-color;
-    color: $white-color;
-
-    &:hover {
-      background-color: $hover-color;
-    }
-  }
-
-  ._flat {
-    background-color: transparent;
-    color: $primary-color;
-
-    &:hover {
-      color: $hover-color;
-    }
-  }
+  width: 100%;
 }
 
 form {

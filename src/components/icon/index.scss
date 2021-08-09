@@ -1,0 +1,23 @@
+@import '../../styles/colors';
+
+.icon {
+  .-negative {
+    color: $negative-color;
+  }
+
+  .-primary {
+    color: $primary-color;
+  }
+
+  .-secondary {
+    color: $secondary-color;
+  }
+
+  .ordinary-text {
+    color: $ordinary-text-color;
+  }
+
+  .-secondary-text {
+    color: $secondary-text-color;
+  }
+}

@@ -11,19 +11,22 @@ button,
   color: $white-color;
   cursor: pointer;
   transition: all 0.3s ease;
+  line-height: 1;
 
   &:hover {
     background-color: $hover-color;
   }
 
   &._primary {
-    color: $primary-color;
+    background-color: $primary-color;
   }
+
   &._secondary {
-    color: $secondary-color;
+    background-color: $secondary-color;
   }
+
   &._negative {
-    color: $negative-color;
+    background-color: $negative-color;
   }
 
   &._flat {
@@ -37,9 +40,11 @@ button,
     &._primary {
       color: $primary-color;
     }
+
     &._secondary {
       color: $secondary-color;
     }
+
     &._negative {
       color: $negative-color;
     }
