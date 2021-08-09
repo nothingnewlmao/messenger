@@ -119,6 +119,10 @@ const ctx = {
         altBtn: new Button({
             label: 'Войти',
             className: '_flat ',
+        }, {
+            click: () => {
+                window.location = '/login/index.html';
+            },
         }),
     },
 };

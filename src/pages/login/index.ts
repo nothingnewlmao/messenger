@@ -45,6 +45,14 @@ const ctx = {
                 'collectFields',
             ],
         }),
+        altBtn: new Button({
+            label: 'Зарегистрироваться',
+            className: '_flat',
+        }, {
+            click: () => {
+                window.location = '/signup/index.html';
+            },
+        }),
     },
 };
 
