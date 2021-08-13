@@ -9,7 +9,7 @@
     "lint:ts": "eslint .",
     "lint:css": "stylelint **/*.css **/*.scss",
     "lint": "run-p -l lint:**",
-    "start": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../ && npm run server",
+    "start": "npm run build && npm run server",
     "build": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "server": "node app.js"
   },
