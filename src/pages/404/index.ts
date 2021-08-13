@@ -13,4 +13,4 @@ const ctx = {
 };
 
 const page404 = new ErrorPageLayout(ctx);
-renderPage(page404);
+export default page404;
