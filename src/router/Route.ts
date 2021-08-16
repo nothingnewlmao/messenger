@@ -1,8 +1,8 @@
 import ObjectLiteral from '../types/ObjectLiteral';
 
-// Function isEqual(lhs: any, rhs: any) {
-//     return lhs === rhs;
-// }
+function isEqual(lhs: any, rhs: any) {
+    return lhs === rhs;
+}
 
 function render(query: string, block: any) {
     const root = document.querySelector(query);
@@ -36,7 +36,7 @@ class Route {
     }
 
     match(pathname: string) {
-        return this._pathname.match(pathname);
+        return isEqual(pathname, this._pathname);
     }
 
     render() {

@@ -12,12 +12,12 @@ const router = new Router('.app');
 
 router
     .use('/', loginPage)
-    .use('/404/', page404)
-    .use('/505/', page500)
-    .use('/change-password/', changePassword)
-    .use('/messenger/', chatPage)
-    .use('/edit-profile/', editProfilePage)
-    .use('/show-profile/', showProfilePage)
-    .use('/signup/', signupPage);
+    .use('/404', page404)
+    .use('/505', page500)
+    .use('/change-password', changePassword)
+    .use('/messenger', chatPage)
+    .use('/edit-profile', editProfilePage)
+    .use('/show-profile', showProfilePage)
+    .use('/sign-up', signupPage);
 
 export default router;
