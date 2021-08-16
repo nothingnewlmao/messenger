@@ -1,7 +1,6 @@
 import inputs from '../userData';
 import './index.scss';
 import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
-import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
@@ -36,5 +35,6 @@ const ctx = {
         controls,
     },
 };
+
 const showProfilePage = new ProfilePageLayout(ctx);
-renderPage(showProfilePage);
+export default showProfilePage;

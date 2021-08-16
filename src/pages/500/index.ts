@@ -1,6 +1,5 @@
 import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import Button from '../../components/button';
-import renderPage from '../../utils/renderHelpers/renderPage';
 
 const ctx = {
     errorNumber: '500',
@@ -12,5 +11,5 @@ const ctx = {
     },
 };
 
-const page404 = new ErrorPageLayout(ctx);
-renderPage(page404);
+const page500 = new ErrorPageLayout(ctx);
+export default page500;

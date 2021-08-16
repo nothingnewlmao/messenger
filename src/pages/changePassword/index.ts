@@ -2,7 +2,6 @@ import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
 import Form from '../../components/form';
 import FormInput from '../../components/formInput';
 import Button from '../../components/button';
-import renderPage from '../../utils/renderHelpers/renderPage';
 
 const inputs = [
     {
@@ -51,5 +50,6 @@ const ctx = {
         }),
     },
 };
-const showProfilePage = new ProfilePageLayout(ctx);
-renderPage(showProfilePage);
+
+const changePassword = new ProfilePageLayout(ctx);
+export default changePassword;
