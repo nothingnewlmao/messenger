@@ -1,5 +1,4 @@
 import inputs from '../userData';
-import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
@@ -36,5 +35,5 @@ const ctx = {
         }),
     },
 };
-const editProfilePage = new ProfilePageLayout(ctx);
-export default editProfilePage;
+
+export default ctx;

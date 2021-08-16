@@ -1,4 +1,3 @@
-import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import Button from '../../components/button';
 
 const ctx = {
@@ -11,5 +10,4 @@ const ctx = {
     },
 };
 
-const page500 = new ErrorPageLayout(ctx);
-export default page500;
+export default ctx;

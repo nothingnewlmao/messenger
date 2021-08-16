@@ -1,5 +1,4 @@
 import Button from '../../components/button';
-import ChatPageLayout from '../../layouts/chat/ChatPageLayout';
 import FormInput from '../../components/formInput';
 
 const ctx = {
@@ -35,5 +34,4 @@ const ctx = {
     },
 };
 
-const chatPage = new ChatPageLayout(ctx);
-export default chatPage;
+export default ctx;

@@ -25,6 +25,7 @@ class Route {
 
     navigate(pathname: string) {
         if (this.match(pathname)) {
+            this._pathname = pathname;
             this.render();
         }
     }
@@ -40,8 +41,12 @@ class Route {
     }
 
     render() {
-        const {rootQuery} = this._props;
-        this._block = this._blockClass;
+        const {
+            rootQuery,
+            ctx = {},
+        } = this._props;
+        console.log(ctx);
+        this._block = new this._blockClass(ctx);
         render(rootQuery, this._block);
     }
 }

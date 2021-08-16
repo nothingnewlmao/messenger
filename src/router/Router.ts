@@ -1,4 +1,5 @@
 import Route from './Route';
+import ObjectLiteral from '../types/ObjectLiteral';
 
 class Router {
     routes: Route[];
@@ -22,8 +23,11 @@ class Router {
         Router.__instance = this;
     }
 
-    use(pathname: string, block: any) {
-        const route = new Route(pathname, block, {rootQuery: this._rootQuery});
+    use(pathname: string, block: any, ctx: ObjectLiteral = {}) {
+        const route = new Route(pathname, block, {
+            rootQuery: this._rootQuery,
+            ctx,
+        });
         this.routes.push(route);
         return this;
     }

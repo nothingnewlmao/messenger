@@ -1,4 +1,3 @@
-import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
@@ -56,5 +55,4 @@ const ctx = {
     },
 };
 
-const loginPage = new UnauthPageLayout(ctx);
-export default loginPage;
+export default ctx;

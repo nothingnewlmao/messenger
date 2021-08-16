@@ -7,6 +7,7 @@ export default class ProfilePageLayout extends Block {
         super('div', {
             ctx: {
                 ...ctx,
+                className: 'user-profile',
             },
             tmpl,
         });

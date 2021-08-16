@@ -1,4 +1,3 @@
-import ProfilePageLayout from '../../layouts/profile/ProfilePageLayout';
 import Form from '../../components/form';
 import FormInput from '../../components/formInput';
 import Button from '../../components/button';
@@ -51,5 +50,4 @@ const ctx = {
     },
 };
 
-const changePassword = new ProfilePageLayout(ctx);
-export default changePassword;
+export default ctx;
