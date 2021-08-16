@@ -45,7 +45,6 @@ class Route {
             rootQuery,
             ctx = {},
         } = this._props;
-        console.log(ctx);
         this._block = new this._blockClass(ctx);
         render(rootQuery, this._block);
     }
