@@ -49,7 +49,7 @@ const ctx = {
             className: '_flat',
         }, {
             click: () => {
-                router.go('sign-up');
+                router.go('/sign-up');
             },
         }),
     },
