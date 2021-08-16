@@ -15,7 +15,7 @@ router
     .use('/404/', page404)
     .use('/505/', page500)
     .use('/change-password/', changePassword)
-    .use('/chat/', chatPage)
+    .use('/messenger/', chatPage)
     .use('/edit-profile/', editProfilePage)
     .use('/show-profile/', showProfilePage)
     .use('/signup/', signupPage);
