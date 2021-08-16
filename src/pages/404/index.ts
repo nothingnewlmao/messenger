@@ -1,6 +1,5 @@
 import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import Button from '../../components/button';
-import renderPage from '../../utils/renderHelpers/renderPage';
 
 const ctx = {
     errorNumber: '404',
