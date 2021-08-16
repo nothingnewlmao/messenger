@@ -87,7 +87,12 @@ export default class Block {
     _render() {
         this.removeEventListeners();
 
-        const {className = ''} = this.props.ctx;
+        const {ctx = {}} = this.props;
+
+        const {
+            className = '',
+            children = null,
+        } = ctx;
         this._element.className = className;
 
         const block = this.render();
@@ -99,13 +104,16 @@ export default class Block {
             this._element.appendChild(block);
         }
 
-        this._renderChildren();
+        if (children) {
+            this._renderChildren();
+        }
+
         this.eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
 
     render() {
         const element = document.createElement('div');
-        const {ctx} = this.props;
+        const {ctx = {}} = this.props;
         element.innerHTML = this._template(ctx);
         return element.firstElementChild;
     }
