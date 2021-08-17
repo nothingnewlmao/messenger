@@ -2,6 +2,9 @@ import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
 import router from '../../router';
+import AuthApi from '../../api/AuthApi';
+
+const signUpInstance = new AuthApi();
 
 const ctx = {
     formTitle: 'Регистрация',
@@ -24,9 +27,8 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        label: 'Пароль',
-                        name: 'password',
-                        type: 'password',
+                        label: 'Логин',
+                        name: 'login',
                         className: 'unauth-input',
                     }, {
                         blur: [
@@ -39,7 +41,7 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        name: 'firstName',
+                        name: 'first_name',
                         label: 'Имя',
                         className: 'unauth-input',
                     }, {
@@ -53,7 +55,7 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        name: 'secondName',
+                        name: 'second_name',
                         label: 'Фамилия',
                         className: 'unauth-input',
                     }, {
@@ -83,6 +85,7 @@ const ctx = {
                     new FormInput({
                         name: 'password',
                         label: 'Пароль',
+                        type: 'password',
                         className: 'unauth-input',
                     }, {
                         blur: [
@@ -93,8 +96,9 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        name: 'submitPassword',
+                        name: 'submit_password',
                         label: 'Пароль (ещё раз)',
+                        type: 'password',
                         className: 'unauth-input',
                     }, {
                         blur: [
@@ -110,10 +114,15 @@ const ctx = {
                 }),
             },
         }, {
-            click: [
+            submit: [
                 'emitSubmitEvent',
                 'collectFields',
             ],
+            'fields-collected': (event: CustomEvent) => {
+                const {data} = event.detail;
+                const dataForParam = JSON.stringify(data);
+                signUpInstance.signup(dataForParam);
+            },
         }),
         altBtn: new Button({
             label: 'Войти',
