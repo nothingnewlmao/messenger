@@ -27,7 +27,14 @@ export default class Form extends Block {
             json[name] = value;
             return json;
         }, {});
-        console.log(requestJson);
+
+        const collectedFields = new CustomEvent('fields-collected', {
+            bubbles: true,
+            detail: {
+                data: requestJson,
+            },
+        });
+        this.getContent().dispatchEvent(collectedFields);
     }
 
     constructor(ctx: FormType, events = {}) {
@@ -45,9 +52,9 @@ export default class Form extends Block {
 
         Object.keys(events).forEach(event => {
             const handler = events[event];
-            const blockHandlers = handler instanceof Array;
-            const target = this.children.submitBtn;
-            if (blockHandlers) {
+            const someHandlers = handler instanceof Array;
+            const target = this.getContent();
+            if (someHandlers) {
                 handler.forEach((callback: string) => {
                     target.addEventListener(event, this[callback]);
                 });
