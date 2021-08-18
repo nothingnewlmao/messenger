@@ -24,8 +24,19 @@ export default class AuthApi extends BasicAPI {
             });
     }
 
-    signin(data: ObjectLiteral = {}) {
-        return authAPIInstance.post('auth/signin', {data});
+    signin(data: string = '') {
+        return authAPIInstance
+            .post('auth/signin', {data})
+            .then((response: ObjectLiteral) => {
+                const {
+                    data,
+                    status,
+                } = response;
+
+                if (status !== 200) {
+                    throw new Error(data);
+                }
+            });
     }
 
     logout() {

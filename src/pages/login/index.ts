@@ -2,6 +2,9 @@ import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
 import router from '../../router';
+import LoginController from './controllers/loginController';
+
+const loginController = new LoginController();
 
 const ctx = {
     formTitle: 'Вход',
@@ -39,10 +42,14 @@ const ctx = {
                 }),
             },
         }, {
-            click: [
+            submit: [
                 'emitSubmitEvent',
                 'collectFields',
             ],
+            'fields-collected': async (event: CustomEvent) => {
+                const {data} = event.detail;
+                await loginController.login(data);
+            },
         }),
         altBtn: new Button({
             label: 'Зарегистрироваться',
