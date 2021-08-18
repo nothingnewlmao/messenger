@@ -7,14 +7,20 @@ const BaseUrl = 'https://ya-praktikum.tech/api/v2';
 const authAPIInstance = new HTTPTransport(BaseUrl);
 
 export default class AuthApi extends BasicAPI {
-    signup(data: any = {}) {
+    signup(data: string = '') {
         return authAPIInstance
             .post('/auth/signup', {data})
-            .then((response: any) => {
-                console.log(response);
-            })
-            .catch(err => {
-                console.error(err);
+            .then((response: ObjectLiteral): string => {
+                const {
+                    data,
+                    status,
+                } = response;
+
+                if (status === 200) {
+                    return data.id;
+                }
+
+                throw new Error(data);
             });
     }
 

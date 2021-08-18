@@ -2,9 +2,9 @@ import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
 import router from '../../router';
-import AuthApi from '../../api/AuthApi';
+import SignupController from './controllers/signupController';
 
-const signUpInstance = new AuthApi();
+const signUpController = new SignupController();
 
 const ctx = {
     formTitle: 'Регистрация',
@@ -118,10 +118,9 @@ const ctx = {
                 'emitSubmitEvent',
                 'collectFields',
             ],
-            'fields-collected': (event: CustomEvent) => {
+            'fields-collected': async (event: CustomEvent) => {
                 const {data} = event.detail;
-                const dataForParam = JSON.stringify(data);
-                signUpInstance.signup(dataForParam);
+                await signUpController.signup(data);
             },
         }),
         altBtn: new Button({
