@@ -23,10 +23,20 @@ export default class AuthApi extends BasicAPI {
     }
 
     logout() {
-        return authAPIInstance.post('/auth/logout');
+        return authAPIInstance
+            .post('/auth/logout', {data: ''})
+            .then(() => true)
+            .catch(e => {
+                throw new Error(e);
+            });
     }
 
-    request() {
-        return authAPIInstance.get('/auth/user');
+    getUser() {
+        return authAPIInstance
+            .get('/auth/user')
+            .then(response => response)
+            .catch(e => {
+                throw new Error(e);
+            });
     }
 }

@@ -1,8 +1,11 @@
-import inputs from '../userData';
+import inputs from '../../userData';
 import './index.scss';
-import Button from '../../components/button';
-import FormInput from '../../components/formInput';
-import Form from '../../components/form';
+import Button from '../../../components/button';
+import FormInput from '../../../components/formInput';
+import Form from '../../../components/form';
+import UserController from './controllers/UserController';
+
+const userController = new UserController();
 
 const controls = [
     new Button({
@@ -16,6 +19,10 @@ const controls = [
     new Button({
         label: 'Выйти',
         className: '_flat _negative',
+    }, {
+        click: () => {
+            userController.logout();
+        },
     }),
 ];
 

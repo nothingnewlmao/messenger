@@ -1,7 +1,7 @@
-import inputs from '../userData';
-import Button from '../../components/button';
-import FormInput from '../../components/formInput';
-import Form from '../../components/form';
+import inputs from '../../userData';
+import Button from '../../../components/button';
+import FormInput from '../../../components/formInput';
+import Form from '../../../components/form';
 
 const childrenInputs = inputs
     .map(input => new FormInput({
