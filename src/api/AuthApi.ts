@@ -13,25 +13,13 @@ export default class AuthApi extends BasicAPI {
             .then((response: ObjectLiteral): string => {
                 const {id} = response;
                 return id;
-            })
-            .catch(e => {
-                throw new Error(e);
             });
     }
 
     signin(data: string = '') {
         return authAPIInstance
             .post('auth/signin', {data})
-            .then((response: ObjectLiteral) => {
-                const {
-                    data,
-                    status,
-                } = response;
-
-                if (status !== 200) {
-                    throw new Error(data);
-                }
-            });
+            .then(() => true);
     }
 
     logout() {
