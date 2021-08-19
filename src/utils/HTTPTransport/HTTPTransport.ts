@@ -90,7 +90,7 @@ class HTTPTransport {
                 if (status === 200) {
                     resolve(response);
                 } else {
-                    reject(new Error(response));
+                    reject(response);
                 }
             };
 
