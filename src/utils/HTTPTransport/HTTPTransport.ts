@@ -67,6 +67,7 @@ class HTTPTransport {
 
         return new Promise((resolve, reject) => {
             const xhr: XMLHttpRequest = new XMLHttpRequest();
+            xhr.withCredentials = true;
             xhr.open(method, url);
 
             xhr.onerror = reject;
