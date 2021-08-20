@@ -25,13 +25,13 @@ const ctx = {
                 inputs: childrenInputs,
                 submitBtn: new Button({
                     label: 'Сохранить',
+                }, {
+                    click: [
+                        'emitSubmitEvent',
+                        'collectFields',
+                    ],
                 }),
             },
-        }, {
-            click: [
-                'emitSubmitEvent',
-                'collectFields',
-            ],
         }),
     },
 };
