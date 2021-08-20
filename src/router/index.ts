@@ -6,7 +6,7 @@ import ChatPageLayout from '../layouts/chat/ChatPageLayout';
 
 import page404 from '../pages/404';
 import page500 from '../pages/500';
-import changePassword from '../pages/changePassword';
+import changePassword from '../pages/settings/changePassword';
 import editProfilePage from '../pages/settings/edit';
 import showProfilePage from '../pages/settings/show';
 import loginPage from '../pages/login';

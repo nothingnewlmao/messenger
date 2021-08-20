@@ -1,6 +1,6 @@
-import Form from '../../components/form';
-import FormInput from '../../components/formInput';
-import Button from '../../components/button';
+import Form from '../../../components/form';
+import FormInput from '../../../components/formInput';
+import Button from '../../../components/button';
 
 const inputs = [
     {
