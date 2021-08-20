@@ -32,10 +32,10 @@ export default class SettingsShowPage extends Block {
     mapInputsValues(valuesObject: ObjectLiteral) {
         const {inputs} = this.props.ctx.children.form.props.ctx.children;
         inputs.forEach((input: FormInput) => {
-            const propsClone = deepClone(input.props);
+            const inputPropsClone = deepClone(input.props);
             const {name: inputName} = input.props.ctx;
-            setProperty(propsClone, 'ctx.value', valuesObject[inputName]);
-            input.setProps(propsClone);
+            setProperty(inputPropsClone, 'ctx.value', valuesObject[inputName]);
+            input.setProps(inputPropsClone);
         });
     }
 }
