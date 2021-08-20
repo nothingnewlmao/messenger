@@ -18,7 +18,7 @@ export default class AuthApi extends BasicAPI {
 
     signin(data: string = '') {
         return authAPIInstance
-            .post('auth/signin', {data})
+            .post('/auth/signin', {data})
             .then(() => true);
     }
 
