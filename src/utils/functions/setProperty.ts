@@ -1,7 +1,7 @@
 import ObjectLiteral from '../../types/ObjectLiteral';
 import merge from './merge';
 
-function set(object: ObjectLiteral | unknown, path: string, value: unknown): ObjectLiteral | unknown {
+function setProperty(object: ObjectLiteral | unknown, path: string, value: unknown): ObjectLiteral | unknown {
     if (typeof object !== 'object' || object === null) {
         return object;
     }
@@ -16,4 +16,4 @@ function set(object: ObjectLiteral | unknown, path: string, value: unknown): Obj
     return merge(object as ObjectLiteral, result);
 }
 
-export default set;
+export default setProperty;
