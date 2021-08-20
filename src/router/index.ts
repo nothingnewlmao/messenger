@@ -1,8 +1,10 @@
 import Router from './Router';
 import ErrorPageLayout from '../layouts/error/ErrorPageLayout';
-import ProfilePageLayout from '../layouts/profile/ProfilePageLayout';
 import UnauthPageLayout from '../layouts/unauth/UnauthPageLayout';
 import ChatPageLayout from '../layouts/chat/ChatPageLayout';
+import SettingsShowPage from '../pages/settings/show/SettingsShowPage';
+import SettingsEditPage from '../pages/settings/edit/SettingsEditPage';
+import SettingsPasswordPage from '../pages/settings/changePassword/SettingsPasswordPage';
 
 import page404 from '../pages/404';
 import page500 from '../pages/500';
@@ -18,10 +20,10 @@ const router = new Router('.app');
 router
     .use('/', UnauthPageLayout, loginPage)
     .use('/sign-up', UnauthPageLayout, signupPage)
-    .use('/settings/password', ProfilePageLayout, changePassword)
     .use('/messenger', ChatPageLayout, chatPage)
-    .use('/settings/edit', ProfilePageLayout, editProfilePage)
-    .use('/settings/show', ProfilePageLayout, showProfilePage)
+    .use('/settings/edit', SettingsEditPage, editProfilePage)
+    .use('/settings/show', SettingsShowPage, showProfilePage)
+    .use('/settings/password', SettingsPasswordPage, changePassword)
     .use('/505', ErrorPageLayout, page500)
     .use('/404', ErrorPageLayout, page404);
 
