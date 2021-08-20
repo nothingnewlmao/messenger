@@ -1,5 +1,5 @@
-import AuthApi from '../../../../api/AuthApi';
-import router from '../../../../router';
+import AuthApi from '../api/AuthApi';
+import router from '../router';
 
 const authApiInstance = new AuthApi();
 

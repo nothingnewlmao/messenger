@@ -3,7 +3,7 @@ import './index.scss';
 import Button from '../../../components/button';
 import FormInput from '../../../components/formInput';
 import Form from '../../../components/form';
-import UserController from './controllers/UserController';
+import UserController from '../../../controllers/UserController';
 
 const userController = new UserController();
 
