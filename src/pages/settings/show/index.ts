@@ -4,6 +4,7 @@ import Button from '../../../components/button';
 import FormInput from '../../../components/formInput';
 import Form from '../../../components/form';
 import UserController from '../../../controllers/UserController';
+import router from '../../../router';
 
 const userController = new UserController();
 
@@ -24,10 +25,18 @@ const ctx = {
             new Button({
                 label: 'Изменить данные',
                 className: '_flat',
+            }, {
+                click: () => {
+                    router.go('/settings/edit');
+                },
             }),
             new Button({
                 label: 'Изменить пароль',
                 className: '_flat',
+            }, {
+                click: () => {
+                    router.go('/settings/password');
+                },
             }),
             new Button({
                 label: 'Выйти',
