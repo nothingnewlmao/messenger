@@ -2,6 +2,9 @@ import inputs from '../../userData';
 import Button from '../../../components/button';
 import FormInput from '../../../components/formInput';
 import Form from '../../../components/form';
+import UserController from '../../../controllers/UserController';
+
+const userController = new UserController();
 
 const childrenInputs = inputs
     .map(input => new FormInput({
@@ -25,12 +28,16 @@ const ctx = {
                 inputs: childrenInputs,
                 submitBtn: new Button({
                     label: 'Сохранить',
-                }, {
-                    click: [
-                        'emitSubmitEvent',
-                        'collectFields',
-                    ],
                 }),
+            },
+        }, {
+            submit: [
+                'emitSubmitEvent',
+                'collectFields',
+            ],
+            'fields-collected': async (event: CustomEvent) => {
+                const {data} = event.detail;
+                await userController.changeUserProfile(data);
             },
         }),
     },
