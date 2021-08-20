@@ -1,6 +1,9 @@
 import Form from '../../../components/form';
 import FormInput from '../../../components/formInput';
 import Button from '../../../components/button';
+import UserController from '../../../controllers/UserController';
+
+const userController = new UserController();
 
 const inputs = [
     {
@@ -39,12 +42,16 @@ const ctx = {
                 inputs: childrenInputs,
                 submitBtn: new Button({
                     label: 'Сохранить',
-                }, {
-                    click: [
-                        'emitSubmitEvent',
-                        'collectFields',
-                    ],
                 }),
+            },
+        }, {
+            submit: [
+                'emitSubmitEvent',
+                'collectFields',
+            ],
+            'fields-collected': async (event: CustomEvent) => {
+                const {data} = event.detail;
+                await userController.changePassword(data);
             },
         }),
     },

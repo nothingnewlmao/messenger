@@ -32,6 +32,15 @@ class UserController {
             console.log(e.message);
         }
     }
+
+    async changePassword(data: ObjectLiteral = {}) {
+        try {
+            const requestData = JSON.stringify(data);
+            return await userApiInstance.changePassword(requestData);
+        } catch (e) {
+            console.log(e.message);
+        }
+    }
 }
 
 export default UserController;

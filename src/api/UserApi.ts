@@ -14,4 +14,13 @@ export default class AuthApi extends BasicAPI {
                 throw new Error(e);
             });
     }
+
+    changePassword(data: string = '') {
+        return userAPIInstance
+            .put('/user/password', {data})
+            .then(response => response)
+            .catch(e => {
+                throw new Error(e);
+            });
+    }
 }
