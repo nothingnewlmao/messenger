@@ -33,7 +33,7 @@ class HTTPTransport {
         this.BASE_URL = url;
     }
 
-    get = (url: string, requestOptions: ObjectLiteral = {timeout: 3000}) => {
+    get = (url: string, requestOptions: ObjectLiteral = {timeout: 3000, data: ''}) => {
         const {data} = requestOptions;
         const options = {...requestOptions, method: METHODS.GET};
         const queryString = `${this.BASE_URL}${url}${queryStringify(data)}`;
