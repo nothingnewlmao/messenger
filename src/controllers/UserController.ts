@@ -7,7 +7,7 @@ const authApiInstance = new AuthApi();
 const userApiInstance = new UserApi();
 
 class UserController {
-    async getUserInfo() {
+    public async getUserInfo() {
         try {
             return await authApiInstance.getUser();
         } catch (e) {
@@ -15,7 +15,7 @@ class UserController {
         }
     }
 
-    async logout() {
+    public async logout() {
         try {
             await authApiInstance.logout();
             router.go('/');
@@ -24,7 +24,7 @@ class UserController {
         }
     }
 
-    async changeUserProfile(data: ObjectLiteral = {}) {
+    public async changeUserProfile(data: ObjectLiteral = {}) {
         try {
             const requestData = JSON.stringify(data);
             return await userApiInstance.changeUser(requestData);
@@ -33,7 +33,7 @@ class UserController {
         }
     }
 
-    async changePassword(data: ObjectLiteral = {}) {
+    public async changePassword(data: ObjectLiteral = {}) {
         try {
             const requestData = JSON.stringify(data);
             return await userApiInstance.changePassword(requestData);
