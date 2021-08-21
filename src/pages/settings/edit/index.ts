@@ -48,10 +48,26 @@ const ctx = {
                     children: {
                         inputs: [
                             new FormInput({
-                                label: 'lala',
-                                className: 'lflflf',
+                                type: 'file',
+                                name: 'avatar',
+                                accept: ['.jpg', '.jpeg', '.png'],
                             }),
                         ],
+                        submitBtn: new Button({
+                            label: 'Поменять',
+                        }),
+                    },
+                }, {
+                    submit: async event => {
+                        event.preventDefault();
+                        const {target} = event;
+
+                        const imgInput = target.querySelector('input[type="file"]');
+                        const [file] = imgInput.files;
+
+                        const formData: FormData = new FormData();
+                        formData.append('avatar', file);
+                        await userController.changeAvatar(formData);
                     },
                 }),
             },

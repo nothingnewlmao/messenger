@@ -41,6 +41,14 @@ class UserController {
             console.log(e.message);
         }
     }
+
+    public async changeAvatar(data: any = null) {
+        try {
+            return await userApiInstance.changeAvatar(data);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }
 
 export default UserController;
