@@ -24,7 +24,7 @@ const ctx = {
             className: '_round',
         }, {
             click: () => {
-                router.back();
+                router.go('/messenger');
             },
         }),
         form: new Form({

@@ -46,7 +46,7 @@ const ctx = {
             className: '_round',
         }, {
             click: () => {
-                router.back();
+                router.go('/settings');
             },
         }),
         form: new Form({
