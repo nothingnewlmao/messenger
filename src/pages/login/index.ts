@@ -2,7 +2,7 @@ import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
 import router from '../../router';
-import LoginController from './controllers/loginController';
+import LoginController from './controllers/LoginController';
 
 const loginController = new LoginController();
 
