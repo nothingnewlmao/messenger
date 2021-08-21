@@ -42,9 +42,25 @@ class UserController {
         }
     }
 
-    public async changeAvatar(data: any = null) {
+    public async changeAvatar(event) {
         try {
-            return await userApiInstance.changeAvatar(data);
+            event.preventDefault();
+            const {target} = event;
+
+            const imgInput = target.querySelector('input[type="file"]');
+            const [file] = imgInput.files;
+
+            const formData: FormData = new FormData();
+            formData.append('avatar', file);
+            await userApiInstance.changeAvatar(formData);
+
+            const src = URL.createObjectURL(file);
+            const img = document.querySelector('.profile__pic img');
+            img.src = src;
+            img.removeAttribute('hidden');
+
+            const popup = target.closest('.popup');
+            popup.style.display = 'none';
         } catch (e) {
             console.log(e);
         }

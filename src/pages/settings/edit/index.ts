@@ -71,23 +71,7 @@ const ctx = {
                     },
                 }, {
                     submit: async event => {
-                        event.preventDefault();
-                        const {target} = event;
-
-                        const imgInput = target.querySelector('input[type="file"]');
-                        const [file] = imgInput.files;
-
-                        const formData: FormData = new FormData();
-                        formData.append('avatar', file);
-                        await userController.changeAvatar(formData);
-
-                        const src = URL.createObjectURL(file);
-                        const img = document.querySelector('.profile__pic img');
-                        img.src = src;
-                        img.removeAttribute('hidden');
-
-                        const popup = target.closest('.popup');
-                        popup.style.display = 'none';
+                        userController.changeAvatar(event);
                     },
                 }),
             },

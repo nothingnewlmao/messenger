@@ -34,7 +34,7 @@ export default class AuthApi extends BasicAPI {
             });
     }
 
-    changeAvatar(data: any = null) {
+    changeAvatar(data: FormData) {
         return userAPIInstance
             .put('/user/profile/avatar', {data})
             .then(response => response)
