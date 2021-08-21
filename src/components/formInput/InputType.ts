@@ -6,6 +6,7 @@ type InputType = {
     readonly?: boolean,
     className?: string,
     error?: string,
+    accept?: string[],
 };
 
 export default InputType;

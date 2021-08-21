@@ -12,6 +12,9 @@ const tmpl: string = `
             {{else}}
                 type="text"
             {{/if}}
+            {{#if accept}}
+                accept={{ accept }}
+            {{/if}}
             {{#if readonly}}
                 readonly
             {{/if}}>
