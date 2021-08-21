@@ -2,6 +2,8 @@ import Form from '../../../components/form';
 import FormInput from '../../../components/formInput';
 import Button from '../../../components/button';
 import UserController from '../../../controllers/UserController';
+import router from '../../../router';
+import Icon from '../../../components/icon';
 
 const userController = new UserController();
 
@@ -37,6 +39,16 @@ const childrenInputs = inputs
 
 const ctx = {
     children: {
+        backBtn: new Button({
+            children: {
+                icon: new Icon({id: 'arrow_back'}),
+            },
+            className: '_round',
+        }, {
+            click: () => {
+                router.back();
+            },
+        }),
         form: new Form({
             children: {
                 inputs: childrenInputs,

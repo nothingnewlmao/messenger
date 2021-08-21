@@ -13,8 +13,12 @@
   }
 
   aside {
-    padding: 18px;
     display: flex;
+    box-sizing: border-box;
+    max-width: 64px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px;
     align-items: center;
     background-color: $aside-color;
     border-right: 1px solid $border-color;
@@ -22,6 +26,7 @@
 
   main {
     width: 100%;
+    flex-grow: 1;
     display: flex;
     align-items: center;
   }

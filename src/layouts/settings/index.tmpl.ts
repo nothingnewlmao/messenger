@@ -3,7 +3,7 @@ import './index.scss';
 const tmpl: string = `
     <div class="user-profile">
         <aside>
-
+            <div data-component="backBtn"></div>
         </aside>
         <main>
             <div class="profile">

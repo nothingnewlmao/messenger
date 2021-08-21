@@ -1,8 +1,8 @@
+import ObjectLiteral from '../../types/ObjectLiteral';
+
 type ButtonType = {
     className?: string,
-    icon?: {
-        id: string
-    },
+    children?: ObjectLiteral,
     label?: string,
     type?: string,
 };
