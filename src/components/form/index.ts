@@ -7,10 +7,12 @@ import ObjectLiteral from '../../types/ObjectLiteral';
 export default class Form extends Block {
     emitSubmitEvent = (event: Event) => {
         event.preventDefault();
+
         const {inputs} = this.props.ctx.children;
+        const submitFormEvent = new Event('form-submitted');
+
         inputs.forEach((label: FormInput) => {
             const input = label.getContent().querySelector('input');
-            const submitFormEvent = new Event('form-submitted');
             input.dispatchEvent(submitFormEvent);
         });
     }
