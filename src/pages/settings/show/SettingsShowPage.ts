@@ -30,6 +30,13 @@ export default class SettingsShowPage extends Block {
     }
 
     mapInputsValues(valuesObject: ObjectLiteral) {
+        const {avatar} = valuesObject;
+        if (avatar) {
+            const img = document.querySelector('.profile__pic img');
+            const src = `https://ya-praktikum.tech/api/v2/resources${avatar}`;
+            img.setAttribute('src', src);
+        }
+
         const {inputs} = this.props.ctx.children.form.props.ctx.children;
         inputs.forEach((input: FormInput) => {
             const inputPropsClone = deepClone(input.props);
