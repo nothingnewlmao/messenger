@@ -56,7 +56,7 @@ class UserController {
 
             const src = URL.createObjectURL(file);
             const img = document.querySelector('.profile__pic img');
-            img.src = src;
+            img.setAttribute('src', src);
             img.removeAttribute('hidden');
 
             const popup = target.closest('.popup');
