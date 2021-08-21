@@ -38,4 +38,18 @@ export default class SettingsEditPage extends Block {
             input.setProps(inputPropsClone);
         });
     }
+
+    addEventListeners() {
+        super.addEventListeners();
+        this.getContent().addEventListener('click', this.openPopup);
+    }
+
+    openPopup = event => {
+        const {target} = event;
+        const isImg = target.closest('.profile__pic') !== null;
+        if (isImg) {
+            const {popup} = this.props.ctx.children;
+            popup.show('flex');
+        }
+    }
 }

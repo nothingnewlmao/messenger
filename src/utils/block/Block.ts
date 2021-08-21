@@ -195,8 +195,8 @@ export default class Block {
         return document.createElement(tagName);
     }
 
-    show() {
-        this.getContent().style.display = 'block';
+    show(type?: string) {
+        this.getContent().style.display = type ? type : 'block';
     }
 
     hide() {
