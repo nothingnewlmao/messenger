@@ -3,6 +3,7 @@ import Button from '../../../components/button';
 import FormInput from '../../../components/formInput';
 import Form from '../../../components/form';
 import UserController from '../../../controllers/UserController';
+import Popup from '../../../components/popup';
 
 const userController = new UserController();
 
@@ -38,6 +39,21 @@ const ctx = {
             'fields-collected': async (event: CustomEvent) => {
                 const {data} = event.detail;
                 await userController.changeUserProfile(data);
+            },
+        }),
+        popup: new Popup({
+            title: 'Загрузите файл',
+            children: {
+                body: new Form({
+                    children: {
+                        inputs: [
+                            new FormInput({
+                                label: 'lala',
+                                className: 'lflflf',
+                            }),
+                        ],
+                    },
+                }),
             },
         }),
     },

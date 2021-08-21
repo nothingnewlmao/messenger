@@ -20,7 +20,10 @@ const tmpl: string = `
                     </div>
                 {{/if}}
             </div>
-        </main>        
+        </main>      
+        {{#if children.popup}}
+            <div data-component="popup"></div>
+        {{/if}}  
     </div>
 `;
 
