@@ -8,6 +8,10 @@ export default class Popup extends Block {
         this.hide();
     }
 
+    showPopup = () => {
+        this.show();
+    }
+
     constructor(ctx: ObjectLiteral, events = {}) {
         super('div', {
             tmpl,
@@ -20,7 +24,10 @@ export default class Popup extends Block {
 
     addEventListeners() {
         super.addEventListeners();
+
         const bg = this.getContent().querySelector('.popup__bg');
         bg.addEventListener('click', this.hidePopup);
+
+        this.getContent().addEventListener('showPopup', this.showPopup);
     }
 }
