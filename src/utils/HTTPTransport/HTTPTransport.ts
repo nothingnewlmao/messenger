@@ -76,7 +76,6 @@ class HTTPTransport {
             xhr.timeout = timeout;
             xhr.ontimeout = reject;
 
-            xhr.setRequestHeader('Content-Type', 'application/json');
             Object.entries(headers)
                 .forEach(([key, value]: [string, string]) => {
                     xhr.setRequestHeader(key, value);
