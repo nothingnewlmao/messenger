@@ -16,8 +16,6 @@ export default class SettingsShowPage extends Block {
             },
             tmpl,
         });
-
-        this.componentDidMount();
     }
 
     async componentDidMount() {

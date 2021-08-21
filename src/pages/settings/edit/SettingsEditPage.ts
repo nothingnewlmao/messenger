@@ -16,8 +16,6 @@ export default class SettingsEditPage extends Block {
             },
             tmpl,
         });
-
-        this.componentDidMount();
     }
 
     async componentDidMount() {
