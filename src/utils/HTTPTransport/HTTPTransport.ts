@@ -48,7 +48,7 @@ class HTTPTransport {
     put = (url: string,
         requestOptions: ObjectLiteral = {}): Promise<XMLHttpRequest> => {
         const options = {...requestOptions, method: METHODS.PUT};
-        return this.request(url, options);
+        return this.request(`${this.BASE_URL}${url}`, options);
     }
 
     delete = (url: string, requestOptions: ObjectLiteral = {}): Promise<XMLHttpRequest> => {
