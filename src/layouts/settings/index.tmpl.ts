@@ -7,6 +7,10 @@ const tmpl: string = `
         </aside>
         <main>
             <div class="profile">
+                <div class="profile__pic">
+                    <img src="" alt="" hidden>
+                    <div>Поменять аватар</div>
+                </div>
                 {{#if children.form}}
                     <div data-component="form"></div>
                 {{/if}}
