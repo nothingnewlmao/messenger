@@ -24,8 +24,9 @@ class UserController {
         }
     }
 
-    public async changeUserProfile(data: ObjectLiteral = {}) {
+    public async changeUserProfile(event: CustomEvent) {
         try {
+            const {data} = event.detail;
             const requestData = JSON.stringify(data);
             return await userApiInstance.changeUser(requestData);
         } catch (e) {

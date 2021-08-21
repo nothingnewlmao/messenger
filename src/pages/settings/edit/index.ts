@@ -49,8 +49,7 @@ const ctx = {
                 'collectFields',
             ],
             'fields-collected': async (event: CustomEvent) => {
-                const {data} = event.detail;
-                await userController.changeUserProfile(data);
+                await userController.changeUserProfile(event);
             },
         }),
         popup: new Popup({
@@ -71,7 +70,7 @@ const ctx = {
                     },
                 }, {
                     submit: async event => {
-                        userController.changeAvatar(event);
+                        await userController.changeAvatar(event);
                     },
                 }),
             },
