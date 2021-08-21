@@ -22,7 +22,7 @@ router
     .use('/sign-up', UnauthPageLayout, signupPage)
     .use('/messenger', ChatPageLayout, chatPage)
     .use('/settings/edit', SettingsEditPage, editProfilePage)
-    .use('/settings/show', SettingsShowPage, showProfilePage)
+    .use('/settings', SettingsShowPage, showProfilePage)
     .use('/settings/password', SettingsPasswordPage, changePassword)
     .use('/505', ErrorPageLayout, page500)
     .use('/404', ErrorPageLayout, page404);
