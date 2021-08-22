@@ -2,6 +2,7 @@ import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
 import deepClone from '../functions/deepClone';
 import ObjectLiteral from '../../types/ObjectLiteral';
+import isEqual from '../functions/isEqual';
 
 export default class Block {
     static EVENTS = {
@@ -69,7 +70,7 @@ export default class Block {
     }
 
     componentDidUpdate(oldProps: ObjectLiteral, newProps: ObjectLiteral) {
-        return JSON.stringify(newProps) !== JSON.stringify(oldProps);
+        return !isEqual(newProps, oldProps);
     }
 
     setProps = (nextProps: ObjectLiteral) => {
