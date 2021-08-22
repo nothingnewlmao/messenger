@@ -1,5 +1,5 @@
 const tmpl: string = `
-    <div>
+    <div class="popup__wrap">
         <div class="popup__bg"></div>
         <div class="popup__wrapper">
             <div class="popup__title">{{ title }}</div>

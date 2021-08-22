@@ -23,15 +23,17 @@ const tmpl: string = `
         </aside>
         <main>
             <div class="chat__header">
-                <div class="chat__params">
-                    <div class="chat__icon">
-                        {{#if chatAvatar}}
-                            <img src={{chatAvatar}} alt="">
-                        {{/if}}
+                {{#if chatId}}
+                    <div class="chat__params">
+                        <div class="chat__icon">
+                            {{#if chatAvatar}}
+                                <img src={{chatAvatar}} alt="">
+                            {{/if}}
+                        </div>
+                        <div class="chat__name">{{ chatTitle }}</div>
                     </div>
-                    <div class="chat__name">{{ chatTitle }}</div>
-                </div>
-                <div data-component="addUserBtn"></div>
+                    <div data-component="addUserBtn"></div>
+                {{/if}}
             </div>
             <div class="chat__content">
                 {{#if children.messages}}
