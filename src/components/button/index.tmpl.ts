@@ -3,13 +3,13 @@ import './index.scss';
 const tmpl: string = `
     <div
         >
-        {{#unless icon-after}}
+        {{#unless iconAfter}}
             <div data-component="icon"></div>            
         {{/unless}}
         {{#if label }}
             {{ label }}
         {{/if}}
-        {{#if icon-after}}
+        {{#if iconAfter}}
             <div data-component="icon"></div>            
         {{/if}}
     </div>

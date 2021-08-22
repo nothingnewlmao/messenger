@@ -5,6 +5,7 @@ type ButtonType = {
     children?: ObjectLiteral,
     label?: string,
     type?: string,
+    iconAfter?: boolean,
 };
 
 export default ButtonType;

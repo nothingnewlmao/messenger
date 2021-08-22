@@ -7,7 +7,10 @@ export default class Icon extends Block {
     constructor(ctx: IconType) {
         super('div', {
             tmpl,
-            ctx,
+            ctx: {
+                ...ctx,
+                className: 'icon',
+            },
         });
     }
 }

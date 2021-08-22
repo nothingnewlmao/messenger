@@ -9,9 +9,10 @@
   }
 
   &__header {
-    padding: 20px 10px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid $border-color;
   }
 
   &__icon {
@@ -39,10 +40,11 @@
   }
 
   &__create {
-    padding: 20px 10px;
+    padding: 10px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-top: 1px solid $border-color;
   }
 }
 
