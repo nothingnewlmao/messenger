@@ -31,6 +31,17 @@ class ChatsController {
             console.log(e);
         }
     }
+
+    public async getToken(event: CustomEvent) {
+        try {
+            const {id} = event.detail;
+            const chatTokenString = await chatsApiInstance.getChatToken(id);
+            const {token: chatToken} = JSON.parse(chatTokenString);
+            return chatToken;
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }
 
 export default ChatsController;

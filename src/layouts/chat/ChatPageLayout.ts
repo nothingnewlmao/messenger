@@ -19,6 +19,8 @@ export default class ChatPageLayout extends Block {
             },
             tmpl,
         });
+
+        this.addEventListeners();
     }
 
     async componentCreated() {
@@ -43,7 +45,15 @@ export default class ChatPageLayout extends Block {
         };
 
         const newProps = merge(this.props, newProp);
-        console.log(newProps);
         this.setProps(newProps);
+    }
+
+    addEventListeners() {
+        super.addEventListeners();
+        this.getContent().addEventListener('list-chat-click', this.handleListChatClick);
+    }
+
+    handleListChatClick = async (event: CustomEvent) => {
+        const chatToken = await chatsController.getToken(event);
     }
 }

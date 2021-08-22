@@ -28,4 +28,13 @@ export default class ChatsApi extends BasicAPI {
                 throw new Error(e);
             });
     }
+
+    getChatToken(chatId: number = 0) {
+        return chatsAPIInstance
+            .post(`/token/${chatId}`)
+            .then(response => response)
+            .catch(e => {
+                throw new Error(e);
+            });
+    }
 }

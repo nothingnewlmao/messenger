@@ -12,5 +12,21 @@ export default class ListChat extends Block {
             },
             tmpl,
         });
+
+        this.addEventListeners();
+    }
+
+    addEventListeners() {
+        super.addEventListeners();
+        this.getContent().addEventListener('click', this.emitClick);
+    }
+
+    emitClick = (event: Event) => {
+        const {id} = this.props.ctx;
+        const listChatClickEvent = new CustomEvent('list-chat-click', {
+            detail: {id},
+            bubbles: true,
+        });
+        this.getContent().dispatchEvent(listChatClickEvent);
     }
 }
