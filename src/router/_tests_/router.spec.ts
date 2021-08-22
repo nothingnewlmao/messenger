@@ -1,8 +1,10 @@
+import hello from '../hello';
 import {expect} from 'chai';
-import {hello} from '../../hello';
+import 'mocha';
 
-describe('Typescript + Babel usage suite', () => {
-    it('should return string correctly', () => {
-        expect(hello('mocha'), 'Hello mocha');
+describe('Hello function', () => {
+    it('should return hello world', () => {
+        const result = hello();
+        expect(result).to.equal('Hello World!');
     });
 });
