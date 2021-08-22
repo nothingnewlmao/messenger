@@ -48,6 +48,7 @@ const tmpl: string = `
                 <div data-component="sendMessage"></div>
             </div>
         </main>
+        <div data-component="createChatPopup"></div>
     </div> 
 `;
 

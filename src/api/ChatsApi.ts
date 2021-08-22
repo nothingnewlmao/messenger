@@ -15,10 +15,10 @@ export default class ChatsApi extends BasicAPI {
             });
     }
 
-    create() {
+    create(title = '') {
         return chatsAPIInstance
             .post('/', {
-                data: JSON.stringify({title: 'nov chat'}),
+                data: JSON.stringify({title}),
                 headers: {
                     'Content-Type': 'application/json',
                 },

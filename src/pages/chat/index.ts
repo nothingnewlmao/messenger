@@ -3,6 +3,8 @@ import FormInput from '../../components/formInput';
 import Icon from '../../components/icon';
 import router from '../../router';
 import ChatsController from './controllers/ChatsController';
+import Popup from '../../components/popup';
+import Form from '../../components/form';
 
 const chatsController = new ChatsController();
 
@@ -54,6 +56,24 @@ const ctx = {
             children: {
                 icon: new Icon({
                     id: 'send',
+                }),
+            },
+        }),
+        createChatPopup: new Popup({
+            title: 'Придумайте название чата',
+            children: {
+                body: new Form({
+                    children: {
+                        inputs: [
+                            new FormInput({
+                                name: 'title',
+                                className: 'unauth-input',
+                            }),
+                        ],
+                        submitBtn: new Button({
+                            label: 'Создать чат',
+                        }),
+                    },
                 }),
             },
         }),
