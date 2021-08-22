@@ -54,6 +54,19 @@ export default class ChatPageLayout extends Block {
     }
 
     handleListChatClick = async (event: CustomEvent) => {
+        const {
+            title: chatTitle,
+            avatar: chatAvatar,
+        } = event.detail;
+        const newProp = {
+            ctx: {
+                chatTitle,
+                chatAvatar,
+            },
+        };
+        const newProps = merge(this.props, newProp);
+        this.setProps(newProps);
+
         const {userId} = this.props;
         await chatsController.connectToChat(userId, event);
     }

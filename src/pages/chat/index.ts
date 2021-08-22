@@ -9,7 +9,7 @@ import Form from '../../components/form';
 const chatsController = new ChatsController();
 
 const ctx = {
-    chatName: '8 team',
+    chatTitle: '8 team',
     children: {
         newChatBtn: new Button({
             label: 'Создать чат',

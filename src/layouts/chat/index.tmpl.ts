@@ -24,11 +24,11 @@ const tmpl: string = `
         <main>
             <div class="chat__header">
                 <div class="chat__icon">
-                    {{#if chatImg}}
-                        <img src="{{chatImg}}" alt="">
+                    {{#if chatAvatar}}
+                        <img src={{chatAvatar}} alt="">
                     {{/if}}
                 </div>
-                <div class="chat__name">{{ chatName }}</div>
+                <div class="chat__name">{{ chatTitle }}</div>
                 <div class="chat__menu"></div>
             </div>
             <div class="chat__content">
