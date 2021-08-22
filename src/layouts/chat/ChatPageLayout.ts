@@ -54,6 +54,7 @@ export default class ChatPageLayout extends Block {
     }
 
     handleListChatClick = async (event: CustomEvent) => {
-        const chatToken = await chatsController.getToken(event);
+        const {userId} = this.props;
+        await chatsController.connectToChat(userId, event);
     }
 }

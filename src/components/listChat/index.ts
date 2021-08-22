@@ -21,7 +21,7 @@ export default class ListChat extends Block {
         this.getContent().addEventListener('click', this.emitClick);
     }
 
-    emitClick = (event: Event) => {
+    emitClick = () => {
         const {id} = this.props.ctx;
         const listChatClickEvent = new CustomEvent('list-chat-click', {
             detail: {id},

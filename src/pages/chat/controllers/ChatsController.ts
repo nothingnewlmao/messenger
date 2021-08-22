@@ -1,4 +1,5 @@
 import ChatsApi from '../../../api/ChatsApi';
+import {createChatWS} from '../../../utils/chatWS/ChatWS';
 
 const chatsApiInstance = new ChatsApi();
 
@@ -32,12 +33,22 @@ class ChatsController {
         }
     }
 
-    public async getToken(event: CustomEvent) {
+    public async getToken(id: string) {
         try {
-            const {id} = event.detail;
             const chatTokenString = await chatsApiInstance.getChatToken(id);
             const {token: chatToken} = JSON.parse(chatTokenString);
+
             return chatToken;
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    public async connectToChat(userId: number, event: CustomEvent) {
+        try {
+            const {id: chatId} = event.detail;
+            const chatToken = await this.getToken(chatId);
+            createChatWS(userId, chatId, chatToken);
         } catch (e) {
             console.log(e);
         }
