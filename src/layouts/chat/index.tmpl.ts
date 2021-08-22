@@ -5,6 +5,7 @@ const tmpl: string = `
         <aside>
             <div class="aside__header">
                 <div data-component="newChatBtn"></div>
+                <div style="width: 100%;"></div>
                 <div data-component="profileBtn"></div>
             </div>
             {{#if children.chatList}}

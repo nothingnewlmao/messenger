@@ -14,8 +14,11 @@ button,
   line-height: 1;
 
   & > div {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    white-space: nowrap;
   }
 
   &:hover {
