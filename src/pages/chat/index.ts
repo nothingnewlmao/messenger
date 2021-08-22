@@ -9,7 +9,7 @@ import Form from '../../components/form';
 const chatsController = new ChatsController();
 
 const ctx = {
-    chatTitle: '8 team',
+    chatTitle: '',
     children: {
         newChatBtn: new Button({
             label: 'Создать чат',
@@ -18,10 +18,6 @@ const ctx = {
                 icon: new Icon({
                     id: 'create',
                 }),
-            },
-        }, {
-            click: (event: Event) => {
-                chatsController.createChat(event);
             },
         }),
         profileBtn: new Button({
@@ -36,6 +32,14 @@ const ctx = {
         }, {
             click: () => {
                 router.go('/settings');
+            },
+        }),
+        addUserBtn: new Button({
+            className: '_flat _round',
+            children: {
+                icon: new Icon({
+                    id: 'person_add',
+                }),
             },
         }),
         newMessageFiles: new Button({
@@ -76,6 +80,24 @@ const ctx = {
                 }),
             },
         }),
+        addUserPopup: new Popup({
+            title: 'Добавить пользователя',
+            children: {
+                body: new Form({
+                    children: {
+                        inputs: [
+                            new FormInput({
+                                name: 'title',
+                                className: 'unauth-input',
+                            }),
+                        ],
+                        submitBtn: new Button({
+                            label: 'Добавить',
+                        }),
+                    },
+                }),
+            },
+        })
     },
 };
 

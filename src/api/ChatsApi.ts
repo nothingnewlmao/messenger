@@ -37,4 +37,18 @@ export default class ChatsApi extends BasicAPI {
                 throw new Error(e);
             });
     }
+
+    addUser(users: number[], chatId: number) {
+        return chatsAPIInstance
+            .put('/users', {
+                data: JSON.stringify({users, chatId}),
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(response => response)
+            .catch(e => {
+                throw new Error(e);
+            });
+    }
 }

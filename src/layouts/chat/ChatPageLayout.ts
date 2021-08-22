@@ -25,6 +25,10 @@ export default class ChatPageLayout extends Block {
 
     async componentCreated() {
         super.componentCreated();
+        await this.getChats();
+    }
+
+    async getChats() {
         const userId = await userController
             .getUserInfo()
             .then(response => {
@@ -50,21 +54,31 @@ export default class ChatPageLayout extends Block {
 
     addEventListeners() {
         super.addEventListeners();
+
         this._element.addEventListener('list-chat-click', this.handleListChatClick);
 
         const sendMessageBtn = this.props.ctx.children.sendMessage.getContent();
         sendMessageBtn.addEventListener('click', this.handleSendMessageClick);
+
+        const addUserBtn = this.props.ctx.children.addUserBtn.getContent();
+        addUserBtn.addEventListener('click', this.handleAddUserClick);
+
+        const newChatBtn = this.props.ctx.children.newChatBtn.getContent();
+        newChatBtn.addEventListener('click', this.handleNewChatClick);
     }
 
     handleListChatClick = async (event: CustomEvent) => {
         const {
             title: chatTitle,
             avatar: chatAvatar,
+            id: chatId,
         } = event.detail;
         const newProp = {
+            chatId,
             ctx: {
                 chatTitle,
                 chatAvatar,
+                chatId,
             },
         };
         const newProps = merge(this.props, newProp);
@@ -78,5 +92,17 @@ export default class ChatPageLayout extends Block {
     handleSendMessageClick = (event: Event) => {
         const {socket} = this.props;
         chatsController.sendMessage(socket, event);
+    }
+
+    handleAddUserClick = (event: Event) => {
+        event.preventDefault();
+        const {chatId} = this.props;
+        const {addUserPopup} = this.props.ctx.children;
+        chatsController.addUser(addUserPopup, chatId);
+    }
+
+    handleNewChatClick = () => {
+        const {createChatPopup} = this.props.ctx.children;
+        chatsController.createChat(createChatPopup);
     }
 }

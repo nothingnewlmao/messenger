@@ -1,5 +1,6 @@
 import ChatsApi from '../../../api/ChatsApi';
 import {createChatWS} from '../../../utils/chatWS/ChatWS';
+import Popup from '../../../components/popup';
 
 const chatsApiInstance = new ChatsApi();
 
@@ -12,21 +13,18 @@ class ChatsController {
         }
     }
 
-    public async createChat(event: Event) {
+    public async createChat(popup: Popup) {
         try {
-            const {target} = event;
+            popup.show();
 
-            const popup = target.closest('.chat-page').querySelector('.popup');
-            popup.style.display = 'flex';
-
-            const handleSubmit = async event => {
+            const handleSubmit = async (event: Event) => {
                 event.preventDefault();
                 const [input] = event.target;
                 await chatsApiInstance.create(input.value);
-                popup.style.display = 'none';
+                popup.hide();
             };
 
-            const form = popup.querySelector('form');
+            const form = popup.getContent().querySelector('form');
             form.addEventListener('submit', handleSubmit);
         } catch (e) {
             console.log(e);
@@ -63,6 +61,21 @@ class ChatsController {
             type: 'message',
         };
         socket.send(JSON.stringify(message));
+    }
+
+    public async addUser(popup: Popup, chatId: number) {
+        popup.show();
+
+        const handleSubmit = async (event: Event) => {
+            event.preventDefault();
+            const [input] = event.target;
+            const users = input.value.split(',');
+            await chatsApiInstance.addUser(users, chatId);
+            popup.hide();
+        };
+
+        const form = popup.getContent().querySelector('form');
+        form.addEventListener('submit', handleSubmit);
     }
 }
 
