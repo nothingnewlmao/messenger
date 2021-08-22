@@ -36,6 +36,7 @@ const ctx = {
                 router.go('/settings');
             },
         }),
+        chatList: [],
         newMessageFiles: new Button({
             className: '_flat _round',
             children: {
