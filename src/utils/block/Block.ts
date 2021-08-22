@@ -10,6 +10,7 @@ export default class Block {
         FLOW_CDM: 'flow:component-did-mount',
         FLOW_CDU: 'flow:component-did-update',
         FLOW_RENDER: 'flow:render',
+        FLOW_CREATED: 'flow:created',
     };
 
     _element?: HTMLElement;
@@ -40,6 +41,7 @@ export default class Block {
         eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
         eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
         eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+        eventBus.on(Block.EVENTS.FLOW_CREATED, this._componentCreated.bind(this));
     }
 
     _createResources() {
@@ -49,8 +51,15 @@ export default class Block {
 
     init() {
         this._createResources();
+        this.eventBus.emit(Block.EVENTS.FLOW_CREATED);
         this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
+
+    _componentCreated() {
+        this.componentCreated();
+    }
+
+    componentCreated() {}
 
     _componentDidMount() {
         this.componentDidMount();
