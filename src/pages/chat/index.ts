@@ -20,7 +20,7 @@ const ctx = {
                 }),
             },
         }, {
-            click: event => {
+            click: (event: Event) => {
                 chatsController.createChat(event);
             },
         }),
@@ -38,7 +38,6 @@ const ctx = {
                 router.go('/settings');
             },
         }),
-        chatList: [],
         newMessageFiles: new Button({
             className: '_flat _round',
             children: {
