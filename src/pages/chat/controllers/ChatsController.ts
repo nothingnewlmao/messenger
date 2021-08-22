@@ -53,6 +53,17 @@ class ChatsController {
             console.log(e);
         }
     }
+
+    public async sendMessage(socket: WebSocket, event: Event) {
+        const {target} = event;
+        const messageInput = target.closest('.chat__create').querySelector('input');
+        const {value} = messageInput;
+        const message = {
+            content: value,
+            type: 'message',
+        };
+        socket.send(JSON.stringify(message));
+    }
 }
 
 export default ChatsController;

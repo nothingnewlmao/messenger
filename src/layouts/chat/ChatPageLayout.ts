@@ -50,7 +50,10 @@ export default class ChatPageLayout extends Block {
 
     addEventListeners() {
         super.addEventListeners();
-        this.getContent().addEventListener('list-chat-click', this.handleListChatClick);
+        this._element.addEventListener('list-chat-click', this.handleListChatClick);
+
+        const sendMessageBtn = this.props.ctx.children.sendMessage.getContent();
+        sendMessageBtn.addEventListener('click', this.handleSendMessageClick);
     }
 
     handleListChatClick = async (event: CustomEvent) => {
@@ -70,5 +73,10 @@ export default class ChatPageLayout extends Block {
         const {userId} = this.props;
         const socket = await chatsController.connectToChat(userId, event);
         this.setProps(merge(this.props, {socket}));
+    }
+
+    handleSendMessageClick = (event: Event) => {
+        const {socket} = this.props;
+        chatsController.sendMessage(socket, event);
     }
 }
