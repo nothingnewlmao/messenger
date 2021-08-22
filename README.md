@@ -15,15 +15,6 @@
 
 [Netlify](https://homework-messanger.netlify.app/)
 
-## Список страниц
-
-* [войти](https://homework-messanger.netlify.app)
-* [регистрация](https://homework-messanger.netlify.app/signup)
-* [профиль](https://homework-messanger.netlify.app/settings)
-* [редактировать профиль](https://homework-messanger.netlify.app/settings/edit)
-* [поменять пароль](https://homework-messanger.netlify.app/settings/password)
-* [заглушка чата](https://homework-messanger.netlify.app/messanger)
-
 ## PR
 
 [Sprint_3](https://github.com/oduvankenobi/middle.messenger.praktikum.yandex/pull/4)
