@@ -7,18 +7,18 @@ const tmpl: string = `
                 <div data-component="newChatBtn"></div>
                 <div data-component="profileBtn"></div>
             </div>
-            <div class="aside__chat-list">
-                {{#if children.chatList}}
+            {{#if children.chatList}}
+                <div class="aside__chat-list">
                     {{#each children.chatList}}
-                        <div
-                            data-component="chatList"
-                            data-key="{{@index}}"
-                            ></div>
+                       <div
+                        data-component="chatList"
+                        data-key="{{@index}}"
+                        ></div>
                     {{/each}}
-                {{else}}
-                <div class="aside__stub">У Вас пока нет чатов. Давайте создадим беседу!</div>
-                {{/if}}
-            </div>    
+                </div>    
+            {{else}}
+            <div class="aside__stub">У Вас пока нет чатов. Давайте создадим беседу!</div>
+            {{/if}}
         </aside>
         <main>
             <div class="chat__header">

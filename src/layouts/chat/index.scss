@@ -53,24 +53,27 @@ aside {
   background-color: $aside-color;
   display: flex;
   flex-direction: column;
-  padding: 20px 10px;
+  padding: 0 10px 15px;
 
   .aside {
     &__header {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      padding-top: 5px;
     }
 
     &__chat-list {
       flex-grow: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
     }
 
     &__stub {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: center;
       text-align: center;
     }
   }
