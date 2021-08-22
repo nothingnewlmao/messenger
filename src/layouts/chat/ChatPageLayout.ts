@@ -68,6 +68,7 @@ export default class ChatPageLayout extends Block {
         this.setProps(newProps);
 
         const {userId} = this.props;
-        await chatsController.connectToChat(userId, event);
+        const socket = await chatsController.connectToChat(userId, event);
+        this.setProps(merge(this.props, {socket}));
     }
 }

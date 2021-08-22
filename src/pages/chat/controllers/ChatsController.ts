@@ -48,7 +48,7 @@ class ChatsController {
         try {
             const {id: chatId} = event.detail;
             const chatToken = await this.getToken(chatId);
-            createChatWS(userId, chatId, chatToken);
+            return createChatWS(userId, chatId, chatToken);
         } catch (e) {
             console.log(e);
         }
