@@ -5,8 +5,10 @@ import ChatsController from '../../pages/chat/controllers/ChatsController';
 import merge from '../../utils/functions/merge';
 import ListChat from '../../components/listChat';
 import ObjectLiteral from '../../types/ObjectLiteral';
+import UserController from '../../controllers/UserController';
 
 const chatsController = new ChatsController();
+const userController = new UserController();
 
 export default class ChatPageLayout extends Block {
     constructor(ctx: any) {
@@ -21,9 +23,17 @@ export default class ChatPageLayout extends Block {
 
     async componentCreated() {
         super.componentCreated();
+        const userId = await userController
+            .getUserInfo()
+            .then(response => {
+                const res = JSON.parse(response);
+                return res.id;
+            });
+
         const chatsString = await chatsController.getChats();
         const chats = JSON.parse(chatsString);
         const newProp = {
+            userId,
             ctx: {
                 children: {
                     chatList: chats
@@ -33,6 +43,7 @@ export default class ChatPageLayout extends Block {
         };
 
         const newProps = merge(this.props, newProp);
+        console.log(newProps);
         this.setProps(newProps);
     }
 }
