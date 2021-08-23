@@ -29,27 +29,31 @@ export default class ChatPageLayout extends Block {
     }
 
     async getChats() {
-        const userId = await userController
-            .getUserInfo()
-            .then(response => {
-                const res = JSON.parse(response);
-                return res.id;
-            });
+        try {
+            const userId = await userController
+                .getUserInfo()
+                .then(response => {
+                    const res = JSON.parse(response);
+                    return res.id;
+                });
 
-        const chatsString = await chatsController.getChats();
-        const chats = JSON.parse(chatsString);
-        const newProp = {
-            userId,
-            ctx: {
-                children: {
-                    chatList: chats
-                        .map((chat: ObjectLiteral) => new ListChat(chat)),
+            const chatsString = await chatsController.getChats();
+            const chats = JSON.parse(chatsString);
+            const newProp = {
+                userId,
+                ctx: {
+                    children: {
+                        chatList: chats
+                            .map((chat: ObjectLiteral) => new ListChat(chat)),
+                    },
                 },
-            },
-        };
+            };
 
-        const newProps = merge(this.props, newProp);
-        this.setProps(newProps);
+            const newProps = merge(this.props, newProp);
+            this.setProps(newProps);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     addEventListeners() {

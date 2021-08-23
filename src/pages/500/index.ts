@@ -6,6 +6,7 @@ const ctx = {
     children: {
         button: new Button({
             label: 'Назад к чатам',
+            className: '_flat',
         }),
     },
 };

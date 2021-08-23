@@ -12,6 +12,7 @@ class UserController {
             return await authApiInstance.getUser();
         } catch (e) {
             console.log(JSON.parse(e.message));
+            router.go('/401');
         }
     }
 
@@ -31,6 +32,7 @@ class UserController {
             return await userApiInstance.changeUser(requestData);
         } catch (e) {
             console.log(e.message);
+            router.go('/401');
         }
     }
 
@@ -40,6 +42,7 @@ class UserController {
             return await userApiInstance.changePassword(requestData);
         } catch (e) {
             console.log(e.message);
+            router.go('/401');
         }
     }
 
@@ -64,6 +67,7 @@ class UserController {
             popup.style.display = 'none';
         } catch (e) {
             console.log(e);
+            router.go('/401');
         }
     }
 }

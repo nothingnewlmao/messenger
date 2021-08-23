@@ -9,6 +9,7 @@ import SettingsPasswordPage from '../pages/settings/changePassword/SettingsPassw
 
 import page404 from '../pages/404';
 import page500 from '../pages/500';
+import page401 from '../pages/401';
 import changePassword from '../pages/settings/changePassword';
 import editProfilePage from '../pages/settings/edit';
 import showProfilePage from '../pages/settings/show';
@@ -26,6 +27,7 @@ router
     .use('/settings', SettingsShowPage, showProfilePage)
     .use('/settings/password', SettingsPasswordPage, changePassword)
     .use('/505', ErrorPageLayout, page500)
+    .use('/401', ErrorPageLayout, page401)
     .use('/404', ErrorPageLayout, page404);
 
 export default router;
