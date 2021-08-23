@@ -18,6 +18,9 @@ export default class AuthApi extends BasicAPI {
             .then((response: ObjectLiteral): string => {
                 const {id} = response;
                 return id;
+            })
+            .catch(e => {
+                throw new Error(e);
             });
     }
 
@@ -29,7 +32,10 @@ export default class AuthApi extends BasicAPI {
                     'Content-Type': 'application/json',
                 },
             })
-            .then(() => true);
+            .then(() => true)
+            .catch(e => {
+                throw new Error(e);
+            });
     }
 
     logout() {

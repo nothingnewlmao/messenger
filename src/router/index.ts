@@ -1,6 +1,7 @@
 import Router from './Router';
 import ErrorPageLayout from '../layouts/error/ErrorPageLayout';
 import UnauthPageLayout from '../layouts/unauth/UnauthPageLayout';
+import LoginPage from '../pages/login/LoginPage';
 import ChatPageLayout from '../layouts/chat/ChatPageLayout';
 import SettingsShowPage from '../pages/settings/show/SettingsShowPage';
 import SettingsEditPage from '../pages/settings/edit/SettingsEditPage';
@@ -18,7 +19,7 @@ import chatPage from '../pages/chat';
 const router = new Router('.app');
 
 router
-    .use('/', UnauthPageLayout, loginPage)
+    .use('/', LoginPage, loginPage)
     .use('/sign-up', UnauthPageLayout, signupPage)
     .use('/messenger', ChatPageLayout, chatPage)
     .use('/settings/edit', SettingsEditPage, editProfilePage)

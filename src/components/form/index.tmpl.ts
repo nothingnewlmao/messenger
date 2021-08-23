@@ -9,6 +9,10 @@ const tmpl: string = `
         {{#if children.submitBtn}}
                 <div data-component="submitBtn"></div>
         {{/if}}
+        
+        {{#if error}}
+            <div class="_error">{{ error }}</div>
+        {{/if}}
     </div>
 `;
 

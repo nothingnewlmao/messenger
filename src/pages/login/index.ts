@@ -46,10 +46,6 @@ const ctx = {
                 'emitSubmitEvent',
                 'collectFields',
             ],
-            'fields-collected': async (event: CustomEvent) => {
-                const {data} = event.detail;
-                await loginController.login(data);
-            },
         }),
         altBtn: new Button({
             label: 'Зарегистрироваться',
