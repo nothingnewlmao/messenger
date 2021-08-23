@@ -1,6 +1,7 @@
 import ChatsApi from '../../../api/ChatsApi';
 import {createChatWS} from '../../../utils/chatWS/ChatWS';
 import Popup from '../../../components/popup';
+import router from '../../../router';
 
 const chatsApiInstance = new ChatsApi();
 
@@ -9,7 +10,8 @@ class ChatsController {
         try {
             return await chatsApiInstance.get();
         } catch (e) {
-            console.log(e);
+            router.go('/401');
+            throw new Error(e);
         }
     }
 
@@ -28,6 +30,7 @@ class ChatsController {
             form.addEventListener('submit', handleSubmit);
         } catch (e) {
             console.log(e);
+            router.go('/401');
         }
     }
 

@@ -1,9 +1,11 @@
 import {expect} from 'chai';
 import 'mocha';
 
-describe('Hello function', () => {
-    it('should return hello world', () => {
-        const result = '';
-        expect(result).to.equal('Hello World!');
+describe('Проверяем переходы у Роута', () => {
+    it('Переход на новую страницу должен менять состояние сущности history', () => {
+        window.history.pushState({page: 'login'}, 'Login', '/login');
+        window.history.pushState({page: 'register'}, 'Register', '/register');
+
+        expect(window.history.length).to.eq(3);
     });
 });

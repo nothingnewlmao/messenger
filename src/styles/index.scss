@@ -25,3 +25,10 @@ button {
     background-color: transparent;
   }
 }
+
+._error {
+  color: $negative-color;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}

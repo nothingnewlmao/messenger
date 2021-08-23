@@ -1,11 +1,11 @@
 import Button from '../../components/button';
 
 const ctx = {
-    errorNumber: '404',
-    errorText: 'Не туда попали',
+    errorNumber: '401',
+    errorText: 'Недостаточно прав для посещения страницы',
     children: {
         button: new Button({
-            label: 'Назад к чатам',
+            label: 'Залогиниться',
             className: '_flat',
         }),
     },

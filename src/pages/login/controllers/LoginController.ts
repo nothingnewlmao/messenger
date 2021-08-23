@@ -10,7 +10,8 @@ export default class LoginController {
             await authInstance.signin(JSON.stringify(data));
             router.go('/messenger');
         } catch (e) {
-            console.log(JSON.parse(e));
+            const errorMessage = JSON.parse(e.message).reason;
+            return errorMessage;
         }
     }
 }

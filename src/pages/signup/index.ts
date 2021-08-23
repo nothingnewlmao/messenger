@@ -2,9 +2,6 @@ import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
 import router from '../../router';
-import SignupController from './controllers/signupController';
-
-const signUpController = new SignupController();
 
 const ctx = {
     formTitle: 'Регистрация',
@@ -118,10 +115,6 @@ const ctx = {
                 'emitSubmitEvent',
                 'collectFields',
             ],
-            'fields-collected': async (event: CustomEvent) => {
-                const {data} = event.detail;
-                await signUpController.signup(data);
-            },
         }),
         altBtn: new Button({
             label: 'Войти',
