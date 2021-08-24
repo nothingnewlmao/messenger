@@ -48,7 +48,14 @@ class Router {
         }
 
         this._currentRoute = route;
-        route.navigate(pathname);
+
+        try {
+            route.navigate(pathname);
+        } catch (e) {
+            const errorPage = this.getRoute('/404');
+            this._currentRoute = errorPage;
+            errorPage.navigate('/404');
+        }
     }
 
     go(pathname: string) {
