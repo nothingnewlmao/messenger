@@ -1,14 +1,26 @@
 import {expect} from 'chai';
 import 'mocha';
+import {JSDOM} from 'jsdom';
 
-const jsdom = require("jsdom");
-const {JSDOM} = jsdom;
+declare global {
+    namespace NodeJS {
+        interface Global {
+            document: Document;
+            window: Window;
+            navigator: Navigator;
+        }
+    }
+}
+
+const dom = new JSDOM('<!DOCTYPE html><p>Hello world</p>');
+global.document = dom.window.document;
+global.window = global.document.defaultView;
 
 describe('Проверяем переходы у Роута', () => {
     it('Переход на новую страницу должен менять состояние сущности history', () => {
+        window.history.pushState({page: 'login'}, 'Login', '/login');
+        window.history.pushState({page: 'register'}, 'Register', '/signup');
 
-        const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`);
-        console.log(dom.window.document.querySelector("p").textContent); // "Hello world"
-        expect(1).to.eq(1);
+        expect(window.history.length).to.eq(3);
     });
 });
