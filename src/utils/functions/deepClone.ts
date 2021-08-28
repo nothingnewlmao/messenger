@@ -1,5 +1,7 @@
 /* eslint-disable */
 
+import ObjectLiteral from '../../types/ObjectLiteral';
+
 export default function deepClone<T extends object = object>(obj: T) {
     return (function _cloneDeep(item: T): T | Date | Set<unknown> | Map<unknown, unknown> | object | T[] {
         // Handle:
@@ -53,17 +55,17 @@ export default function deepClone<T extends object = object>(obj: T) {
         // Handle:
         // * Object
         if (item instanceof Object) {
-            const copy: object = {};
+            const copy: ObjectLiteral = {};
 
             // Handle:
             // * Object.symbol
-            Object.getOwnPropertySymbols(item)
-                .forEach((s: symbol) => (copy[s] = _cloneDeep(item[s])));
+            // @ts-ignore
+            Object.getOwnPropertySymbols(item).forEach((s: symbol) => (copy[s] = _cloneDeep(item[s])));
 
             // Handle:
             // * Object.name (other)
-            Object.keys(item)
-                .forEach((k: string) => (copy[k] = _cloneDeep(item[k])));
+            // @ts-ignore
+            Object.keys(item).forEach((k: string) => (copy[k] = _cloneDeep(item[k])));
 
             return copy;
         }

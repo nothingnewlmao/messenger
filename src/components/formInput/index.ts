@@ -62,6 +62,7 @@ export default class FormInput extends Block {
             const target = this._element.querySelector('input');
             if (blockHandlers) {
                 handler.forEach((callback: string) => {
+                    // @ts-ignore
                     target.addEventListener(event, this[callback]);
                 });
             } else {

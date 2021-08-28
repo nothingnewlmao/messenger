@@ -58,6 +58,7 @@ export default class Form extends Block {
             const target = this.getContent();
             if (someHandlers) {
                 handler.forEach((callback: string) => {
+                    // @ts-ignore
                     target.addEventListener(event, this[callback]);
                 });
             } else {
