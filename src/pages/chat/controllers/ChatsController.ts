@@ -2,7 +2,7 @@ import ChatsApi from '../../../api/ChatsApi';
 import {createChatWS} from '../../../utils/chatWS/ChatWS';
 import Popup from '../../../components/popup';
 import router from '../../../router';
-import EventFormInputType from '../../../types/EventFormInputType';
+import EventFormInputType from '../../../types/events/EventFormInputType';
 
 const chatsApiInstance = new ChatsApi();
 

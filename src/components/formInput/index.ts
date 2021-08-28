@@ -3,7 +3,7 @@ import InputType from './InputType';
 import tmpl from './index.tmpl';
 import './index.scss';
 import ObjectLiteral from '../../types/ObjectLiteral';
-import EventHtmlTargetValueStringType from '../../types/EventHtmlTargetValueStringType';
+import EventHtmlTargetValueStringType from '../../types/events/EventHtmlTargetValueStringType';
 
 export default class FormInput extends Block {
     static ERROR_TEXTS = {

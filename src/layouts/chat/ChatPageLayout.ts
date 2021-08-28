@@ -6,7 +6,7 @@ import merge from '../../utils/functions/merge';
 import ListChat from '../../components/listChat';
 import ObjectLiteral from '../../types/ObjectLiteral';
 import UserController from '../../controllers/UserController';
-import EventHtmlTargetType from '../../types/EventHtmlTargetType';
+import EventHtmlTargetType from '../../types/events/EventHtmlTargetType';
 
 const chatsController = new ChatsController();
 const userController = new UserController();
