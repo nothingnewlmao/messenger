@@ -2,6 +2,7 @@ import AuthApi from '../api/AuthApi';
 import router from '../router';
 import UserApi from '../api/UserApi';
 import ObjectLiteral from '../types/ObjectLiteral';
+import EventHtmlTargetType from '../types/events/EventHtmlTargetType';
 
 const authApiInstance = new AuthApi();
 const userApiInstance = new UserApi();
@@ -46,12 +47,12 @@ class UserController {
         }
     }
 
-    public async changeAvatar(event) {
+    public async changeAvatar(event: EventHtmlTargetType) {
         try {
             event.preventDefault();
             const {target} = event;
 
-            const imgInput = target.querySelector('input[type="file"]');
+            const imgInput: HTMLInputElement = target.querySelector('input[type="file"]');
             const [file] = imgInput.files;
 
             const formData: FormData = new FormData();
@@ -63,7 +64,7 @@ class UserController {
             img.setAttribute('src', src);
             img.removeAttribute('hidden');
 
-            const popup = target.closest('.popup');
+            const popup: HTMLElement = target.closest('.popup');
             popup.style.display = 'none';
         } catch (e) {
             console.log(e);
