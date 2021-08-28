@@ -6,6 +6,7 @@ import UserController from '../../../controllers/UserController';
 import FormInput from '../../../components/formInput';
 import deepClone from '../../../utils/functions/deepClone';
 import setProperty from '../../../utils/functions/setProperty';
+import EventHtmlTargetType from '../../../types/events/EventHtmlTargetType';
 
 export default class SettingsEditPage extends Block {
     constructor(ctx: ObjectLiteral) {
@@ -23,7 +24,7 @@ export default class SettingsEditPage extends Block {
         const userController = new UserController();
         const info = await userController
             .getUserInfo()
-            .then(response => JSON.parse(response));
+            .then((response: unknown) => JSON.parse(response as string));
         this.mapInputsValues(info);
     }
 
@@ -49,7 +50,7 @@ export default class SettingsEditPage extends Block {
         this.getContent().addEventListener('click', this.openPopup);
     }
 
-    openPopup = event => {
+    openPopup = (event: EventHtmlTargetType) => {
         const {target} = event;
         const isImg = target.closest('.profile__pic') !== null;
         if (isImg) {
