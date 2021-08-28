@@ -6,6 +6,7 @@ import merge from '../../utils/functions/merge';
 import ListChat from '../../components/listChat';
 import ObjectLiteral from '../../types/ObjectLiteral';
 import UserController from '../../controllers/UserController';
+import EventHtmlTargetType from '../../types/EventHtmlTargetType';
 
 const chatsController = new ChatsController();
 const userController = new UserController();
@@ -93,7 +94,7 @@ export default class ChatPageLayout extends Block {
         this.setProps(merge(this.props, {socket}));
     }
 
-    handleSendMessageClick = (event: Event) => {
+    handleSendMessageClick = (event: EventHtmlTargetType) => {
         const {socket} = this.props;
         chatsController.sendMessage(socket, event);
     }
