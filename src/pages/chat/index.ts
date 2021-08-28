@@ -2,11 +2,8 @@ import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Icon from '../../components/icon';
 import router from '../../router';
-import ChatsController from './controllers/ChatsController';
 import Popup from '../../components/popup';
 import Form from '../../components/form';
-
-const chatsController = new ChatsController();
 
 const ctx = {
     chatTitle: '',
