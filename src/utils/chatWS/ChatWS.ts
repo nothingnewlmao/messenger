@@ -20,7 +20,7 @@ export function createChatWS(userId: number, chatId: number, tokenValue: string 
         console.log('Получены данные', event.data);
     });
 
-    socket.addEventListener('error', event => {
+    socket.addEventListener('error', (event: Event & { message: string }) => {
         console.log('Ошибка', event.message);
     });
 
