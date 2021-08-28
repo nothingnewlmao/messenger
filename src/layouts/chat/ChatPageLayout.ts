@@ -32,13 +32,13 @@ export default class ChatPageLayout extends Block {
         try {
             const userId = await userController
                 .getUserInfo()
-                .then(response => {
-                    const res = JSON.parse(response);
+                .then((response: unknown) => {
+                    const res = JSON.parse(response as string);
                     return res.id;
                 });
 
-            const chatsString = await chatsController.getChats();
-            const chats = JSON.parse(chatsString);
+            const chatsString: unknown = await chatsController.getChats();
+            const chats = JSON.parse(chatsString as string);
             const newProp = {
                 userId,
                 ctx: {

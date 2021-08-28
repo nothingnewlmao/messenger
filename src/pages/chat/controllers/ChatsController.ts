@@ -2,6 +2,7 @@ import ChatsApi from '../../../api/ChatsApi';
 import {createChatWS} from '../../../utils/chatWS/ChatWS';
 import Popup from '../../../components/popup';
 import router from '../../../router';
+import EventFormInputType from '../../../types/EventFormInputType';
 
 const chatsApiInstance = new ChatsApi();
 
@@ -19,7 +20,7 @@ class ChatsController {
         try {
             popup.show();
 
-            const handleSubmit = async (event: Event) => {
+            const handleSubmit = async (event: EventFormInputType) => {
                 event.preventDefault();
                 const [input] = event.target;
                 await chatsApiInstance.create(input.value);
@@ -34,10 +35,10 @@ class ChatsController {
         }
     }
 
-    public async getToken(id: string) {
+    public async getToken(id: number) {
         try {
-            const chatTokenString = await chatsApiInstance.getChatToken(id);
-            const {token: chatToken} = JSON.parse(chatTokenString);
+            const chatTokenString: unknown = await chatsApiInstance.getChatToken(id);
+            const {token: chatToken} = JSON.parse(chatTokenString as string);
 
             return chatToken;
         } catch (e) {
@@ -55,7 +56,7 @@ class ChatsController {
         }
     }
 
-    public async sendMessage(socket: WebSocket, event: Event) {
+    public async sendMessage(socket: WebSocket, event: Event & { target: HTMLElement }) {
         const {target} = event;
         const messageInput = target.closest('.chat__create').querySelector('input');
         const {value} = messageInput;
@@ -69,7 +70,7 @@ class ChatsController {
     public async addUser(popup: Popup, chatId: number) {
         popup.show();
 
-        const handleSubmit = async (event: Event) => {
+        const handleSubmit = async (event: EventFormInputType) => {
             event.preventDefault();
             const [input] = event.target;
             const users = input.value.split(',');
