@@ -23,7 +23,7 @@ export default class SettingsShowPage extends Block {
         const userController = new UserController();
         const info = await userController
             .getUserInfo()
-            .then(response => JSON.parse(response));
+            .then((response: unknown) => JSON.parse(response as string));
         this.mapInputsValues(info);
     }
 
