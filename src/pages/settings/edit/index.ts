@@ -6,6 +6,7 @@ import UserController from '../../../controllers/UserController';
 import Popup from '../../../components/popup';
 import router from '../../../router';
 import Icon from '../../../components/icon';
+import EventHtmlTargetType from '../../../types/events/EventHtmlTargetType';
 
 const userController = new UserController();
 
@@ -69,7 +70,7 @@ const ctx = {
                         }),
                     },
                 }, {
-                    submit: async event => {
+                    submit: async (event: EventHtmlTargetType) => {
                         await userController.changeAvatar(event);
                     },
                 }),
