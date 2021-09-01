@@ -14,16 +14,14 @@ declare global {
     }
 }
 
-beforeEach(() => {
-    const dom = new JSDOM('<!DOCTYPE html><div class="app"></div>', {
-        url: 'http://localhost:3000',
-    });
-
-    global.document = dom.window.document;
-    global.window = global.document.defaultView;
-    // @ts-ignore
-    global.window.router = router;
+const dom = new JSDOM('<!DOCTYPE html><div class="app"></div>', {
+    url: 'http://localhost:3000',
 });
+
+global.document = dom.window.document;
+global.window = global.document.defaultView;
+// @ts-ignore
+global.window.router = router;
 
 describe('Проверяем переходы у Роута', () => {
     it('Ходит по страницам', () => {
