@@ -19,9 +19,6 @@ export default class ChatsApi extends BasicAPI {
         return chatsAPIInstance
             .post('/', {
                 data: JSON.stringify({title}),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             })
             .then(response => response)
             .catch(e => {
@@ -42,9 +39,6 @@ export default class ChatsApi extends BasicAPI {
         return chatsAPIInstance
             .put('/users', {
                 data: JSON.stringify({users, chatId}),
-                headers: {
-                    'Content-Type': 'application/json',
-                },
             })
             .then(response => response)
             .catch(e => {

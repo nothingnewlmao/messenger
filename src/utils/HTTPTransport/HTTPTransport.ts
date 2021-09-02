@@ -40,8 +40,14 @@ class HTTPTransport {
         return this.request(queryString, options);
     }
 
-    post = (url: string, requestOptions: ObjectLiteral = {data: {}}): Promise<XMLHttpRequest> => {
-        const options = {...requestOptions, method: METHODS.POST};
+    post = (url: string, requestOptions: ObjectLiteral = {}): Promise<XMLHttpRequest> => {
+        const options = {
+            ...requestOptions,
+            method: METHODS.POST,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
         return this.request(`${this.BASE_URL}${url}`, options);
     }
 
@@ -60,7 +66,7 @@ class HTTPTransport {
         options: Options = {method: METHODS.GET, timeout: 5000}): Promise<XMLHttpRequest> => {
         const {
             method,
-            data = {},
+            data,
             timeout,
             headers = {},
         } = options;

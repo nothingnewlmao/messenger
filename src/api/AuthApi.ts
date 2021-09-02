@@ -9,12 +9,7 @@ const authAPIInstance = new HTTPTransport(BaseUrl);
 export default class AuthApi extends BasicAPI {
     signup(data: string = '') {
         return authAPIInstance
-            .post('/auth/signup', {
-                data,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
+            .post('/auth/signup', {data})
             .then((response: ObjectLiteral): string => {
                 const {id} = response;
                 return id;
@@ -26,12 +21,7 @@ export default class AuthApi extends BasicAPI {
 
     signin(data: string = '') {
         return authAPIInstance
-            .post('/auth/signin', {
-                data,
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
+            .post('/auth/signin', {data})
             .then(() => true)
             .catch(e => {
                 throw new Error(e);
@@ -40,12 +30,7 @@ export default class AuthApi extends BasicAPI {
 
     logout() {
         return authAPIInstance
-            .post('/auth/logout', {
-                data: '',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
+            .post('/auth/logout', {data: ''})
             .then(() => true)
             .catch(e => {
                 throw new Error(e);
