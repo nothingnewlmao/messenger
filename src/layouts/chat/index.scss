@@ -44,14 +44,15 @@
     font-weight: bold;
   }
 
-  &__menu {}
-
   &__content {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: auto;
+    padding: 70px 20px 59px;
+    height: calc(100% - 180px);
   }
 
   &__create {

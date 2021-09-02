@@ -43,8 +43,6 @@ export function createChatWS(params: paramsType, onMsgFn?: onMsgFnType) {
             const parsedData = JSON.parse(data);
             onMsgFn(parsedData);
         }
-
-        console.log('Получены данные', data);
     });
 
     socket.addEventListener('error', (event: Event & { message: string }) => {

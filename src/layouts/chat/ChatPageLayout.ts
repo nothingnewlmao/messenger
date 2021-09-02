@@ -74,6 +74,16 @@ export default class ChatPageLayout extends Block {
     }
 
     handleListChatClick = async (event: CustomEvent) => {
+        const nextProps = {
+            ctx: {
+                children: {
+                    messages: null,
+                },
+            },
+        };
+
+        this.setProps(merge(this.props, nextProps));
+
         const {
             title: chatTitle,
             avatar: chatAvatar,
@@ -94,6 +104,8 @@ export default class ChatPageLayout extends Block {
         const socket = await chatsController
             .connectToChat(userId, event, this.handleWsMsg);
         this.setProps(merge(this.props, {socket}));
+
+        this.getOldMessages();
     }
 
     handleSendMessageClick = (event: EventHtmlTargetType) => {
@@ -113,12 +125,21 @@ export default class ChatPageLayout extends Block {
         chatsController.createChat(createChatPopup);
     }
 
-    handleWsMsg = (message: ObjectLiteral) => {
+    handleWsMsg = (message: ObjectLiteral | ObjectLiteral[]) => {
+        const isArray = message instanceof Array;
+
         const {messages} = this.props.ctx.children;
-        const newMsg = new ChatMessage(message);
-        const newMessages = messages
-            ? [...messages, newMsg]
-            : [newMsg];
+        const newMsg = isArray
+            ? message.map((content: ObjectLiteral) => new ChatMessage(content))
+            : new ChatMessage(message);
+
+        let newMessages;
+
+        if (isArray) {
+            newMessages = messages ? [...messages, ...newMsg] : [...newMsg];
+        } else {
+            newMessages = messages ? [...messages, newMsg] : [newMsg];
+        }
 
         const nextProps = {
             ctx: {
@@ -129,6 +150,15 @@ export default class ChatPageLayout extends Block {
         };
 
         this.setProps(merge(this.props, nextProps));
-        console.log(this.props);
+    }
+
+    getOldMessages() {
+        const {socket} = this.props;
+        socket.addEventListener('open', () => {
+            socket.send(JSON.stringify({
+                content: '0',
+                type: 'get old',
+            }));
+        });
     }
 }
