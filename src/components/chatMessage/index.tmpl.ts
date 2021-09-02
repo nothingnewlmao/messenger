@@ -1,6 +1,6 @@
 const tmpl: string = `
     <div class="message_wrapper">
-        {{message}}
+        {{content}}
     </div>
 `;
 

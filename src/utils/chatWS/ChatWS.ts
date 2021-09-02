@@ -1,4 +1,18 @@
-export function createChatWS(userId: number, chatId: number, tokenValue: string = '') {
+import ObjectLiteral from '../../types/ObjectLiteral';
+type paramsType = {
+    userId: number,
+    chatId: number,
+    tokenValue: string,
+};
+// eslint-disable-next-line no-unused-vars
+type onMsgFnType = (data: ObjectLiteral) => void;
+
+export function createChatWS(params: paramsType, onMsgFn?: onMsgFnType) {
+    const {
+        userId,
+        chatId,
+        tokenValue,
+    } = params;
     const BASE_URL = 'wss://ya-praktikum.tech/ws/';
     const socket = new WebSocket(`${BASE_URL}chats/${userId}/${chatId}/${tokenValue}`);
 
@@ -7,17 +21,30 @@ export function createChatWS(userId: number, chatId: number, tokenValue: string 
     });
 
     socket.addEventListener('close', event => {
-        if (event.wasClean) {
+        const {
+            wasClean,
+            code,
+            reason,
+        } = event;
+
+        if (wasClean) {
             console.log('Соединение закрыто чисто');
         } else {
             console.log('Обрыв соединения');
         }
 
-        console.log(`Код: ${event.code} | Причина: ${event.reason}`);
+        console.log(`Код: ${code} | Причина: ${reason}`);
     });
 
     socket.addEventListener('message', event => {
-        console.log('Получены данные', event.data);
+        const {data} = event;
+
+        if (onMsgFn) {
+            const parsedData = JSON.parse(data);
+            onMsgFn(parsedData);
+        }
+
+        console.log('Получены данные', data);
     });
 
     socket.addEventListener('error', (event: Event & { message: string }) => {

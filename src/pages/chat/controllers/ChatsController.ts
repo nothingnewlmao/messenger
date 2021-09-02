@@ -3,6 +3,7 @@ import {createChatWS} from '../../../utils/chatWS/ChatWS';
 import Popup from '../../../components/popup';
 import router from '../../../router';
 import EventFormInputType from '../../../types/events/EventFormInputType';
+import ObjectLiteral from '../../../types/ObjectLiteral';
 
 const chatsApiInstance = new ChatsApi();
 
@@ -47,11 +48,20 @@ class ChatsController {
         }
     }
 
-    public async connectToChat(userId: number, event: CustomEvent) {
+    public async connectToChat(
+        userId: number,
+        event: CustomEvent,
+        handleMsgFn: (message: ObjectLiteral) => void,
+    ) {
         try {
             const {id: chatId} = event.detail;
-            const chatToken = await this.getToken(chatId);
-            return createChatWS(userId, chatId, chatToken);
+            const tokenValue: string = await this.getToken(chatId);
+            const params = {
+                userId,
+                chatId,
+                tokenValue,
+            };
+            return createChatWS(params, handleMsgFn);
         } catch (e) {
             console.log(e);
         }
@@ -66,6 +76,7 @@ class ChatsController {
             type: 'message',
         };
         socket.send(JSON.stringify(message));
+        messageInput.value = '';
     }
 
     public async addUser(popup: Popup, chatId: number) {

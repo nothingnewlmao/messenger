@@ -7,6 +7,7 @@ import ListChat from '../../components/listChat';
 import ObjectLiteral from '../../types/ObjectLiteral';
 import UserController from '../../controllers/UserController';
 import EventHtmlTargetType from '../../types/events/EventHtmlTargetType';
+import ChatMessage from '../../components/chatMessage';
 
 const chatsController = new ChatsController();
 const userController = new UserController();
@@ -90,7 +91,8 @@ export default class ChatPageLayout extends Block {
         this.setProps(newProps);
 
         const {userId} = this.props;
-        const socket = await chatsController.connectToChat(userId, event);
+        const socket = await chatsController
+            .connectToChat(userId, event, this.handleWsMsg);
         this.setProps(merge(this.props, {socket}));
     }
 
@@ -109,5 +111,24 @@ export default class ChatPageLayout extends Block {
     handleNewChatClick = () => {
         const {createChatPopup} = this.props.ctx.children;
         chatsController.createChat(createChatPopup);
+    }
+
+    handleWsMsg = (message: ObjectLiteral) => {
+        const {messages} = this.props.ctx.children;
+        const newMsg = new ChatMessage(message);
+        const newMessages = messages
+            ? [...messages, newMsg]
+            : [newMsg];
+
+        const nextProps = {
+            ctx: {
+                children: {
+                    messages: newMessages,
+                },
+            },
+        };
+
+        this.setProps(merge(this.props, nextProps));
+        console.log(this.props);
     }
 }
