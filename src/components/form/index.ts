@@ -3,6 +3,7 @@ import Block from '../../utils/block/Block';
 import FormType from './FormType';
 import FormInput from '../formInput';
 import ObjectLiteral from '../../types/ObjectLiteral';
+import sanitizeInputValue from '../../utils/functions/sanitizeInputValue';
 
 export default class Form extends Block {
     emitSubmitEvent = (event: Event) => {
@@ -26,7 +27,7 @@ export default class Form extends Block {
                 name,
                 value,
             } = input;
-            json[name] = value;
+            json[name] = sanitizeInputValue(value);
             return json;
         }, {});
 
