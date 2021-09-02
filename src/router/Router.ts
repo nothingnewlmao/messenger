@@ -33,7 +33,7 @@ class Router {
     }
 
     start() {
-        window.onpopstate = event => {
+        window.onpopstate = (event: PopStateEvent & { currentTarget: Window }) => {
             this._onRoute(event.currentTarget.location.pathname);
         };
 
@@ -48,12 +48,23 @@ class Router {
         }
 
         this._currentRoute = route;
-        route.navigate(pathname);
+
+        try {
+            route.navigate(pathname);
+        } catch (e) {
+            const errorPage = this.getRoute('/404');
+            this._currentRoute = errorPage;
+            errorPage.navigate('/404');
+        }
     }
 
-    go(pathname: string) {
-        this.history.pushState({}, '', pathname);
-        this._onRoute(pathname);
+    go(pathname?: string) {
+        if (pathname) {
+            this.history.pushState({}, '', pathname);
+            this._onRoute(pathname);
+        } else {
+            this.history.go();
+        }
     }
 
     back() {

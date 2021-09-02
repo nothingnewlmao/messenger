@@ -44,15 +44,20 @@ export default class Block {
         eventBus.on(Block.EVENTS.FLOW_CREATED, this._componentCreated.bind(this));
     }
 
+    init() {
+        this._createResources();
+        this.eventBus.emit(Block.EVENTS.FLOW_CREATED);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
+    }
+
     _createResources() {
         const {tagName} = this._meta;
         this._element = this._createDocumentElement(tagName);
     }
 
-    init() {
-        this._createResources();
-        this.eventBus.emit(Block.EVENTS.FLOW_CREATED);
-        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
+    _createDocumentElement(tagName: string) {
+        // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
+        return document.createElement(tagName);
     }
 
     _componentCreated() {
@@ -198,11 +203,6 @@ export default class Block {
                 throw new Error('Нет доступа');
             },
         });
-    }
-
-    _createDocumentElement(tagName: string) {
-        // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
-        return document.createElement(tagName);
     }
 
     show(type?: string) {
