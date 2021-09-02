@@ -1,5 +1,5 @@
 const tmpl: string = `
-    <div class="message_wrapper">
+    <div class="message__wrapper">
         {{content}}
     </div>
 `;
