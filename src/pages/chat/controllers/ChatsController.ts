@@ -25,6 +25,7 @@ class ChatsController {
                 const [input] = event.target;
                 await chatsApiInstance.create(input.value);
                 popup.hide();
+                router.go();
             };
 
             const form = popup.getContent().querySelector('form');

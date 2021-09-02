@@ -58,9 +58,13 @@ class Router {
         }
     }
 
-    go(pathname: string) {
-        this.history.pushState({}, '', pathname);
-        this._onRoute(pathname);
+    go(pathname?: string) {
+        if (pathname) {
+            this.history.pushState({}, '', pathname);
+            this._onRoute(pathname);
+        } else {
+            this.history.go();
+        }
     }
 
     back() {
