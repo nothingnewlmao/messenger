@@ -11,7 +11,7 @@
     "lint": "run-p -l lint:**",
     "test": "mocha -r ts-node/register -r jsdom-global/register --require ignore-styles src/**/*.spec.ts",
     "start": "npm run build && npm run server",
-    "build": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
+    "build": "parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "server": "node app.js"
   },
   "keywords": [],
