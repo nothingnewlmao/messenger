@@ -10,7 +10,7 @@
     "lint:css": "stylelint **/*.css **/*.scss",
     "lint": "run-p -l lint:**",
     "test": "mocha -r ts-node/register -r jsdom-global/register --require ignore-styles src/**/*.spec.ts",
-    "start": "npm run build && node app.js",
+    "start": "npm run server && npm run build",
     "build": "parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
     "server": "node app.js"
   },
