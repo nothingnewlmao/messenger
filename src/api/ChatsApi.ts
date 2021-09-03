@@ -1,11 +1,10 @@
 import HTTPTransport from '../utils/HTTPTransport/HTTPTransport';
-import BasicAPI from './BasicAPI';
 
 const BaseUrl = 'https://ya-praktikum.tech/api/v2/chats';
 
 const chatsAPIInstance = new HTTPTransport(BaseUrl);
 
-export default class ChatsApi extends BasicAPI {
+export default class ChatsApi {
     get() {
         return chatsAPIInstance
             .get('/')

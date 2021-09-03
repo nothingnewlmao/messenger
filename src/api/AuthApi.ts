@@ -1,12 +1,11 @@
 import HTTPTransport from '../utils/HTTPTransport/HTTPTransport';
-import BasicAPI from './BasicAPI';
 import ObjectLiteral from '../types/ObjectLiteral';
 
 const BaseUrl = 'https://ya-praktikum.tech/api/v2';
 
 const authAPIInstance = new HTTPTransport(BaseUrl);
 
-export default class AuthApi extends BasicAPI {
+export default class AuthApi {
     signup(data: string = '') {
         return authAPIInstance
             .post('/auth/signup', {data})
