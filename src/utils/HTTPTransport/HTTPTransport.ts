@@ -93,7 +93,7 @@ class HTTPTransport {
                     response,
                 } = xhr;
 
-                if (status === 200) {
+                if (status >= 200 && status < 300) {
                     resolve(response);
                 } else {
                     reject(response);
