@@ -77,7 +77,7 @@ export default class ChatPageLayout extends Block {
         const nextProps = {
             ctx: {
                 children: {
-                    messages: null,
+                    messages: null as ChatMessage,
                 },
             },
         };

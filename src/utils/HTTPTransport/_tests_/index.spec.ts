@@ -1,8 +1,7 @@
 import {expect} from 'chai';
 import 'mocha';
+import * as nock from 'nock';
 import HTTPTransport from '../HTTPTransport';
-
-const nock = require('nock');
 
 const BASE_URL = 'https://ya-praktikum.tech/api/v2';
 const requestInstance = new HTTPTransport(BASE_URL);
