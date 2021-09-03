@@ -1,8 +1,7 @@
-import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
-import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
+import router from '../../router';
 
 const ctx = {
     formTitle: 'Вход',
@@ -40,7 +39,7 @@ const ctx = {
                 }),
             },
         }, {
-            click: [
+            submit: [
                 'emitSubmitEvent',
                 'collectFields',
             ],
@@ -50,11 +49,10 @@ const ctx = {
             className: '_flat',
         }, {
             click: () => {
-                window.location = '/signup/index.html';
+                router.go('/sign-up');
             },
         }),
     },
 };
 
-const loginPage = new UnauthPageLayout(ctx);
-renderPage(loginPage);
+export default ctx;

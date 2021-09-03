@@ -11,7 +11,7 @@ body {
   color: $ordinary-text-color;
 }
 
-#root {
+.app {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
@@ -24,4 +24,11 @@ button {
   &._flat {
     background-color: transparent;
   }
+}
+
+._error {
+  color: $negative-color;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
 }

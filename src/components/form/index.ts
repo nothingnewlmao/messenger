@@ -3,14 +3,17 @@ import Block from '../../utils/block/Block';
 import FormType from './FormType';
 import FormInput from '../formInput';
 import ObjectLiteral from '../../types/ObjectLiteral';
+import sanitizeInputValue from '../../utils/functions/sanitizeInputValue';
 
 export default class Form extends Block {
     emitSubmitEvent = (event: Event) => {
         event.preventDefault();
+
         const {inputs} = this.props.ctx.children;
+        const submitFormEvent = new Event('form-submitted');
+
         inputs.forEach((label: FormInput) => {
             const input = label.getContent().querySelector('input');
-            const submitFormEvent = new Event('form-submitted');
             input.dispatchEvent(submitFormEvent);
         });
     }
@@ -24,10 +27,17 @@ export default class Form extends Block {
                 name,
                 value,
             } = input;
-            json[name] = value;
+            json[name] = sanitizeInputValue(value);
             return json;
         }, {});
-        console.log(requestJson);
+
+        const collectedFields = new CustomEvent('fields-collected', {
+            bubbles: true,
+            detail: {
+                data: requestJson,
+            },
+        });
+        this.getContent().dispatchEvent(collectedFields);
     }
 
     constructor(ctx: FormType, events = {}) {
@@ -45,10 +55,11 @@ export default class Form extends Block {
 
         Object.keys(events).forEach(event => {
             const handler = events[event];
-            const blockHandlers = handler instanceof Array;
-            const target = this.children.submitBtn;
-            if (blockHandlers) {
+            const someHandlers = handler instanceof Array;
+            const target = this.getContent();
+            if (someHandlers) {
                 handler.forEach((callback: string) => {
+                    // @ts-ignore
                     target.addEventListener(event, this[callback]);
                 });
             } else {

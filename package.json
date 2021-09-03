@@ -9,35 +9,51 @@
     "lint:ts": "eslint .",
     "lint:css": "stylelint **/*.css **/*.scss",
     "lint": "run-p -l lint:**",
-    "start": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../ && npm run server",
-    "build": "rm -rf dist && parcel build src/pages/index.html src/pages/**/index.html --public-url ../",
+    "test": "mocha -r ts-node/register -r jsdom-global/register --require ignore-styles src/**/*.spec.ts",
+    "start": "npm run server && npm run build",
+    "build": "rm -rf dist && parcel build src/pages/index.html --public-url ../",
     "server": "node app.js"
   },
   "keywords": [],
   "author": "Valentine",
   "license": "ISC",
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^4.28.4",
-    "@typescript-eslint/parser": "^4.28.4",
-    "eslint": "^7.31.0",
+    "@types/chai": "^4.2.21",
+    "@types/jsdom": "^16.2.13",
+    "@types/mocha": "^9.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "chai": "^4.3.4",
+    "eslint": "^7.32.0",
     "eslint-config-xo": "^0.37.0",
     "express": "^4.17.1",
+    "ignore-styles": "^5.0.1",
+    "jsdom": "^17.0.0",
+    "jsdom-global": "^3.0.2",
+    "mocha": "^9.1.0",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.5",
     "precss": "^4.0.0",
-    "sass": "^1.35.2",
+    "sass": "^1.38.0",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
+    "ts-node": "^10.2.1",
     "typescript": "^4.3.5"
   },
   "dependencies": {
     "handlebars": "^4.7.7",
     "material-design-icons": "^3.0.1",
-    "material-icons": "^1.0.0",
-    "parcel-plugin-asset-copier": "^1.1.0"
+    "material-icons": "^1.1.1",
+    "parcel-plugin-asset-copier": "^1.1.0",
+    "xmlhttprequest": "^1.8.0"
   },
   "assetsPath": "src/assets",
   "engines": {
     "node": "12.18.0"
-  }
+  },
+  "browserslist": [
+    "last 3 Chrome versions",
+    "last 3 Firefox versions",
+    "last 3 Safari versions"
+  ]
 }

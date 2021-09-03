@@ -2,6 +2,7 @@ import EventBus from '../eventBus/EventBus';
 import * as Handlebars from 'handlebars';
 import deepClone from '../functions/deepClone';
 import ObjectLiteral from '../../types/ObjectLiteral';
+import isEqual from '../functions/isEqual';
 
 export default class Block {
     static EVENTS = {
@@ -9,6 +10,7 @@ export default class Block {
         FLOW_CDM: 'flow:component-did-mount',
         FLOW_CDU: 'flow:component-did-update',
         FLOW_RENDER: 'flow:render',
+        FLOW_CREATED: 'flow:created',
     };
 
     _element?: HTMLElement;
@@ -39,6 +41,13 @@ export default class Block {
         eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
         eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
         eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
+        eventBus.on(Block.EVENTS.FLOW_CREATED, this._componentCreated.bind(this));
+    }
+
+    init() {
+        this._createResources();
+        this.eventBus.emit(Block.EVENTS.FLOW_CREATED);
+        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
 
     _createResources() {
@@ -46,10 +55,16 @@ export default class Block {
         this._element = this._createDocumentElement(tagName);
     }
 
-    init() {
-        this._createResources();
-        this.eventBus.emit(Block.EVENTS.FLOW_RENDER);
+    _createDocumentElement(tagName: string) {
+        // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
+        return document.createElement(tagName);
     }
+
+    _componentCreated() {
+        this.componentCreated();
+    }
+
+    componentCreated() {}
 
     _componentDidMount() {
         this.componentDidMount();
@@ -69,7 +84,7 @@ export default class Block {
     }
 
     componentDidUpdate(oldProps: ObjectLiteral, newProps: ObjectLiteral) {
-        return JSON.stringify(newProps) !== JSON.stringify(oldProps);
+        return !isEqual(newProps, oldProps);
     }
 
     setProps = (nextProps: ObjectLiteral) => {
@@ -87,7 +102,12 @@ export default class Block {
     _render() {
         this.removeEventListeners();
 
-        const {className = ''} = this.props.ctx;
+        const {ctx = {}} = this.props;
+
+        const {
+            className = '',
+            children = null,
+        } = ctx;
         this._element.className = className;
 
         const block = this.render();
@@ -99,13 +119,16 @@ export default class Block {
             this._element.appendChild(block);
         }
 
-        this._renderChildren();
+        if (children) {
+            this._renderChildren();
+        }
+
         this.eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
 
     render() {
         const element = document.createElement('div');
-        const {ctx} = this.props;
+        const {ctx = {}} = this.props;
         element.innerHTML = this._template(ctx);
         return element.firstElementChild;
     }
@@ -182,13 +205,8 @@ export default class Block {
         });
     }
 
-    _createDocumentElement(tagName: string) {
-        // Можно сделать метод, который через фрагменты в цикле создает сразу несколько блоков
-        return document.createElement(tagName);
-    }
-
-    show() {
-        this.getContent().style.display = 'block';
+    show(type?: string) {
+        this.getContent().style.display = type ? type : 'block';
     }
 
     hide() {

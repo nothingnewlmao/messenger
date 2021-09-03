@@ -1,26 +1,50 @@
 import Button from '../../components/button';
-import ChatPageLayout from '../../layouts/chat/ChatPageLayout';
-import renderPage from '../../utils/renderHelpers/renderPage';
 import FormInput from '../../components/formInput';
+import Icon from '../../components/icon';
+import router from '../../router';
+import Popup from '../../components/popup';
+import Form from '../../components/form';
 
 const ctx = {
-    chatName: '8 team',
+    chatTitle: '',
     children: {
         newChatBtn: new Button({
             label: 'Создать чат',
-            icon: {
-                id: 'create',
-            },
             className: '_flat',
+            children: {
+                icon: new Icon({
+                    id: 'create',
+                }),
+            },
         }),
         profileBtn: new Button({
             label: 'Профиль',
             className: '_flat',
+            children: {
+                icon: new Icon({
+                    id: 'navigate_next',
+                }),
+            },
+            iconAfter: true,
+        }, {
+            click: () => {
+                router.go('/settings');
+            },
+        }),
+        addUserBtn: new Button({
+            className: '_flat _round',
+            children: {
+                icon: new Icon({
+                    id: 'person_add',
+                }),
+            },
         }),
         newMessageFiles: new Button({
             className: '_flat _round',
-            icon: {
-                id: 'attach_file',
+            children: {
+                icon: new Icon({
+                    id: 'attach_file',
+                }),
             },
         }),
         newMessageInput: new FormInput({
@@ -29,12 +53,49 @@ const ctx = {
         }),
         sendMessage: new Button({
             className: '_round',
-            icon: {
-                id: 'send',
+            children: {
+                icon: new Icon({
+                    id: 'send',
+                }),
+            },
+        }),
+        createChatPopup: new Popup({
+            title: 'Придумайте название чата',
+            children: {
+                body: new Form({
+                    children: {
+                        inputs: [
+                            new FormInput({
+                                name: 'title',
+                                className: 'unauth-input',
+                            }),
+                        ],
+                        submitBtn: new Button({
+                            label: 'Создать чат',
+                        }),
+                    },
+                }),
+            },
+        }),
+        addUserPopup: new Popup({
+            title: 'Добавить пользователя',
+            children: {
+                body: new Form({
+                    children: {
+                        inputs: [
+                            new FormInput({
+                                name: 'title',
+                                className: 'unauth-input',
+                            }),
+                        ],
+                        submitBtn: new Button({
+                            label: 'Добавить',
+                        }),
+                    },
+                }),
             },
         }),
     },
 };
 
-const chatPage = new ChatPageLayout(ctx);
-renderPage(chatPage);
+export default ctx;

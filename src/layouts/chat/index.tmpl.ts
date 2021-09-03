@@ -5,30 +5,35 @@ const tmpl: string = `
         <aside>
             <div class="aside__header">
                 <div data-component="newChatBtn"></div>
+                <div style="width: 100%;"></div>
                 <div data-component="profileBtn"></div>
             </div>
-            <div class="aside__chat-list">
-                {{#if children.chatList}}
+            {{#if children.chatList}}
+                <div class="aside__chat-list">
                     {{#each children.chatList}}
-                        <div
-                            data-component="chatList"
-                            data-key="{{@index}}"
-                            ></div>
+                       <div
+                        data-component="chatList"
+                        data-key="{{@index}}"
+                        ></div>
                     {{/each}}
-                {{else}}
-                <div class="aside__stub">У Вас пока нет чатов. Давайте создадим беседу!</div>
-                {{/if}}
-            </div>    
+                </div>    
+            {{else}}
+            <div class="aside__stub">У Вас пока нет чатов. Давайте создадим беседу!</div>
+            {{/if}}
         </aside>
         <main>
             <div class="chat__header">
-                <div class="chat__icon">
-                    {{#if chatImg}}
-                        <img src="{{chatImg}}" alt="">
-                    {{/if}}
-                </div>
-                <div class="chat__name">{{ chatName }}</div>
-                <div class="chat__menu"></div>
+                {{#if chatId}}
+                    <div class="chat__params">
+                        <div class="chat__icon">
+                            {{#if chatAvatar}}
+                                <img src={{chatAvatar}} alt="">
+                            {{/if}}
+                        </div>
+                        <div class="chat__name">{{ chatTitle }}</div>
+                    </div>
+                    <div data-component="addUserBtn"></div>
+                {{/if}}
             </div>
             <div class="chat__content">
                 {{#if children.messages}}
@@ -48,6 +53,8 @@ const tmpl: string = `
                 <div data-component="sendMessage"></div>
             </div>
         </main>
+        <div data-component="createChatPopup"></div>
+        <div data-component="addUserPopup"></div> 
     </div> 
 `;
 

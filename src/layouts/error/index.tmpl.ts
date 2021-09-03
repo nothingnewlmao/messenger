@@ -1,7 +1,10 @@
 import './index.scss';
 
 const tmpl: string = `
-    <div class="error__layout">
+    <div
+        class="error__layout"
+        data-test-id="errorPage"
+        >
         <div class="error__number">
             {{ errorNumber }}
         </div>

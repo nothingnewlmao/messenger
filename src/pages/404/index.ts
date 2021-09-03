@@ -1,6 +1,4 @@
-import ErrorPageLayout from '../../layouts/error/ErrorPageLayout';
 import Button from '../../components/button';
-import renderPage from '../../utils/renderHelpers/renderPage';
 
 const ctx = {
     errorNumber: '404',
@@ -8,9 +6,9 @@ const ctx = {
     children: {
         button: new Button({
             label: 'Назад к чатам',
+            className: '_flat',
         }),
     },
 };
 
-const page404 = new ErrorPageLayout(ctx);
-renderPage(page404);
+export default ctx;

@@ -1,8 +1,7 @@
-import UnauthPageLayout from '../../layouts/unauth/UnauthPageLayout';
-import renderPage from '../../utils/renderHelpers/renderPage';
 import Button from '../../components/button';
 import FormInput from '../../components/formInput';
 import Form from '../../components/form';
+import router from '../../router';
 
 const ctx = {
     formTitle: 'Регистрация',
@@ -25,9 +24,8 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        label: 'Пароль',
-                        name: 'password',
-                        type: 'password',
+                        label: 'Логин',
+                        name: 'login',
                         className: 'unauth-input',
                     }, {
                         blur: [
@@ -40,7 +38,7 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        name: 'firstName',
+                        name: 'first_name',
                         label: 'Имя',
                         className: 'unauth-input',
                     }, {
@@ -54,7 +52,7 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        name: 'secondName',
+                        name: 'second_name',
                         label: 'Фамилия',
                         className: 'unauth-input',
                     }, {
@@ -84,6 +82,7 @@ const ctx = {
                     new FormInput({
                         name: 'password',
                         label: 'Пароль',
+                        type: 'password',
                         className: 'unauth-input',
                     }, {
                         blur: [
@@ -94,8 +93,9 @@ const ctx = {
                         ],
                     }),
                     new FormInput({
-                        name: 'submitPassword',
+                        name: 'submit_password',
                         label: 'Пароль (ещё раз)',
+                        type: 'password',
                         className: 'unauth-input',
                     }, {
                         blur: [
@@ -111,7 +111,7 @@ const ctx = {
                 }),
             },
         }, {
-            click: [
+            submit: [
                 'emitSubmitEvent',
                 'collectFields',
             ],
@@ -121,11 +121,10 @@ const ctx = {
             className: '_flat ',
         }, {
             click: () => {
-                window.location = '/login/index.html';
+                router.go('/');
             },
         }),
     },
 };
 
-const signupPage = new UnauthPageLayout(ctx);
-renderPage(signupPage);
+export default ctx;

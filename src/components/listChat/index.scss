@@ -1,0 +1,69 @@
+@import '../../styles/colors';
+
+.list-chat {
+  width: 100%;
+  cursor: pointer;
+}
+
+.chat {
+  &__wrapper {
+    display: flex;
+    padding: 12px 0;
+    border-top: 1px solid $border-color;
+  }
+
+  &__img {
+    position: relative;
+    width: 47px;
+    height: 47px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    background-color: $fill-space-color;
+    margin-right: 10px;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      border-radius: 100px;
+    }
+  }
+
+  &__body {
+    flex-grow: 1;
+  }
+
+  &__name {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  &__msg {
+    color: $secondary-text-color;
+    font-size: 12px;
+  }
+
+  &__time {
+    color: $secondary-text-color;
+    font-size: 9px;
+    margin-bottom: 12px;
+  }
+
+  &__count {
+    color: #fff;
+    font-size: 11px;
+    padding: 5px;
+    line-height: 1;
+    background-color: $hover-color;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+  }
+}

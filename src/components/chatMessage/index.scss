@@ -1,0 +1,17 @@
+@import '../../styles/colors';
+
+.message {
+  width: 100%;
+  text-align: right;
+
+  &__wrapper {
+    display: inline-block;
+    font-size: 12px;
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+    background-color: $primary-bg-color;
+    padding: 11px;
+    margin: 10px 0;
+  }
+}

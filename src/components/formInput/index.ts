@@ -3,6 +3,7 @@ import InputType from './InputType';
 import tmpl from './index.tmpl';
 import './index.scss';
 import ObjectLiteral from '../../types/ObjectLiteral';
+import EventHtmlTargetValueStringType from '../../types/events/EventHtmlTargetValueStringType';
 
 export default class FormInput extends Block {
     static ERROR_TEXTS = {
@@ -13,31 +14,31 @@ export default class FormInput extends Block {
         EMPTY_FIELD: 'Не заполнено обязательное поле',
     }
 
-    requiredField = (event: Event & { target: Element & { value: string } }) => {
+    requiredField = (event: EventHtmlTargetValueStringType) => {
         const REGEXP = /^.+$/g;
         const {value} = event.target;
         this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.EMPTY_FIELD);
     }
 
-    loginCheck = (event: Event & { target: Element & { value: string } }) => {
+    loginCheck = (event: EventHtmlTargetValueStringType) => {
         const REGEXP = /^[\w\d]*$/ig;
         const {value} = event.target;
         this.checkVal(value, REGEXP, FormInput.ERROR_TEXTS.WRONG_SYMBOLS);
     }
 
-    phoneCheck = (event: Event & { target: Element & { value: string } }) => {
+    phoneCheck = (event: EventHtmlTargetValueStringType) => {
         const regexp = /^(\+7|7)[0-9]{10}$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_PHONE);
     }
 
-    emailCheck = (event: Event & { target: Element & { value: string } }) => {
+    emailCheck = (event: EventHtmlTargetValueStringType) => {
         const regexp = /^[\w\d.-]*@[\w\d.-]*$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_EMAIL);
     }
 
-    onlyLetters = (event: Event & { target: Element & { value: string } }) => {
+    onlyLetters = (event: EventHtmlTargetValueStringType) => {
         const regexp = /^\w+$/;
         const {value} = event.target;
         this.checkVal(value, regexp, FormInput.ERROR_TEXTS.WRONG_SYMBOLS);
@@ -61,6 +62,7 @@ export default class FormInput extends Block {
             const target = this._element.querySelector('input');
             if (blockHandlers) {
                 handler.forEach((callback: string) => {
+                    // @ts-ignore
                     target.addEventListener(event, this[callback]);
                 });
             } else {
