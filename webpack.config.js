@@ -45,4 +45,13 @@ module.exports = {
             },
         ],
     },
+    devServer: {
+        static: {
+            directory: path.join(__dirname, 'dist'),
+        },
+        watchFiles: ['src/**/*.ts', 'src/**/*.scss'],
+        compress: true,
+        hot: true,
+        port: 4000,
+    },
 };
