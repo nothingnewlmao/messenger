@@ -1,17 +1,23 @@
 // webpack.config.js
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: './index.js',
+    entry: './index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'project-name.bundle.js',
     },
     resolve: {
         extensions: ['.ts', '.js', '.json'],
+        alias: {
+            handlebars: 'handlebars/dist/handlebars.min.js',
+        },
     },
+    plugins: [new HtmlWebpackPlugin({
+        title: 'Messenger',
+    })],
     module: {
         rules: [
             {
@@ -25,10 +31,6 @@ module.exports = {
                     },
                 ],
                 exclude: /(node_modules)/,
-            },
-            {
-                test: /\.html$/i,
-                loader: 'html-loader',
             },
             {
                 test: /\.s[ac]ss$/i,
