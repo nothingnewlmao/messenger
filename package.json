@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "description": "messenger for project 1",
   "scripts": {
-    "dev:parcel": "parcel src/pages/index.html src/pages/**/index.html --no-cache --port 3000",
+    "dev:webpack": "webpack-dev-server --port 3000",
     "dev:ts": "tsc --watch --noEmit",
     "dev": "run-p -l dev:**",
     "lint:ts": "eslint .",
     "lint:css": "stylelint **/*.css **/*.scss",
     "lint": "run-p -l lint:**",
     "test": "mocha -r ts-node/register -r jsdom-global/register --require ignore-styles src/**/*.spec.ts",
-    "start": "webpack-dev-server",
-    "build": "rm -rf dist && parcel build src/pages/index.html --public-url ../",
-    "server": "node app.js"
+    "build": "webpack",
+    "server": "node app.js",
+    "start": "npm run server && npm run build"
   },
   "keywords": [],
   "author": "Valentine",
