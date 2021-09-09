@@ -14,11 +14,6 @@
     "server": "node app.js",
     "start": "npm run server && npm run build"
   },
-  "husky": {
-    "hooks": {
-    "pre-commit": "npm run lint"
-  }
-},
   "keywords": [],
   "author": "Valentine",
   "license": "ISC",

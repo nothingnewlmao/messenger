@@ -7,7 +7,7 @@ import SettingsShowPage from '../pages/settings/show/SettingsShowPage';
 import SettingsEditPage from '../pages/settings/edit/SettingsEditPage';
 import SettingsPasswordPage from '../pages/settings/changePassword/SettingsPasswordPage';
 
-import page403 from '../pages/404';
+import page404 from '../pages/404';
 import page500 from '../pages/500';
 import page401 from '../pages/401';
 import changePassword from '../pages/settings/changePassword';
