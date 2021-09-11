@@ -7,17 +7,17 @@
 ## Зависимости проекта
 
 - express
-- parcel
 - sass
 - handlebars
 
 ## Посмотреть проект в интернете
 
-[Netlify](https://homework-messanger.netlify.app/)
+- [Netlify](https://homework-messanger.netlify.app/)
+- [Heroku](https://ya-m.herokuapp.com/)
 
 ## PR
 
-[Sprint_3](https://github.com/oduvankenobi/middle.messenger.praktikum.yandex/pull/4)
+[Sprint_4](https://github.com/oduvankenobi/middle.messenger.praktikum.yandex/pull/5)
 
 ## Описание команд
 
