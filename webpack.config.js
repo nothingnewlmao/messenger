@@ -7,7 +7,7 @@ module.exports = {
     entry: './index.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'project-name.bundle.js',
+        filename: 'yandex-messenger.bundle.js',
     },
     resolve: {
         extensions: ['.ts', '.js', '.json'],
@@ -16,7 +16,8 @@ module.exports = {
         },
     },
     plugins: [new HtmlWebpackPlugin({
-        title: 'Messenger',
+        title: 'from webpack',
+        template: 'src/index.html',
     })],
     module: {
         rules: [
@@ -47,11 +48,11 @@ module.exports = {
     },
     devServer: {
         static: {
-            directory: path.join(__dirname, 'dist'),
+            directory: path.join(__dirname, 'public'),
         },
         watchFiles: ['src/**/*.ts', 'src/**/*.scss'],
         compress: true,
         hot: true,
-        port: 4000,
+        port: 3000,
     },
 };
