@@ -8,6 +8,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'yandex-messenger.bundle.js',
+        clean: true,
     },
     resolve: {
         extensions: ['.ts', '.js', '.json'],
@@ -55,4 +56,5 @@ module.exports = {
         hot: true,
         port: 3000,
     },
+    watch: true,
 };
