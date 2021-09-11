@@ -6,7 +6,6 @@ app
     .use(express.static(__dirname + '/dist'))
     .set('pages', __dirname + '/src/pages')
     .set('view engine', 'html')
-    .get('/', (req, res) => res.render('index'))
     .listen(PORT, () => {
         console.log(`Example app listening on port ${PORT}!`);
     });
