@@ -136,6 +136,7 @@ export default class ChatPageLayout extends Block {
         let newMessages;
 
         if (isArray) {
+            // @ts-ignore
             newMessages = messages ? [...messages, ...newMsg] : [...newMsg];
         } else {
             newMessages = messages ? [...messages, newMsg] : [newMsg];

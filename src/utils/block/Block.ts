@@ -156,6 +156,7 @@ export default class Block {
                 }
 
                 const componentKey = component.dataset.key;
+                // @ts-ignore
                 const childTemplate = child[componentKey].getContent();
                 this.children[componentName][componentKey] = childTemplate;
                 component.replaceWith(childTemplate);
